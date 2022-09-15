@@ -58,5 +58,5 @@ section .data
     message_is_not_equal db 'the result is incorrect', 0xa
     message_is_not_equal_length equ $ - message_is_not_equal
 
-    message db 'start sum program', 0xa
+    message db 'starts sum program', 0xa
     message_length equ $ - message
