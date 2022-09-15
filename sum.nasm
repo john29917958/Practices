@@ -51,12 +51,12 @@ _start:
 
     mov eax, 1 ; system call number (sys_exit)
     int 0x80 ; call kernel
+
 section .data
+    message_is_equal db 'the result is correct', 0xa
+    message_is_equal_length equ $ - message_is_equal
+    message_is_not_equal db 'the result is incorrect', 0xa
+    message_is_not_equal_length equ $ - message_is_not_equal
 
-message_is_equal db 'the addition result is correct', 0xa
-message_is_equal_length equ $ - message_is_equal
-message_is_not_equal db 'the addition result is incorrect', 0xa
-message_is_not_equal_length equ $ - message_is_not_equal
-
-message db 'start sum program', 0xa
-message_length equ $ - message
+    message db 'start sum program', 0xa
+    message_length equ $ - message
