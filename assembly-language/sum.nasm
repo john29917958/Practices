@@ -52,7 +52,7 @@ section .data
     result_message db 'result is: ', 0xa
     result_message_length equ $ - result_message
 
-    print_fmt db "%d" , 0xa, 0 ; The format specifier for C printf function. %d: signed decimal integer.
+    print_fmt db "%d" , 0xa, 0 ; %d: signed decimal integer.
 
 section .bss
     output resd 1
