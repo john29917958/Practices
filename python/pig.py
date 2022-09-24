@@ -3,7 +3,7 @@ from textwrap import dedent
 
 
 def print_instructions():
-    print('Here is the instruction...')
+    print('New round starts')
 
 
 def computer_move(computer_score, human_score):
@@ -34,6 +34,7 @@ def human_move(computer_score, human_score):
     while ask_yes_or_no('Roll again?'):
         dice_num = roll()
         if dice_num == 6:
+            print('You rolled a 6. You get 0 point in this round.')
             return 0
 
         print(f'You got {dice_num}')
@@ -59,14 +60,17 @@ def roll():
 def ask_yes_or_no(prompt):
     prompt += ' (Y/N)'
     user_input = input(prompt)
-    while len(user_input) == 0:
+    while len(user_input) == 0 or (user_input.lower()[0] != 'y' and user_input.lower()[0] != 'n'):
+        print('invalid input')
         user_input = input(prompt)
 
     user_input = user_input.replace(' ', '')
     if user_input.lower()[0] == 'y':
         return True
-    else:
+    elif user_input.lower()[0] == 'n':
         return False
+    else:
+        return False # Ask again...
 
 
 def show_current_status(computer_score, human_score):
