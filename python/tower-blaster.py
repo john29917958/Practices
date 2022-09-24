@@ -1,8 +1,8 @@
 import random
 from shutil import ExecError
 
-
 def setup_bricks():
+    # Initializes the list with list comprehension.
     main_pile = [i for i in range(1, 61)]
     discard_pile = []
     return (main_pile, discard_pile)
@@ -17,8 +17,7 @@ def check_bricks(main_pile, discard_pile):
         random.shuffle(discard_pile)
         main_pile.extend(discard_pile)
         discard_pile.clear()
-        discard_pile.append(main_pile[0])
-        del main_pile[0]
+        discard_pile.append(main_pile.pop(0))
 
 
 def check_tower_blaster(tower):
@@ -30,9 +29,7 @@ def check_tower_blaster(tower):
 
 def get_top_brick(brick_pile):
     if brick_pile:
-        top_brick = brick_pile[0]
-        del brick_pile[0]
-        return top_brick
+        return brick_pile.pop(0)
     else:
         return None
 
@@ -42,15 +39,13 @@ def deal_initial_bricks(main_pile):
     tower_player = []
 
     for i in range(10):
-        tower_pc.append(main_pile[0])
-        del main_pile[0]
-        tower_player.append(main_pile[0])
-        del main_pile[0]
+        tower_pc.append(main_pile.pop(0))
+        tower_player.append(main_pile.pop(0))
 
     return (tower_pc, tower_player)
 
 
-def add_brick_to_descard(brick, discard_pile):
+def add_brick_to_discard(brick, discard_pile):
     discard_pile.insert(0, brick)
     pass
 
@@ -60,7 +55,7 @@ def find_and_replace(new_brick, brick_to_be_replaced, tower, discard_pile):
         index_brick_to_be_replaced = tower.index(brick_to_be_replaced)
         replaced_brick = tower[index_brick_to_be_replaced]
         tower[index_brick_to_be_replaced] = new_brick
-        add_brick_to_descard(replaced_brick, discard_pile)
+        add_brick_to_discard(replaced_brick, discard_pile)
         return True
     except ValueError:
         return False
