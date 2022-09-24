@@ -1,6 +1,4 @@
-from distutils.command.sdist import sdist
 import random
-from shutil import ExecError
 
 
 def setup_bricks():
