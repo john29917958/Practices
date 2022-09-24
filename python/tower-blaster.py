@@ -1,5 +1,7 @@
+from distutils.command.sdist import sdist
 import random
 from shutil import ExecError
+
 
 def setup_bricks():
     # Initializes the list with list comprehension.
@@ -62,18 +64,95 @@ def find_and_replace(new_brick, brick_to_be_replaced, tower, discard_pile):
 
 
 def computer_play(tower, main_pile, discard_pile):
-    pass
+    top_brick = discard_pile.pop(0)
+    for i in range(len(tower) - 1):
+        if tower[i] > tower[i + 1] and top_brick < tower[i + 1]:
+            if find_and_replace(top_brick, tower[i], tower, discard_pile):
+                return tower
+            else:
+                discard_pile.insert(0, top_brick)
+
+    top_brick = main_pile.pop(0)
+    for i in range(len(tower) - 1):
+        if tower[i] > tower[i + 1] and top_brick < tower[i + 1]:
+            if find_and_replace(top_brick, tower[i], tower, discard_pile):
+                return tower
+    add_brick_to_discard(top_brick, discard_pile)
+    return tower
 
 
 def main():
+    # The first item is the main pile, the second item is the discard pile.
     piles = setup_bricks()
     shuffle_bricks(piles[0])
+    # The first item is the pc's tower, the second item is the player's tower.
     towers = deal_initial_bricks(piles[0])
-    """
-    find_and_replace(get_top_brick(piles[0]), towers[0][0], towers[0], piles[1])
-    check_bricks(piles[0], piles[1])
-    print(piles)
-    """
+    add_brick_to_discard(piles[0].pop(0), piles[1])
+
+    while True:
+        computer_play(towers[0], piles[0], piles[1])
+        print("Vikings' turn is over")
+
+        print('Your tower now looks:', towers[1])
+        print(
+            f'(1) The width of the top brick on the discard pile is: "{piles[1][0]}"')
+        print('(2) The width of the top brick on the main pile is: "*"')
+        print()
+        user_input = None
+        brick = None
+
+        if check_tower_blaster(towers[0]):
+            print('Vikings win.')
+            user_input = input('Do you want to play again? [Y/n]: ')
+            if user_input.to_lower() == 'y' or len(user_input.strip()) == 0:
+                continue
+            else:
+                print('Game ends.')
+                break
+
+        check_bricks(piles[0], piles[1])
+        while True:  # Choose a brick in player's turn.
+            user_input = input(
+                'Select the building block you want to use (1/2):')
+            if user_input == "1":  # Choose the top brick in the discard pile.
+                brick = get_top_brick(piles[1])
+                break
+            elif user_input == "2":  # Choose the top brick in the main pile.
+                brick = get_top_brick(piles[0])
+                while True:  # User chooses to use it.
+                    user_input = input(
+                        f'The width of the brick is: {brick}. Do you want to use this building block? (Y: Yes/N: Discard and skip turn):')
+                    if user_input.lower() == "y":
+                        break
+                    elif user_input.lower() == "n":  # User choses to discard it.
+                        add_brick_to_discard(brick, piles[1])
+                        brick = None
+                        break
+                    else:
+                        print('Invalid command.')
+                break
+            else:
+                print('Invalid command.')
+        if brick != None:
+            while True:
+                user_input = input(
+                    'Please enter the brick you want to replace: ')
+                try:
+                    user_input = int(user_input)
+                    if (find_and_replace(brick, user_input, towers[1], piles[1])):
+                        break
+                    else:
+                        print('The brick you entered is not found in your tower.')
+                except ValueError:
+                    print('Invalid input.')
+        if check_tower_blaster(towers[1]):
+            print('You win!')
+            user_input = input('Do you want to play again? [Y/n]: ')
+            if user_input.lower() == 'y' or len(user_input.strip()) == 0:
+                check_bricks(piles[0], piles[1])
+            else:
+                print('Game ends.')
+                break
 
 
 if __name__ == '__main__':
