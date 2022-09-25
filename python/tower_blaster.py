@@ -14,7 +14,7 @@ def shuffle_bricks(bricks):
 
 def check_bricks(main_pile, discard_pile):
     if not main_pile and discard_pile:
-        random.shuffle(discard_pile)
+        shuffle_bricks(discard_pile)
         main_pile.extend(discard_pile)
         discard_pile.clear()
         discard_pile.append(get_top_brick(main_pile))
