@@ -174,10 +174,9 @@ def main():
                         print('The brick you entered is not found in your tower.')
                 except ValueError:
                     print('Invalid input.')
-        if check_tower_blaster(towers[1]):
-            if not ask_for_playing_again('You won!', towers):
-                print('Game ends.')
-                break
+        if check_tower_blaster(towers[1]) and not ask_for_playing_again('You won!', towers):
+            print('Game ends.')
+            break
 
 
 if __name__ == '__main__':
