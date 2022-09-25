@@ -17,7 +17,7 @@ def check_bricks(main_pile, discard_pile):
         random.shuffle(discard_pile)
         main_pile.extend(discard_pile)
         discard_pile.clear()
-        discard_pile.append(main_pile.pop(0))
+        discard_pile.append(get_top_brick(main_pile))
 
 
 def check_tower_blaster(tower):
@@ -39,8 +39,8 @@ def deal_initial_bricks(main_pile):
     tower_player = []
 
     for i in range(10):
-        tower_pc.append(main_pile.pop(0))
-        tower_player.append(main_pile.pop(0))
+        tower_pc.append(get_top_brick(main_pile))
+        tower_player.append(get_top_brick(main_pile))
 
     return (tower_pc, tower_player)
 
@@ -62,23 +62,36 @@ def find_and_replace(new_brick, brick_to_be_replaced, tower, discard_pile):
 
 
 def computer_play(tower, main_pile, discard_pile):
-    top_brick = discard_pile.pop(0)
+    top_brick = get_top_brick(discard_pile)
     for i in range(len(tower) - 1):
-        if tower[i] > tower[i + 1] and top_brick > tower[i]:
-            if find_and_replace(top_brick, tower[i + 1], tower, discard_pile):
-                print(f'Vikings picked {top_brick} from the discard pile')
-                print(f'Vikings replaced a brick')
-                return tower
-            else:
-                discard_pile.insert(0, top_brick)
+        if tower[i] > tower[i + 1]:
+            if top_brick > tower[i]:
+                if find_and_replace(top_brick, tower[i + 1], tower, discard_pile):
+                    print(f'Vikings picked {top_brick} from the discard pile')
+                    print(f'Vikings replaced a brick')
+                    return tower
+                else:
+                    discard_pile.insert(0, top_brick)
+            if top_brick < tower[i + 1]:
+                if find_and_replace(top_brick, tower[i], tower, discard_pile):
+                    print(f'Vikings picked {top_brick} from the discard pile')
+                    print(f'Vikings replaced a brick')
+                    return tower
+                else:
+                    discard_pile.insert(0, top_brick)
 
-    top_brick = main_pile.pop(0)
+    top_brick = get_top_brick(main_pile)
     print(f'Vikings picked {top_brick} from the main pile')
     for i in range(len(tower) - 1):
-        if tower[i] > tower[i + 1] and top_brick > tower[i]:
-            if find_and_replace(top_brick, tower[i + 1], tower, discard_pile):
-                print(f'Vikings replaced a brick')
-                return tower
+        if tower[i] > tower[i + 1]:
+            if top_brick > tower[i]:
+                if find_and_replace(top_brick, tower[i + 1], tower, discard_pile):
+                    print(f'Vikings replaced a brick')
+                    return tower
+            if top_brick < tower[i + 1]:
+                if find_and_replace(top_brick, tower[i], tower, discard_pile):
+                    print(f'Vikings replaced a brick')
+                    return tower
     add_brick_to_discard(top_brick, discard_pile)
     return tower
 
@@ -103,9 +116,10 @@ def main():
         shuffle_bricks(piles[0])
         # The first item is the pc's tower, the second item is the player's tower.
         towers = deal_initial_bricks(piles[0])
-        add_brick_to_discard(piles[0].pop(0), piles[1])
+        add_brick_to_discard(get_top_brick(piles[0]), piles[1])
 
     while True:
+        check_bricks(piles[0], piles[1])
         print('Vikings\' tower looks:', towers[0])
         computer_play(towers[0], piles[0], piles[1])
         print("Vikings' turn is over")
@@ -161,9 +175,7 @@ def main():
                 except ValueError:
                     print('Invalid input.')
         if check_tower_blaster(towers[1]):
-            if ask_for_playing_again('You won!', towers):
-                check_bricks(piles[0], piles[1])
-            else:
+            if not ask_for_playing_again('You won!', towers):
                 print('Game ends.')
                 break
 
