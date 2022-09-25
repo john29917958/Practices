@@ -47,7 +47,6 @@ def deal_initial_bricks(main_pile):
 
 def add_brick_to_discard(brick, discard_pile):
     discard_pile.insert(0, brick)
-    pass
 
 
 def find_and_replace(new_brick, brick_to_be_replaced, tower, discard_pile):
@@ -71,14 +70,14 @@ def computer_play(tower, main_pile, discard_pile):
                     print(f'Vikings replaced a brick')
                     return tower
                 else:
-                    discard_pile.insert(0, top_brick)
+                    add_brick_to_discard(top_brick, discard_pile)
             if top_brick < tower[i + 1]:
                 if find_and_replace(top_brick, tower[i], tower, discard_pile):
                     print(f'Vikings picked {top_brick} from the discard pile')
                     print(f'Vikings replaced a brick')
                     return tower
                 else:
-                    discard_pile.insert(0, top_brick)
+                    add_brick_to_discard(top_brick, discard_pile)
 
     top_brick = get_top_brick(main_pile)
     print(f'Vikings picked {top_brick} from the main pile')
