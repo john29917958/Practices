@@ -1,6 +1,4 @@
-import shutil
 import sys
-from xml.etree.ElementInclude import include
 
 
 def surround_block(tag, text):
@@ -67,51 +65,69 @@ def get_projects(lines):
 
 def generate_html(txt_input_file, html_output_file):
     data_lines = read_resume(txt_input_file)
-    if not data_lines:
-        with open(html_output_file, 'w') as resume_file:
+    template_html_line_pos = 0
+    with open('resume_template.html', 'r') as template_html_file, open(html_output_file, 'w') as resume_file:
+        if not data_lines: # Source data is empty.
             resume_file.write('')
-        return
-    name = get_name(data_lines)
-    email = get_email(data_lines)
-    projects = get_projects(data_lines)
-    courses = get_courses(data_lines)
+            return
+        while True:
+            template_line = template_html_file.readline()
+            if len(template_line) == 0:  # Invalid resume template.
+                return
 
-    projects_html = ''
-    for project in projects:
-        projects_html += surround_block('li', project)
-
-    shutil.copy2('resume_template.html', html_output_file)
-    is_in_body_tag = False
-    html = ''
-    with open(html_output_file, 'r+') as resume_file:
-        for line in resume_file:
-            if '<body' in line:
-                is_in_body_tag = True
-                html += line
-            elif '</body' in line:
-                is_in_body_tag = False
-                html += line
+            body_tag_start_idx = template_line.find('<body')
+            if body_tag_start_idx == -1:
+                resume_file.write(template_line)
             else:
-                if is_in_body_tag:
-                    html += surround_block('div',
-                        surround_block('div',
-                            surround_block('h1', name) + '\n' +
-                            surround_block('p', 'Email: ' + create_email_link(email))
-                        ) + '\n' +
-                        surround_block('div',
-                            surround_block('h2', 'Projects') + '\n' +
-                            surround_block('ul', projects_html)
-                        ) + '\n' +
-                        surround_block('div',
-                            surround_block('h3', 'Courses')
-                        ) + '\n' +
-                        surround_block('span',
-                            ', '.join(courses)
-                        )
-                    )
-                else:
-                    html += line
+                html = ''
+                body_tag_end_idx = template_line.find('>', body_tag_start_idx)
+                while body_tag_end_idx == -1:
+                    html += template_line
+                    template_line = template_html_file.readline()
+                    if len(template_line) == 0:  # Invalid resume template.
+                        return
+                    body_tag_end_idx = template_line.find('>')
+                html = template_line[body_tag_start_idx:body_tag_end_idx + 1]
+                resume_file.write(html)
+                template_html_line_pos = body_tag_end_idx + 1
+                break
+
+        name = get_name(data_lines)
+        email = get_email(data_lines)
+        projects = get_projects(data_lines)
+        courses = get_courses(data_lines)
+        projects_html = ''
+        for project in projects:
+            projects_html += surround_block('li', project)
+        html = '\n' + surround_block('div',
+            '\n' +
+            surround_block('div',
+                '\n' +
+                surround_block('h1', name) + '\n' +
+                surround_block('p', 'Email: ' + create_email_link(email)) + '\n'
+            ) + '\n' +
+            surround_block('div',
+                '\n' +
+                surround_block('h2', 'Projects') + '\n' +
+                surround_block('ul', projects_html) + '\n'
+            ) + '\n' +
+            surround_block('div',
+                '\n' +
+                surround_block('h3', 'Courses') + '\n'
+            ) + '\n' +
+            surround_block('span', ', '.join(courses)) + '\n'
+        ) + '\n'
         resume_file.write(html)
+
+        if template_html_line_pos < len(template_line):
+            template_line = template_line[template_html_line_pos:].strip()
+            if template_line:
+                resume_file.write(template_line + '\n')
+        while True:
+            template_line = template_html_file.readline()
+            if len(template_line) == 0:
+                break
+            resume_file.write(template_line)
 
 
 if __name__ == '__main__':
