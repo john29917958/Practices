@@ -1,24 +1,19 @@
 package com.simple21.player;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.simple21.card.Card;
-
 public class Player {
+    public Boolean passed;
+
     protected String name;
 
-    protected Card hiddenCard;
-
-    protected List<Card> visibleCards;
+    protected int hiddenCard;
 
     protected int sumOfVisibleCards;
 
-    protected Boolean passed;
-
     protected Player(String name) {
         this.setName(name);
-        this.visibleCards = new ArrayList<Card>();
+        this.passed = false;
+        this.hiddenCard = 0;
+        this.sumOfVisibleCards = 0;
     }
 
     public String getName() {
@@ -34,22 +29,31 @@ public class Player {
         if (name.length() == 0) {
             throw new IllegalArgumentException("Name is empty");
         }
+
+        this.name = name;
     }
 
-    public Card getHiddenCard() {
+    public int getHiddenCard() {
         return this.hiddenCard;
     }
 
-    public void setHiddenCard(Card card) {
-        if (card == null) {
-            throw new IllegalArgumentException("Card is null");
+    public void setHiddenCard(int card) {
+        if (card < 1 || card > 10) {
+            throw new IllegalArgumentException("Card is less than 1 or greater than 10");
         }
 
         this.hiddenCard = card;
     }
 
-    public void addVisibleCard(Card card) {
-        visibleCards.add(card);
-        sumOfVisibleCards += card.number;
+    public int getSumOfVisibleCards() {
+        return this.sumOfVisibleCards;
+    }
+
+    public void addVisibleCard(int card) {
+        if (card < 1 || card > 10) {
+            throw new IllegalArgumentException("Card is less than 1 or greater than 10");
+        }
+
+        sumOfVisibleCards += card;
     }
 }

@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import com.simple21.card.Card;
 import com.simple21.player.ComputerPlayer;
 import com.simple21.player.HumanPlayer;
 import com.simple21.player.Player;
@@ -27,43 +26,112 @@ public class GameControl {
                 System.out.println("Please enter your name:");
             }
         } while (username.length() == 0);
-        scanner.close();
 
+        Player[] pcPlayers = new Player[4];
         Player human = new HumanPlayer(username);
-        Player player1 = new ComputerPlayer("Player 1");
-        Player player2 = new ComputerPlayer("Player 2");
-        Player player3 = new ComputerPlayer("Player 3");
-        Player player4 = new ComputerPlayer("Player 4");
-
-        List<Card> cards = new ArrayList<Card>();
-        cards.addAll(Arrays.asList(generateCards("Spades")));
-        cards.addAll(Arrays.asList(generateCards("Hearts")));
-        cards.addAll(Arrays.asList(generateCards("Clubs")));
-        cards.addAll(Arrays.asList(generateCards("Diamonds")));
+        pcPlayers[0] = new ComputerPlayer("Player 1");
+        pcPlayers[1] = new ComputerPlayer("Player 2");
+        pcPlayers[2] = new ComputerPlayer("Player 3");
+        pcPlayers[3] = new ComputerPlayer("Player 4");
+        List<Integer> cards = new ArrayList<Integer>(Arrays.asList(generateCards()));
 
         Random random = new Random();
-        Card card = cards.remove(random.nextInt(cards.size()));
+        int card = cards.remove(random.nextInt(cards.size()));
         human.setHiddenCard(card);
-        System.out.println(username + " takes a hidden card (It's a " + card.number + ")");
+        System.out.println(String.format("%s takes a hidden card (It's a %d).", username, card));
         card = cards.remove(random.nextInt(cards.size()));
         human.addVisibleCard(card);
-        System.out.println(username + " takes " + card.number);
+        System.out.println(String.format("%s takes %d.", username, card));
 
-        /* do {
-
-        } while (cards.size() > 0); */
-    }
-
-    private static Card[] generateCards(String name) {
-        List<Card> cardList = new ArrayList<Card>();
-
-        for (int i = 0; i <= 10; i++) {
-            cardList.add(new Card(name, i));
+        for (Player player : pcPlayers) {
+            player.setHiddenCard(cards.remove(random.nextInt(cards.size())));
+            System.out.println(String.format("%s takes a hidden card.", player.getName()));
+            card = cards.remove(random.nextInt(cards.size()));
+            player.addVisibleCard(card);
+            System.out.println(String.format("%s takes %d.", player.getName(), card));
         }
 
-        Card[] cards = new Card[cardList.size()];
+        Boolean isAllPlayersPasssed = false;
+        Boolean isAnyPlayerGot21Points = false;
+        do {
+            String command = "";
+
+            do {
+                System.out.println("Take another card? (Y/N)");
+                command = scanner.nextLine().trim().toLowerCase();
+                switch (command) {
+                    case "y":
+                        card = cards.remove(random.nextInt(cards.size()));
+                        human.addVisibleCard(card);
+                        human.passed = false;
+                        System.out.println(String.format("%s takes %d.", username, card));
+                        break;
+                    case "n":
+                        human.passed = true;
+                        System.out.println(String.format("%s passes", username));
+                        break;
+                    default:
+                        System.out.println("Please input Y or N.");
+                }
+            } while (!command.equals("y") && !command.equals("n"));
+
+            for (Player player : pcPlayers) {
+                Boolean shouldTakeCard = random.nextBoolean();
+                if (shouldTakeCard) {
+                    card = cards.remove(random.nextInt(cards.size()));
+                    player.addVisibleCard(card);
+                    player.passed = false;
+                    System.out.println(String.format("%s takes %d.", player.getName(), card));
+                } else {
+                    player.passed = true;
+                    System.out.println(String.format("%s passes", player.getName()));
+                }
+            }
+
+            System.out.println(String.format("Card number: %d", cards.size()));
+            isAllPlayersPasssed = getIsAllPassed(human, pcPlayers);
+            isAnyPlayerGot21Points = getIsAnyPlayerGot21Points(human, pcPlayers);
+        } while (cards.size() > 0 && ! isAllPlayersPasssed && !isAnyPlayerGot21Points);
+
+        scanner.close();
+    }
+
+    private static Integer[] generateCards() {
+        List<Integer> cardList = new ArrayList<Integer>();
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 1; j <= 10; j++) {
+                cardList.add(j);
+            }
+        }
+
+        Integer[] cards = new Integer[cardList.size()];
         cardList.toArray(cards);
 
         return cards;
+    }
+
+    private static Boolean getIsAllPassed(Player human, Player[] pcPlayers) {
+        if (!human.passed)
+            return false;
+
+        for (Player player : pcPlayers) {
+            if (!player.passed)
+                return false;
+        }
+
+        return true;
+    }
+
+    private static Boolean getIsAnyPlayerGot21Points(Player human, Player[] pcPlayers) {
+        if (human.getSumOfVisibleCards() >= 21)
+            return true;
+
+        for (Player player : pcPlayers) {
+            if (player.getSumOfVisibleCards() >= 21)
+                return true;
+        }
+
+        return false;
     }
 }
