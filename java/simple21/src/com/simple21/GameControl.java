@@ -88,10 +88,16 @@ public class GameControl {
                 }
             }
 
-            System.out.println(String.format("Card number: %d", cards.size()));
+            System.out.println(String.format("%s has %d total point(s).", human.getName(),
+                    human.getSumOfVisibleCards() + human.getHiddenCard()));
+            for (Player player : pcPlayers) {
+                System.out.println(
+                        String.format("%s has %d visible points(s).", player.getName(), player.getSumOfVisibleCards()));
+            }
+
             isAllPlayersPasssed = getIsAllPassed(human, pcPlayers);
             isAnyPlayerGot21Points = getIsAnyPlayerGot21Points(human, pcPlayers);
-        } while (cards.size() > 0 && ! isAllPlayersPasssed && !isAnyPlayerGot21Points);
+        } while (cards.size() > 0 && !isAllPlayersPasssed && !isAnyPlayerGot21Points);
 
         scanner.close();
     }
@@ -124,12 +130,14 @@ public class GameControl {
     }
 
     private static Boolean getIsAnyPlayerGot21Points(Player human, Player[] pcPlayers) {
-        if (human.getSumOfVisibleCards() >= 21)
+        if (human.getSumOfVisibleCards() + human.getHiddenCard() == 21) {
             return true;
+        }
 
         for (Player player : pcPlayers) {
-            if (player.getSumOfVisibleCards() >= 21)
+            if (player.getSumOfVisibleCards() + player.getHiddenCard() == 21) {
                 return true;
+            }
         }
 
         return false;
