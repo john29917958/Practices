@@ -27,6 +27,8 @@ public class GameControl {
             }
         } while (username.length() == 0);
 
+        System.out.println();
+
         Player[] pcPlayers = new Player[4];
         Player human = new HumanPlayer(username);
         pcPlayers[0] = new ComputerPlayer("Player 1");
@@ -51,12 +53,22 @@ public class GameControl {
             System.out.println(String.format("%s takes %d.", player.getName(), card));
         }
 
+        System.out.println();
+
+        System.out.println(String.format("%s has %d total point(s).", human.getName(),
+                human.getSumOfVisibleCards() + human.getHiddenCard()));
+        for (Player player : pcPlayers) {
+            System.out.println(
+                    String.format("%s has %d visible points(s).", player.getName(), player.getSumOfVisibleCards()));
+        }
+
         Boolean isAllPlayersPasssed = false;
         Boolean isAnyPlayerGot21Points = false;
         do {
             String command = "";
 
             do {
+                System.out.println();
                 System.out.println("Take another card? (Y/N)");
                 command = scanner.nextLine().trim().toLowerCase();
                 switch (command) {
@@ -88,6 +100,7 @@ public class GameControl {
                 }
             }
 
+            System.out.println();
             System.out.println(String.format("%s has %d total point(s).", human.getName(),
                     human.getSumOfVisibleCards() + human.getHiddenCard()));
             for (Player player : pcPlayers) {
