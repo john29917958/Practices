@@ -6,10 +6,18 @@ import java.util.Arrays;
 public class Actor {
     private String name;
 
-    private ArrayList<String> movies;
+    private ArrayList<String> castedMovies;
 
     public Actor(String name, String[] movies) {
         this.name = name;
-        this.movies = new ArrayList<String>(Arrays.asList(movies));
+        this.castedMovies = new ArrayList<String>(Arrays.asList(movies));
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public ArrayList<String> getCastedMovies() {
+        return this.castedMovies;
     }
 }

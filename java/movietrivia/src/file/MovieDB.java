@@ -1,7 +1,6 @@
 package file;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +19,10 @@ public class MovieDB {
 
         this.loadActors(moviesDataFilePath);
         this.loadMovies(movieRatingsFilePath);
+    }
+
+    public Actor[] getActors() {        
+        return this.actors.toArray(new Actor[this.actors.size()]);
     }
 
     private void loadActors(String dataFilePath) throws IOException {
@@ -53,7 +56,7 @@ public class MovieDB {
                 continue;
 
             String[] tokens = line.split(",");
-            tokens[0] = this.formatName(tokens[0]);            
+            tokens[0] = this.formatName(tokens[0]);
             Movie actor = new Movie(tokens[0], Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]));
             this.movies.add(actor);
         } while (line != null);
