@@ -1,5 +1,6 @@
 package main.java.org.movietrivia;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import main.java.org.movietrivia.movies.Actor;
@@ -118,5 +119,24 @@ public class MovieTrivia {
         }
 
         return movies;
+    }
+
+    public ArrayList<String> getCoActors(String actor, ArrayList<Actor> actorsInfo)
+            throws UnsupportedEncodingException {
+        throw new UnsupportedEncodingException();
+    }
+
+    public ArrayList<String> getCommonMovie(String actor1, String actor2, ArrayList<Actor> actorsInfo)
+            throws UnsupportedEncodingException {
+        throw new UnsupportedEncodingException();
+    }
+
+    public ArrayList<String> getCommonActors(String movie1, String movie2, ArrayList<Actor> actorsInfo)
+            throws UnsupportedEncodingException {
+        throw new UnsupportedEncodingException();
+    }
+
+    public double[] getMean(ArrayList<Movie> moviesInfo) throws UnsupportedEncodingException {
+        throw new UnsupportedEncodingException();
     }
 }
