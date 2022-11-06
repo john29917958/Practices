@@ -64,6 +64,14 @@ public class MovieTrivia {
         moviesInfo.add(m);
     }
 
+    /**
+     * Selects the names of the movie that the specified actor played in.
+     * 
+     * @param actor      The name of the actor.
+     * @param actorsInfo The list of all actors information.
+     * @return Returns a list of the movie names that the specified actor played
+     *         in.
+     */
     public ArrayList<String> selectWhereActorIs(String actor, ArrayList<Actor> actorsInfo) {
         actor = actor.toLowerCase();
         for (Actor actorInfo : actorsInfo) {
@@ -75,6 +83,16 @@ public class MovieTrivia {
         return new ArrayList<String>();
     }
 
+    /**
+     * Selects the names of the movie with specified rating.
+     * 
+     * @param comparison   The comparison operator.
+     * @param targetRating
+     * @param isCritic     True for searching a movie by it's critical rating; False
+     *                     for searching a movie by it's audience rating.
+     * @param moviesInfo The list of all movie information.
+     * @return Returns a list of the names of the movie with specified rating.
+     */
     public ArrayList<String> selectWhereRatingIs(char comparison, int targetRating, boolean isCritic,
             ArrayList<Movie> moviesInfo) {
         ArrayList<String> movies = new ArrayList<String>();
