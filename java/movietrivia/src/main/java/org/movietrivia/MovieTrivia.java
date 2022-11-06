@@ -61,4 +61,15 @@ public class MovieTrivia {
         Movie m = new Movie(movie, ratings[0], ratings[1]);
         moviesInfo.add(m);
     }
+
+    public ArrayList<String> selectWhereActorIs(String actor, ArrayList<Actor> actorsInfo) {
+        actor = actor.toLowerCase();
+        for (Actor actorInfo : actorsInfo) {
+            if (actorInfo.getName().equals(actor)) {
+                return actorInfo.getCastedMovies();
+            }
+        }
+
+        return new ArrayList<String>();
+    }
 }
