@@ -90,7 +90,7 @@ public class MovieTrivia {
      * @param targetRating
      * @param isCritic     True for searching a movie by it's critical rating; False
      *                     for searching a movie by it's audience rating.
-     * @param moviesInfo The list of all movie information.
+     * @param moviesInfo   The list of all movie information.
      * @return Returns a list of the names of the movie with specified rating.
      */
     public ArrayList<String> selectWhereRatingIs(char comparison, int targetRating, boolean isCritic,
