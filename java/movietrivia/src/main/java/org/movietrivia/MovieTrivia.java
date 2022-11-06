@@ -39,7 +39,9 @@ public class MovieTrivia {
      * Inserts the name and the ratings of a movie to the movie information list.
      * 
      * @param movie      The movie name.
-     * @param ratings    The ratings of the movie.
+     * @param ratings    The ratings of the movie. The first element represents the
+     *                   critical rating. The second element represents the audience
+     *                   rating.
      * @param moviesInfo The movie information list.
      */
     public void insertRating(String movie, int[] ratings, ArrayList<Movie> moviesInfo) {
@@ -71,5 +73,32 @@ public class MovieTrivia {
         }
 
         return new ArrayList<String>();
+    }
+
+    public ArrayList<String> selectWhereRatingIs(char comparison, int targetRating, boolean isCritic,
+            ArrayList<Movie> moviesInfo) {
+        ArrayList<String> movies = new ArrayList<String>();
+
+        for (Movie movie : moviesInfo) {
+            int movieRating = isCritic ? movie.getCriticalRating() : movie.getAudienceRating();
+            switch (comparison) {
+                case '=':
+                    if (targetRating == movieRating)
+                        movies.add(movie.getName());
+                    break;
+                case '>':
+                    if (targetRating > movieRating)
+                        movies.add(movie.getName());
+                    break;
+                case '<':
+                    if (targetRating < movieRating)
+                        movies.add(movie.getName());
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return movies;
     }
 }
