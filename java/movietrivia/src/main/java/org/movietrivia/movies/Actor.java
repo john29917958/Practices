@@ -1,4 +1,4 @@
-package movies;
+package main.java.org.movietrivia.movies;
 
 import java.util.ArrayList;
 import java.util.Arrays;

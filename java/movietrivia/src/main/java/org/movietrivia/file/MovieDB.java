@@ -1,4 +1,4 @@
-package file;
+package main.java.org.movietrivia.file;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import movies.Actor;
-import movies.Movie;
+import main.java.org.movietrivia.movies.Actor;
+import main.java.org.movietrivia.movies.Movie;
 
 public class MovieDB {
     private ArrayList<Actor> actors;
@@ -21,8 +21,12 @@ public class MovieDB {
         this.loadMovies(movieRatingsFilePath);
     }
 
-    public Actor[] getActors() {        
-        return this.actors.toArray(new Actor[this.actors.size()]);
+    public ArrayList<Actor> getActors() {
+        return this.actors;
+    }
+
+    public ArrayList<Movie> getMovies() {
+        return this.movies;
     }
 
     private void loadActors(String dataFilePath) throws IOException {
