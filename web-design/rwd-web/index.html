@@ -9,6 +9,7 @@
         /* Reset CSS by Eric A. Meyer. http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
         a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
     </style> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         html,
         body,
@@ -55,7 +56,9 @@
             --theme-color: #1D1E1F;
             --light-color: white;
             --gray-color: #797979;
+            --light-gray-color: #BBC1BD;
             --alphaColor: #1B1B1B80;
+            --alphaDarkerColor: rgba(28, 28, 28, 0.92);
             --btn-color: #A1C6D9;
         }
 
@@ -111,6 +114,25 @@
 
         .grid-12 {
             width: calc(100% / 12 * 12);
+        }
+
+        .section {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .section-one-half {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .description-section {
+            display: -webkit-box;
+            width: 100%;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         header {
@@ -182,18 +204,19 @@
         #theme {
             width: 100%;
             height: calc(100vh - 80px);
+            position: relative;
         }
 
         #theme>.slide {
             width: 100%;
-            height: calc(100vh - 80px);
+            height: 100%;
             overflow: hidden;
             position: relative;
         }
 
         #theme>.slide>.img {
             width: 100%;
-            height: calc(100vh - 80px);
+            height: 100%;
             background-size: cover;
             background-position: center;
             position: absolute;
@@ -226,6 +249,150 @@
         #theme>.slide>.img:nth-of-type(5) {
             background-image: url(https://picsum.photos/1600/900?random=5);
             animation-delay: 20s;
+        }
+
+        #theme>.push {
+            color: var(--light-color);
+            width: 100%;
+            height: calc(100vh - 80px);
+            top: calc(50vh - 5em);
+            padding: 0 2em;
+            position: absolute;
+            line-height: 2.5em;
+            z-index: 10;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.35rem 0.9rem;
+            line-height: 1.5rem;
+            border: none;
+            color: var(--light-color);
+            background-color: var(--btn-color);
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+            transition: all 0.05s ease-in;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            filter: brightness(1.1);
+            box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:active {
+            filter: brightness(1.2);
+            transition: all 0.01s ease-in;
+        }
+
+        #introduction {
+            width: 100%;
+            padding: 3em 1em;
+        }
+
+        #introduction>.grid-12 {
+            padding: 1em;
+        }
+
+        #introduction>.grid-12>i {
+            color: var(--btn-color);
+        }
+
+        #introduction>.grid-12>h3,
+        #introduction>.grid-12>h4 {
+            color: var(--gray-color);
+        }
+
+        #introduction>.grid-12>p {
+            margin: 0.5em 0;
+            color: var(--gray-color);
+        }
+
+        #service {
+            width: 100%;
+        }
+
+        #service>.grid-12 {
+            background-color: var(--theme-color);
+            color: var(--light-gray-color);
+            text-align: center;
+            padding: 6em 1em;
+        }
+
+        #service>.grid-6 {
+            overflow: hidden;
+            position: relative;
+        }
+
+        #service>.grid-6>img {
+            width: 100%;
+            filter: brightness(0.5);
+            scale: 1.01;
+            transition: all 500ms ease;
+        }
+
+        #service>.grid-6>.push {
+            width: 100%;
+            left: 0;
+            bottom: -4em;
+            position: absolute;
+            text-align: center;
+            background-color: var(--alphaColor);
+            color: var(--light-color);
+            height: 4em;
+            line-height: 4em;
+            transition: all 500ms ease;
+        }
+
+        #service>.grid-6:hover>.push {
+            bottom: 0;
+        }
+
+        #service>.grid-6:hover>img {
+            filter: brightness(1);
+            scale: 1.1;
+        }
+
+        #service-2 {
+            width: 100%;
+            color: var(--gray-color);
+        }
+
+        #service-2-text {
+            padding: 2rem 0;
+        }
+
+        #service-2>.image-card {
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        #service-2>.image-card>.image-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 200px;
+        }
+
+        #service-2>.image-card>.image-container>img {
+            width: 100%;
+        }
+
+        #promotion {
+            width: 100%;
+            height: 100vh;
+            justify-content: flex-end;
+            background-image: url(https://picsum.photos/900/900?random=15);
+            background-position: center;
+            background-size: cover;
+        }
+
+        #promotion>div:first-child {
+            height: 100%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            background-color: var(--alphaDarkerColor);
+            color: var(--light-color);
+            align-items: center;
         }
 
         @keyframes slide {
@@ -366,6 +533,18 @@
             header>menu>ul>li {
                 width: auto;
             }
+
+            #service-2>.image-card:nth-child(2) {
+                margin-right: calc(100% / 12 * 1 / 2);
+            }
+
+            #service-2>.image-card:nth-child(4) {
+                margin-left: calc(100% / 12 * 1 / 2);
+            }
+
+            #promotion {
+                height: 50vh;
+            }
         }
 
         @media only screen and (min-width: 992px) {
@@ -498,31 +677,174 @@
             <div class="img"></div>
             <div class="img"></div>
         </div>
+        <div class="push">
+            <h2>THEME's DESIGN</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, dolorem.</p>
+            <a href="#" class="button">MORE</a>
+        </div>
     </div>
-    <div class="flex">
-        <div class="grid-12 grid-s-6 grid-m-4 grid-l-3 grid-xl-2" style="padding: 1em; margin: 0;">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et aperiam aspernatur ullam aliquid nemo quidem,
-            iusto officia quas in enim culpa quam quasi, blanditiis ipsa totam numquam beatae facere dicta.
+    <div class="flex" id="introduction">
+        <div class="grid-12 grid-m-5">
+            <h3>Lorem Ipsum Dolor</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non amet, molestias cum quae laborum
+                perspiciatis enim fugit eveniet? Saepe exercitationem dolor temporibus soluta eos tempore nemo neque
+                itaque dolores ut?</p>
         </div>
-        <div class="grid-12 grid-s-6 grid-m-4 grid-l-3 grid-xl-2" style="padding: 1em; margin: 0;">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et aperiam aspernatur ullam aliquid nemo quidem,
-            iusto officia quas in enim culpa quam quasi, blanditiis ipsa totam numquam beatae facere dicta.
+        <div class="grid-12 grid-m-5">
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum magnam beatae odio asperiores placeat
+                laboriosam eum dolor alias animi consequatur!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dignissimos tempore consequatur quaerat
+                mollitia sequi, nam impedit provident in odit.
+            </p>
         </div>
-        <div class="grid-12 grid-s-6 grid-m-4 grid-l-3 grid-xl-2" style="padding: 1em; margin: 0;">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et aperiam aspernatur ullam aliquid nemo quidem,
-            iusto officia quas in enim culpa quam quasi, blanditiis ipsa totam numquam beatae facere dicta.
+        <div class="grid-12 grid-m-5 grid-l-3">
+            <i class="fa-solid fa-key fa-3x"></i>
+            <h4>Lorem Ipsum Dolor</h4>
+            <p class="description-section">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dicta quae velit dignissimos!
+            </p>
         </div>
-        <div class="grid-12 grid-s-6 grid-m-4 grid-l-3 grid-xl-2" style="padding: 1em; margin: 0;">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et aperiam aspernatur ullam aliquid nemo quidem,
-            iusto officia quas in enim culpa quam quasi, blanditiis ipsa totam numquam beatae facere dicta.
+        <div class="grid-12 grid-m-5 grid-l-4">
+            <i class="fa-solid fa-leaf fa-3x"></i>
+            <h4>Lorem Ipsum Dolor</h4>
+            <p class="description-section">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis quibusdam eligendi repellat
+                aspernatur.
+            </p>
         </div>
-        <div class="grid-12 grid-s-6 grid-m-4 grid-l-3 grid-xl-2" style="padding: 1em; margin: 0;">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et aperiam aspernatur ullam aliquid nemo quidem,
-            iusto officia quas in enim culpa quam quasi, blanditiis ipsa totam numquam beatae facere dicta.
+        <div class="grid-12 grid-m-5 grid-l-3">
+            <i class="fa-solid fa-gavel fa-3x"></i>
+            <h4>Lorem Ipsum Dolor</h4>
+            <p class="description-section">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo totam accusamus facilis reiciendis!
+            </p>
         </div>
-        <div class="grid-12 grid-s-6 grid-m-4 grid-l-3 grid-xl-2" style="padding: 1em; margin: 0;">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et aperiam aspernatur ullam aliquid nemo quidem,
-            iusto officia quas in enim culpa quam quasi, blanditiis ipsa totam numquam beatae facere dicta.
+    </div>
+    <div class="flex" id="service">
+        <div class="grid-12">
+            <h2>Lorem Ipsum Dolor Sit</h2>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="grid-6 grid-m-4 grid-l-2">
+            <img src="https://picsum.photos/600/600?random=6" alt="">
+            <div class="push">
+                <h3>Lorem</h3>
+            </div>
+        </div>
+        <div class="grid-6 grid-m-4 grid-l-2">
+            <img src="https://picsum.photos/600/600?random=7" alt="">
+            <div class="push">
+                <h3>Lorem</h3>
+            </div>
+        </div>
+        <div class="grid-6 grid-m-4 grid-l-2">
+            <img src="https://picsum.photos/600/600?random=8" alt="">
+            <div class="push">
+                <h3>Lorem</h3>
+            </div>
+        </div>
+        <div class="grid-6 grid-m-4 grid-l-2">
+            <img src="https://picsum.photos/600/600?random=9" alt="">
+            <div class="push">
+                <h3>Lorem</h3>
+            </div>
+        </div>
+        <div class="grid-6 grid-m-4 grid-l-2">
+            <img src="https://picsum.photos/600/600?random=10" alt="">
+            <div class="push">
+                <h3>Lorem</h3>
+            </div>
+        </div>
+        <div class="grid-6 grid-m-4 grid-l-2">
+            <img src="https://picsum.photos/600/600?random=11" alt="">
+            <div class="push">
+                <h3>Lorem</h3>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="flex" id="service-2">
+        <div class="grid-10" id="service-2-text">
+            <h1>Lorem, ipsum dolor.</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita?</p>
+        </div>
+        <div class="grid-10 grid-m-3 image-card">
+            <div class="image-container">
+                <img src="https://picsum.photos/600/600?random=12" alt="">
+            </div>
+            <br>
+            <br>
+            <h3>Lorem ipsum dolor sit.</h3>
+            <div class="section">
+                <p class="description-section">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis inventore quam asperiores omnis
+                    et
+                    ea,
+                    beatae iure.
+                </p>
+            </div>
+            <button class="button">
+                READ MORE
+            </button>
+        </div>
+        <div class="grid-10 grid-m-3 image-card">
+            <div class="image-container">
+                <img src="https://picsum.photos/600/600?random=13" alt="">
+            </div>
+            <br>
+            <br>
+            <h3>Lorem ipsum dolor sit.</h3>
+            <div class="section">
+                <p class="description-section">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis inventore quam asperiores omnis
+                    et
+                    ea,
+                    beatae iure.
+                </p>
+            </div>
+            <button class="button">
+                READ MORE
+            </button>
+        </div>
+        <div class="grid-10 grid-m-3 image-card">
+            <div class="image-container">
+                <img src="https://picsum.photos/600/600?random=14" alt="">
+            </div>
+            <br>
+            <br>
+            <h3>Lorem ipsum dolor sit.</h3>
+            <div class="section">
+                <p class="description-section">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis inventore quam asperiores omnis
+                    et
+                    ea,
+                    beatae iure.
+                </p>
+            </div>
+            <button class="button">
+                READ MORE
+            </button>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="flex" id="promotion">
+        <div class="flex grid12 grid-m-6">
+            <div>
+                <h3>Lorem, ipsum dolor</h3>
+                <p class="section">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum odit aspernatur ratione tempore
+                    voluptate
+                    nam assumenda.
+                </p>
+                <button class="button">READ MORE</button>
+            </div>
         </div>
     </div>
 </body>
