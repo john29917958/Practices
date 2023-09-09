@@ -58,7 +58,7 @@
             --gray-color: #797979;
             --light-gray-color: #BBC1BD;
             --alphaColor: #1B1B1B80;
-            --alphaDarkerColor: rgba(28, 28, 28, 0.92);
+            --alphaDarkerColor: #1c1c1ceb;
             --btn-color: #A1C6D9;
         }
 
@@ -124,6 +124,10 @@
         .section-one-half {
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
+        }
+
+        .image-cover {
+            background-color: var(--alphaColor);
         }
 
         .description-section {
@@ -201,10 +205,40 @@
             bottom: 0;
         }
 
+        .button {
+            display: inline-block;
+            padding: 0.35rem 0.9rem;
+            line-height: 1.5rem;
+            border: none;
+            color: var(--light-color);
+            background-color: var(--btn-color);
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+            transition: all 0.05s ease-in;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            filter: brightness(1.1);
+            box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:active {
+            filter: brightness(1.2);
+            transition: all 0.01s ease-in;
+        }
+
         #theme {
             width: 100%;
             height: calc(100vh - 80px);
             position: relative;
+            align-items: center;
+        }
+
+        #theme>.image-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 7;
         }
 
         #theme>.slide {
@@ -224,6 +258,34 @@
             left: 0;
             animation: slide 25s ease infinite;
             transform: translateX(100%);
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(100%);
+                z-index: 6;
+            }
+
+            4% {
+                transform: translateX(0);
+                z-index: 6;
+            }
+
+            20% {
+                transform: translateX(0);
+                z-index: 6;
+            }
+
+            24% {
+                transform: translateX(-100%);
+                z-index: 6;
+            }
+
+            24.1% {
+                transform: translateX(100%);
+                display: none;
+                z-index: 1;
+            }
         }
 
         #theme>.slide>.img:nth-of-type(1) {
@@ -251,59 +313,46 @@
             animation-delay: 20s;
         }
 
-        #theme>.push {
-            color: var(--light-color);
-            width: 100%;
-            height: calc(100vh - 80px);
-            top: calc(50vh - 5em);
-            padding: 0 2em;
+        #theme>.flex {
+            justify-content: flex-start;
             position: absolute;
+            z-index: 10;
+        }
+
+        #theme>.flex>.push {
+            color: var(--light-color);
             line-height: 2.5em;
             z-index: 10;
         }
 
-        .button {
-            display: inline-block;
-            padding: 0.35rem 0.9rem;
-            line-height: 1.5rem;
-            border: none;
-            color: var(--light-color);
-            background-color: var(--btn-color);
-            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-            transition: all 0.05s ease-in;
-            cursor: pointer;
-        }
-
-        .button:hover {
-            filter: brightness(1.1);
-            box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .button:active {
-            filter: brightness(1.2);
-            transition: all 0.01s ease-in;
-        }
-
         #introduction {
             width: 100%;
-            padding: 3em 1em;
         }
 
-        #introduction>.grid-12 {
-            padding: 1em;
+        #introduction h4 {
+            padding-top: 1rem;
+            padding-bottom: 0.3rem;
         }
 
-        #introduction>.grid-12>i {
+        #introduction>.flex>.grid-12:first-child {
+            padding-right: 1.5rem;
+        }
+
+        #introduction>.flex>.grid-12:last-child {
+            padding-left: 1.5rem;
+        }
+
+        #introduction>.flex>.grid-12>i {
             color: var(--btn-color);
         }
 
-        #introduction>.grid-12>h3,
-        #introduction>.grid-12>h4 {
+        #introduction h2,
+        #introduction h4 {
             color: var(--gray-color);
         }
 
-        #introduction>.grid-12>p {
-            margin: 0.5em 0;
+        #introduction p {
+            margin: 1rem 0;
             color: var(--gray-color);
         }
 
@@ -388,39 +437,16 @@
 
         #promotion>div:first-child {
             height: 100%;
-            padding-right: 1rem;
-            padding-left: 1rem;
+            padding-right: 3rem;
+            padding-left: 3rem;
             background-color: var(--alphaDarkerColor);
             color: var(--light-color);
             align-items: center;
         }
 
-        @keyframes slide {
-            0% {
-                transform: translateX(100%);
-                z-index: 6;
-            }
-
-            4% {
-                transform: translateX(0);
-                z-index: 6;
-            }
-
-            20% {
-                transform: translateX(0);
-                z-index: 6;
-            }
-
-            24% {
-                transform: translateX(-100%);
-                z-index: 6;
-            }
-
-            24.1% {
-                transform: translateX(100%);
-                display: none;
-                z-index: 1;
-            }
+        #promotion p {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
         }
 
         @media only screen and (min-width: 576px) {
@@ -669,7 +695,7 @@
             <div class="hamB"></div>
         </nav>
     </header>
-    <div id="theme">
+    <div class="flex" id="theme">
         <div class="slide">
             <div class="img"></div>
             <div class="img"></div>
@@ -677,52 +703,74 @@
             <div class="img"></div>
             <div class="img"></div>
         </div>
-        <div class="push">
-            <h2>THEME's DESIGN</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, dolorem.</p>
-            <a href="#" class="button">MORE</a>
+        <div class="image-cover"></div>
+        <div class="flex grid-10">
+            <div class="push grid-12 grid-m-6">
+                <h2>THEME's DESIGN</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, dolorem.</p>
+                <a href="#" class="button">MORE</a>
+            </div>
         </div>
     </div>
-    <div class="flex" id="introduction">
-        <div class="grid-12 grid-m-5">
-            <h3>Lorem Ipsum Dolor</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non amet, molestias cum quae laborum
-                perspiciatis enim fugit eveniet? Saepe exercitationem dolor temporibus soluta eos tempore nemo neque
-                itaque dolores ut?</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="introduction">
+        <div class="flex">
+            <div class="grid-12 grid-m-5">
+                <h2>Lorem Ipsum Dolor</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non amet, molestias cum quae laborum
+                    perspiciatis enim fugit eveniet? Saepe exercitationem dolor temporibus soluta eos tempore nemo neque
+                    itaque dolores ut?</p>
+            </div>
+            <div class="grid-12 grid-m-5">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum magnam beatae odio asperiores
+                    placeat
+                    laboriosam eum dolor alias animi consequatur!
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dignissimos tempore consequatur
+                    quaerat
+                    mollitia sequi, nam impedit provident in odit.
+                </p>
+            </div>
         </div>
-        <div class="grid-12 grid-m-5">
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum magnam beatae odio asperiores placeat
-                laboriosam eum dolor alias animi consequatur!
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dignissimos tempore consequatur quaerat
-                mollitia sequi, nam impedit provident in odit.
-            </p>
-        </div>
-        <div class="grid-12 grid-m-5 grid-l-3">
-            <i class="fa-solid fa-key fa-3x"></i>
-            <h4>Lorem Ipsum Dolor</h4>
-            <p class="description-section">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dicta quae velit dignissimos!
-            </p>
-        </div>
-        <div class="grid-12 grid-m-5 grid-l-4">
-            <i class="fa-solid fa-leaf fa-3x"></i>
-            <h4>Lorem Ipsum Dolor</h4>
-            <p class="description-section">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis quibusdam eligendi repellat
-                aspernatur.
-            </p>
-        </div>
-        <div class="grid-12 grid-m-5 grid-l-3">
-            <i class="fa-solid fa-gavel fa-3x"></i>
-            <h4>Lorem Ipsum Dolor</h4>
-            <p class="description-section">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo totam accusamus facilis reiciendis!
-            </p>
+        <br>
+        <br>
+        <br>
+        <div class="flex">
+            <div class="grid-12 grid-m-5 grid-l-3">
+                <i class="fa-solid fa-key fa-3x"></i>
+                <h4>Lorem Ipsum Dolor</h4>
+                <p class="description-section">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dicta quae velit dignissimos!
+                </p>
+            </div>
+            <div class="grid-12 grid-m-5 grid-l-4">
+                <i class="fa-solid fa-leaf fa-3x"></i>
+                <h4>Lorem Ipsum Dolor</h4>
+                <p class="description-section">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis quibusdam eligendi repellat
+                    aspernatur.
+                </p>
+            </div>
+            <div class="grid-12 grid-m-5 grid-l-3">
+                <i class="fa-solid fa-gavel fa-3x"></i>
+                <h4>Lorem Ipsum Dolor</h4>
+                <p class="description-section">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo totam accusamus facilis
+                    reiciendis!
+                </p>
+            </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="flex" id="service">
         <div class="grid-12">
             <h2>Lorem Ipsum Dolor Sit</h2>
@@ -768,9 +816,10 @@
     <br>
     <br>
     <br>
+    <br>
     <div class="flex" id="service-2">
         <div class="grid-10" id="service-2-text">
-            <h1>Lorem, ipsum dolor.</h1>
+            <h2>Lorem, ipsum dolor.</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita?</p>
         </div>
         <div class="grid-10 grid-m-3 image-card">
@@ -837,8 +886,8 @@
     <div class="flex" id="promotion">
         <div class="flex grid12 grid-m-6">
             <div>
-                <h3>Lorem, ipsum dolor</h3>
-                <p class="section">
+                <h2>Lorem, ipsum dolor</h2>
+                <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum odit aspernatur ratione tempore
                     voluptate
                     nam assumenda.
