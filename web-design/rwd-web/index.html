@@ -70,50 +70,74 @@
 
         .grid-1 {
             width: calc(100% / 12 * 1);
+            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .grid-2 {
             width: calc(100% / 12 * 2);
+            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .grid-3 {
             width: calc(100% / 12 * 3);
+            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .grid-4 {
             width: calc(100% / 12 * 4);
+            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .grid-5 {
             width: calc(100% / 12 * 5);
+            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .grid-6 {
             width: calc(100% / 12 * 6);
+            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .grid-7 {
             width: calc(100% / 12 * 7);
+            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .grid-8 {
             width: calc(100% / 12 * 8);
+            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .grid-9 {
             width: calc(100% / 12 * 9);
+            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .grid-10 {
             width: calc(100% / 12 * 10);
+            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .grid-11 {
             width: calc(100% / 12 * 11);
+            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .grid-12 {
             width: calc(100% / 12 * 12);
+            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .section {
@@ -335,11 +359,11 @@
         }
 
         #introduction>.flex>.grid-10:first-child {
-            padding-right: 1.5rem;
+            /* padding-right: 1.5rem; */
         }
 
         #introduction>.flex>.grid-10:last-child {
-            padding-left: 1.5rem;
+            /* padding-left: 1.5rem; */
         }
 
         #introduction>.flex>.grid-10>i {
@@ -360,26 +384,28 @@
             width: 100%;
         }
 
-        #service>.grid-12 {
+        #service>.grid-12:first-child {
             background-color: var(--theme-color);
             color: var(--light-gray-color);
             text-align: center;
             padding: 6em 1em;
         }
 
-        #service>.grid-6 {
+        #service>.grid-s-6 {
             overflow: hidden;
             position: relative;
+            padding-left: 0;
+            padding-right: 0;
         }
 
-        #service>.grid-6>img {
+        #service>.grid-s-6>img {
             width: 100%;
             filter: brightness(0.5);
             scale: 1.01;
             transition: all 500ms ease;
         }
 
-        #service>.grid-6>.push {
+        #service>.grid-s-6>.push {
             width: 100%;
             left: 0;
             bottom: -4em;
@@ -392,11 +418,11 @@
             transition: all 500ms ease;
         }
 
-        #service>.grid-6:hover>.push {
+        #service>.grid-s-6:hover>.push {
             bottom: 0;
         }
 
-        #service>.grid-6:hover>img {
+        #service>.grid-s-6:hover>img {
             filter: brightness(1);
             scale: 1.1;
         }
@@ -452,100 +478,148 @@
         @media only screen and (min-width: 576px) {
             .grid-s-1 {
                 width: calc(100% / 12 * 1);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-s-2 {
                 width: calc(100% / 12 * 2);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-s-3 {
                 width: calc(100% / 12 * 3);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-s-4 {
                 width: calc(100% / 12 * 4);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-s-5 {
                 width: calc(100% / 12 * 5);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-s-6 {
                 width: calc(100% / 12 * 6);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-s-7 {
                 width: calc(100% / 12 * 7);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-s-8 {
                 width: calc(100% / 12 * 8);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-s-9 {
                 width: calc(100% / 12 * 9);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-s-10 {
                 width: calc(100% / 12 * 10);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-s-11 {
                 width: calc(100% / 12 * 11);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-s-12 {
                 width: calc(100% / 12 * 12);
+                padding-right: 15px;
+                padding-left: 15px;
             }
         }
 
         @media only screen and (min-width: 768px) {
             .grid-m-1 {
                 width: calc(100% / 12 * 1);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-m-2 {
                 width: calc(100% / 12 * 2);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-m-3 {
                 width: calc(100% / 12 * 3);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-m-4 {
                 width: calc(100% / 12 * 4);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-m-5 {
                 width: calc(100% / 12 * 5);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-m-6 {
                 width: calc(100% / 12 * 6);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-m-7 {
                 width: calc(100% / 12 * 7);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-m-8 {
                 width: calc(100% / 12 * 8);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-m-9 {
                 width: calc(100% / 12 * 9);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-m-10 {
                 width: calc(100% / 12 * 10);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-m-11 {
                 width: calc(100% / 12 * 11);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-m-12 {
                 width: calc(100% / 12 * 12);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             header>nav {
@@ -576,100 +650,148 @@
         @media only screen and (min-width: 992px) {
             .grid-l-1 {
                 width: calc(100% / 12 * 1);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-l-2 {
                 width: calc(100% / 12 * 2);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-l-3 {
                 width: calc(100% / 12 * 3);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-l-4 {
                 width: calc(100% / 12 * 4);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-l-5 {
                 width: calc(100% / 12 * 5);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-l-6 {
                 width: calc(100% / 12 * 6);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-l-7 {
                 width: calc(100% / 12 * 7);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-l-8 {
                 width: calc(100% / 12 * 8);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-l-9 {
                 width: calc(100% / 12 * 9);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-l-10 {
                 width: calc(100% / 12 * 10);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-l-11 {
                 width: calc(100% / 12 * 11);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-l-12 {
                 width: calc(100% / 12 * 12);
+                padding-right: 15px;
+                padding-left: 15px;
             }
         }
 
         @media only screen and (min-width: 1200px) {
             .grid-xl-1 {
                 width: calc(100% / 12 * 1);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-xl-2 {
                 width: calc(100% / 12 * 2);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-xl-3 {
                 width: calc(100% / 12 * 3);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-xl-4 {
                 width: calc(100% / 12 * 4);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-xl-5 {
                 width: calc(100% / 12 * 5);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-xl-6 {
                 width: calc(100% / 12 * 6);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-xl-7 {
                 width: calc(100% / 12 * 7);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-xl-8 {
                 width: calc(100% / 12 * 8);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-xl-9 {
                 width: calc(100% / 12 * 9);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-xl-10 {
                 width: calc(100% / 12 * 10);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-xl-11 {
                 width: calc(100% / 12 * 11);
+                padding-right: 15px;
+                padding-left: 15px;
             }
 
             .grid-xl-12 {
                 width: calc(100% / 12 * 12);
+                padding-right: 15px;
+                padding-left: 15px;
             }
         }
     </style>
@@ -776,37 +898,37 @@
             <h2>Lorem Ipsum Dolor Sit</h2>
             <p>Lorem ipsum dolor sit amet consectetur.</p>
         </div>
-        <div class="grid-6 grid-m-4 grid-l-2">
+        <div class="grid-12 grid-s-6 grid-m-4 grid-l-2">
             <img src="https://picsum.photos/600/600?random=6" alt="">
             <div class="push">
                 <h3>Lorem</h3>
             </div>
         </div>
-        <div class="grid-6 grid-m-4 grid-l-2">
+        <div class="grid-12 grid-s-6 grid-m-4 grid-l-2">
             <img src="https://picsum.photos/600/600?random=7" alt="">
             <div class="push">
                 <h3>Lorem</h3>
             </div>
         </div>
-        <div class="grid-6 grid-m-4 grid-l-2">
+        <div class="grid-12 grid-s-6 grid-m-4 grid-l-2">
             <img src="https://picsum.photos/600/600?random=8" alt="">
             <div class="push">
                 <h3>Lorem</h3>
             </div>
         </div>
-        <div class="grid-6 grid-m-4 grid-l-2">
+        <div class="grid-12 grid-s-6 grid-m-4 grid-l-2">
             <img src="https://picsum.photos/600/600?random=9" alt="">
             <div class="push">
                 <h3>Lorem</h3>
             </div>
         </div>
-        <div class="grid-6 grid-m-4 grid-l-2">
+        <div class="grid-12 grid-s-6 grid-m-4 grid-l-2">
             <img src="https://picsum.photos/600/600?random=10" alt="">
             <div class="push">
                 <h3>Lorem</h3>
             </div>
         </div>
-        <div class="grid-6 grid-m-4 grid-l-2">
+        <div class="grid-12 grid-s-6 grid-m-4 grid-l-2">
             <img src="https://picsum.photos/600/600?random=11" alt="">
             <div class="push">
                 <h3>Lorem</h3>
