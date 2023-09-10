@@ -164,12 +164,14 @@
         }
 
         header {
-            position: relative;
+            position: fixed;
+            top: 0;
             width: 100%;
             height: 80px;
             line-height: 80px;
             text-align: center;
             z-index: 999;
+            background-color: var(--light-color);
         }
 
         header>menu {
@@ -227,6 +229,12 @@
 
         header>nav>.hamB {
             bottom: 0;
+        }
+
+        #header-adjustment {
+            display: block;
+            width: 100%;
+            height: 80px;
         }
 
         .button {
@@ -822,6 +830,7 @@
             <div class="hamB"></div>
         </nav>
     </header>
+    <div id="header-adjustment"></div>
     <div class="flex" id="theme">
         <div class="slide">
             <div class="img"></div>
