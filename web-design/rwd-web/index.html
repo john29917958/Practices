@@ -161,7 +161,16 @@
             background-color: var(--alpha-color);
         }
 
-        .description-section {
+        .max-lines-2 {
+            display: -webkit-box;
+            width: 100%;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .max-lines-3 {
             display: -webkit-box;
             width: 100%;
             -webkit-box-orient: vertical;
@@ -169,6 +178,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
 
         header {
             position: fixed;
@@ -236,6 +246,10 @@
 
         header>nav>.hamB {
             bottom: 0;
+        }
+
+        a {
+            color: var(--btn-color);
         }
 
         #header-adjustment {
@@ -571,8 +585,37 @@
             color: var(--light-color);
         }
 
-        footer p {
+        footer p,
+        footer ul>li {
             color: var(--light-gray-color);
+        }
+
+        footer ul>li {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--theme-color);
+        }
+
+        footer ul>li:first-child {
+            padding-top: 0;
+        }
+
+        footer ul>li:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        footer ul>li [class^='grid-'] {
+            padding-left: 0.2rem;
+            padding-right: 0.2rem;
+        }
+
+        footer ul>li [class^='grid-']:first-child {
+            text-align: center;
+        }
+
+        footer ul>li [class^='grid-']:last-child {
+            text-align: left;
         }
 
         @media only screen and (min-width: 576px) {
@@ -967,14 +1010,14 @@
             <div class="grid-10 grid-m-5 grid-l-3">
                 <i class="fa-solid fa-key fa-3x"></i>
                 <h4>Lorem Ipsum Dolor</h4>
-                <p class="description-section">
+                <p class="max-lines-3">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dicta quae velit dignissimos!
                 </p>
             </div>
             <div class="grid-10 grid-m-5 grid-l-4">
                 <i class="fa-solid fa-leaf fa-3x"></i>
                 <h4>Lorem Ipsum Dolor</h4>
-                <p class="description-section">
+                <p class="max-lines-3">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis quibusdam eligendi repellat
                     aspernatur.
                 </p>
@@ -982,7 +1025,7 @@
             <div class="grid-10 grid-m-5 grid-l-3">
                 <i class="fa-solid fa-gavel fa-3x"></i>
                 <h4>Lorem Ipsum Dolor</h4>
-                <p class="description-section">
+                <p class="max-lines-3">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo totam accusamus facilis
                     reiciendis!
                 </p>
@@ -1054,7 +1097,7 @@
                 <br>
                 <h3>Lorem ipsum dolor sit.</h3>
                 <div class="section">
-                    <p class="description-section">
+                    <p class="max-lines-3">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis inventore quam asperiores
                         omnis
                         et
@@ -1074,7 +1117,7 @@
                 <br>
                 <h3>Lorem ipsum dolor sit.</h3>
                 <div class="section">
-                    <p class="description-section">
+                    <p class="max-lines-3">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis inventore quam asperiores
                         omnis
                         et
@@ -1094,7 +1137,7 @@
                 <br>
                 <h3>Lorem ipsum dolor sit.</h3>
                 <div class="section">
-                    <p class="description-section">
+                    <p class="max-lines-3">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis inventore quam asperiores
                         omnis
                         et
@@ -1151,7 +1194,7 @@
             <h3>Lorem, ipsum dolor</h3>
             <br>
             <br>
-            <p class="description-section">
+            <p class="max-lines-3">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deserunt cupiditate repudiandae
                 sapiente. Error, quas cum non odio in nobis sit?
             </p>
@@ -1162,7 +1205,7 @@
             <h3>Lorem, ipsum dolor</h3>
             <br>
             <br>
-            <p class="description-section">
+            <p class="max-lines-3">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus facere cupiditate consequatur quis a
                 laudantium, velit placeat sed, perspiciatis molestiae illo.
             </p>
@@ -1173,7 +1216,7 @@
             <h3>Lorem, ipsum dolor.</h3>
             <br>
             <br>
-            <p class="description-section">
+            <p class="max-lines-3">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente itaque voluptate cupiditate iste
                 similique ut, molestias inventore numquam eum aliquid recusandae.
             </p>
@@ -1207,37 +1250,111 @@
                     <h4>Lorem, ipsum dolor</h4>
                     <br>
                     <br>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quibusdam ratione facere et
-                        sit,
-                        tempore laborum amet neque architecto, sequi, quasi id voluptatem possimus deleniti modi.
-                        Impedit
-                        architecto vitae hic?
-                    </p>
+                    <ul>
+                        <li>
+                            <div class="flex">
+                                <div class="grid-2">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="grid-10">
+                                    <span>Street Name & Number, Town, Postcode/Zip</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex">
+                                <div class="grid-2">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="grid-10">
+                                    <span>
+                                        +00 (123) 456 7890
+                                        <br>
+                                        +00 (123) 456 7890
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex">
+                                <div class="grid-2">
+                                    <i class="fa-solid fa-blender-phone"></i>
+                                </div>
+                                <div class="grid-10">
+                                    <span>+00 (123) 456 7890</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex">
+                                <div class="grid-2">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div class="grid-10">
+                                    <span>info@domain.com</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="grid-12 grid-m-6 grid-l-3">
                     <h4>Lorem, ipsum dolor</h4>
                     <br>
                     <br>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quibusdam ratione facere et
-                        sit,
-                        tempore laborum amet neque architecto, sequi, quasi id voluptatem possimus deleniti modi.
-                        Impedit
-                        architecto vitae hic?
-                    </p>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Lorem ipsum dolor sit amet
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Lorem, ipsum
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Lorem, ipsum dolor
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Lorem ipsum dolor sit
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Lorem ipsum dolor sit
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="grid-12 grid-m-6 grid-l-3">
                     <h4>Lorem, ipsum dolor</h4>
                     <br>
                     <br>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quibusdam ratione facere et
-                        sit,
-                        tempore laborum amet neque architecto, sequi, quasi id voluptatem possimus deleniti modi.
-                        Impedit
-                        architecto vitae hic?
-                    </p>
+                    <ul>
+                        <li>
+                            <h4>
+                                <a href="#">Lorem ipsum dolor sit</a>
+                            </h4>
+                            <small>Friday, 6<sup>th</sup> April 2045</small>
+                            <br>
+                            <br>
+                            <p class="max-lines-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident?
+                            </p>
+                        </li>
+                        <li>
+                            <h4>
+                                <a href="#">Lorem ipsum dolor sit amet</a>
+                            </h4>
+                            <small>Thursday, 5<sup>th</sup> April 2045</small>
+                            <br>
+                            <br>
+                            <p class="max-lines-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident?
+                            </p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
