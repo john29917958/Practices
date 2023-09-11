@@ -270,6 +270,22 @@
             transition: all 0.01s ease-in;
         }
 
+        .btn.transparent {
+            border-style: solid;
+            border-width: 1px;
+            border-color: var(--light-color);
+            background: transparent;
+            color: var(--light-color);
+        }
+
+        .btn.transparent:hover {
+            background-color: rgba(255, 255, 255, 0.068);
+        }
+
+        .btn.transparent:active {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
         #theme {
             width: 100%;
             height: calc(100vh - 80px);
@@ -500,6 +516,30 @@
 
         #section {
             color: var(--gray-color);
+        }
+
+        #section-2 {
+            color: var(--light-color);
+            background-image: url(https://picsum.photos/1366/768?random=16);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        #section-2 .grid-12 {
+            padding: 4em;
+        }
+
+        #section-2 .grid-12:nth-child(1) {
+            background-color: var(--alpha-darker-color-3);
+        }
+
+        #section-2 .grid-12:nth-child(2) {
+            background-color: var(--alpha-darker-color-2);
+        }
+
+        #section-2 .grid-12:nth-child(3) {
+            background-color: var(--alpha-darker-color);
         }
 
         @media only screen and (min-width: 576px) {
@@ -1071,6 +1111,41 @@
             <br>
             <br>
             <br>
+        </div>
+    </div>
+    <div class="flex" id="section-2">
+        <div class="grid-12 grid-m-4">
+            <h3>Lorem, ipsum dolor</h3>
+            <br>
+            <br>
+            <p class="description-section">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deserunt cupiditate repudiandae
+                sapiente. Error, quas cum non odio in nobis sit?
+            </p>
+            <br>
+            <button class="btn">Read more</button>
+        </div>
+        <div class="grid-12 grid-m-4">
+            <h3>Lorem, ipsum dolor</h3>
+            <br>
+            <br>
+            <p class="description-section">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus facere cupiditate consequatur quis a
+                laudantium, velit placeat sed, perspiciatis molestiae illo.
+            </p>
+            <br>
+            <button class="btn transparent">Read more</button>
+        </div>
+        <div class="grid-12 grid-m-4">
+            <h3>Lorem, ipsum dolor.</h3>
+            <br>
+            <br>
+            <p class="description-section">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente itaque voluptate cupiditate iste
+                similique ut, molestias inventore numquam eum aliquid recusandae.
+            </p>
+            <br>
+            <button class="btn">Read more</button>
         </div>
     </div>
 </body>
