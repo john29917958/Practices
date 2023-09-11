@@ -57,6 +57,7 @@
             --light-color: white;
             --gray-color: #797979;
             --light-gray-color: #BBC1BD;
+            --gray-darker-color: #292B2C;
             --alpha-color: #1B1B1B80;
             --alpha-darker-color: rgba(0, 0, 0, 0.839);
             --alpha-darker-color-2: rgba(0, 0, 0, 0.867);
@@ -540,6 +541,38 @@
 
         #section-2 .grid-12:nth-child(3) {
             background-color: var(--alpha-darker-color);
+        }
+
+        footer {
+            background-color: var(--gray-darker-color);
+        }
+
+        footer>.flex[class^='grid-'],
+        footer>.flex>.flex[class^='grid-'] {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        footer>.flex>.flex>.grid-12 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        footer>.flex:last-child {
+            background-color: var(--theme-color);
+        }
+
+        footer>.flex:last-child>div[class^='grid-'] {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        footer h4 {
+            color: var(--light-color);
+        }
+
+        footer p {
+            color: var(--light-gray-color);
         }
 
         @media only screen and (min-width: 576px) {
@@ -1148,6 +1181,75 @@
             <button class="btn">Read more</button>
         </div>
     </div>
+    <footer class="flex">
+        <div class="grid-12 flex">
+            <div class="grid-10 flex">
+                <div class="grid-12 grid-m-6 grid-l-3">
+                    <h4>Lorem, ipsum dolor</h4>
+                    <br>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quibusdam ratione facere et
+                        sit,
+                        tempore laborum amet neque architecto, sequi, quasi id voluptatem possimus deleniti modi.
+                        Impedit
+                        architecto vitae hic?
+                    </p>
+                    <br>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque sint iste molestiae accusamus
+                        et,
+                        cum reiciendis, porro aliquid illum minus omnis quisquam unde ab! Pariatur sapiente aut nesciunt
+                        unde nulla.
+                    </p>
+                </div>
+                <div class="grid-12 grid-m-6 grid-l-3">
+                    <h4>Lorem, ipsum dolor</h4>
+                    <br>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quibusdam ratione facere et
+                        sit,
+                        tempore laborum amet neque architecto, sequi, quasi id voluptatem possimus deleniti modi.
+                        Impedit
+                        architecto vitae hic?
+                    </p>
+                </div>
+                <div class="grid-12 grid-m-6 grid-l-3">
+                    <h4>Lorem, ipsum dolor</h4>
+                    <br>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quibusdam ratione facere et
+                        sit,
+                        tempore laborum amet neque architecto, sequi, quasi id voluptatem possimus deleniti modi.
+                        Impedit
+                        architecto vitae hic?
+                    </p>
+                </div>
+                <div class="grid-12 grid-m-6 grid-l-3">
+                    <h4>Lorem, ipsum dolor</h4>
+                    <br>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quibusdam ratione facere et
+                        sit,
+                        tempore laborum amet neque architecto, sequi, quasi id voluptatem possimus deleniti modi.
+                        Impedit
+                        architecto vitae hic?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-12 flex">
+            <div class="grid-10">
+                <br>
+                <p>
+                    Copyright &copy; 2016 - All Rights Reserved - Domain Name
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
