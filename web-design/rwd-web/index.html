@@ -59,10 +59,13 @@
             --light-gray-color: #BBC1BD;
             --gray-darker-color: #292B2C;
             --alpha-color: #1B1B1B80;
-            --alpha-darker-color: rgba(0, 0, 0, 0.839);
-            --alpha-darker-color-2: rgba(0, 0, 0, 0.867);
-            --alpha-darker-color-3: rgba(0, 0, 0, 0.886);
+            --alpha-darker-color: rgba(0, 0, 0, 0.6);
+            --alpha-darker-color-2: rgba(0, 0, 0, 0.7);
+            --alpha-darker-color-3: rgba(0, 0, 0, 0.8);
             --btn-color: #A1C6D9;
+            --transition-time: 0.3s;
+            --transition-timing-function: ease;
+            --transition-setting: all var(--transition-time) var(--transition-timing-function);
         }
 
         .flex {
@@ -179,7 +182,6 @@
             text-overflow: ellipsis;
         }
 
-
         header {
             position: fixed;
             top: 0;
@@ -209,7 +211,7 @@
         header>menu>ul>li>a {
             display: block;
             padding: 0 1em;
-            transition: all 0.3s ease;
+            transition: var(--transition-setting);
         }
 
         header>menu>ul>li:hover>a {
@@ -275,7 +277,7 @@
             border: none;
             color: var(--light-color);
             background-color: var(--btn-color);
-            transition: all 0.19s ease-in-out;
+            transition: var(--transition-setting);
             cursor: pointer;
             text-transform: uppercase;
         }
@@ -286,7 +288,7 @@
 
         .btn:active {
             filter: brightness(1.174) saturate(0.522);
-            transition: all 0.01s ease-in;
+            transition: var(--transition-setting);
         }
 
         .btn.transparent {
@@ -459,7 +461,7 @@
             width: 100%;
             filter: brightness(0.5);
             scale: 1.01;
-            transition: all 500ms ease;
+            transition: var(--transition-setting);
         }
 
         #service>.grid-s-6>.push {
@@ -472,7 +474,7 @@
             color: var(--light-color);
             height: 4em;
             line-height: 4em;
-            transition: all 500ms ease;
+            transition: var(--transition-setting);
         }
 
         #service>.grid-s-6:hover>.push {
@@ -544,26 +546,72 @@
         }
 
         #section-2 {
-            color: var(--light-color);
-            background-image: url(https://picsum.photos/1366/768?random=16);
-            background-size: cover;
-            background-repeat: no-repeat;
+            width: 100%;
+        }
+
+        #section-2>.grid-12 {
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            height: 350px;
             background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
-        #section-2 .grid-12 {
+        #section-2>.grid-12:nth-child(1) {
+            background-image: url(https://picsum.photos/800/600?random=16);
+        }
+
+        #section-2>.grid-12:nth-child(2) {
+            background-image: url(https://picsum.photos/800/600?random=17);
+        }
+
+        #section-2>.grid-12:nth-child(3) {
+            background-image: url(https://picsum.photos/800/600?random=18);
+        }
+
+        #section-2>.grid-12>.flex {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
             padding: 4em;
+            padding-top: 8em;
+            padding-bottom: 0;
+            align-items: center;
+            justify-content: initial;
+            background-color: transparent;
+            color: transparent;
+            transition: var(--transition-setting);
         }
 
-        #section-2 .grid-12:nth-child(1) {
+        #section-2>.grid-12>.flex>button {
+            opacity: 0;
+        }
+
+        #section-2>.grid-12:hover>.flex {
+            padding-top: 4em;
+            padding-bottom: 4em;
+        }
+
+        #section-2>.grid-12:hover>.flex>button {
+            opacity: 1;
+        }
+
+        #section-2>.grid-12:nth-child(1):hover>.flex {
+            color: var(--light-color);
             background-color: var(--alpha-darker-color-3);
         }
 
-        #section-2 .grid-12:nth-child(2) {
+        #section-2>.grid-12:nth-child(2):hover>.flex {
+            color: var(--light-color);
             background-color: var(--alpha-darker-color-2);
         }
 
-        #section-2 .grid-12:nth-child(3) {
+        #section-2>.grid-12:nth-child(3):hover>.flex {
+            color: var(--light-color);
             background-color: var(--alpha-darker-color);
         }
 
@@ -951,7 +999,7 @@
 </head>
 
 <body>
-    <header class="flex">
+    <header class="flex nav">
         <div class="logo grid-12 grid-l-4">
             <h1>Appsea</h1>
         </div>
@@ -964,7 +1012,7 @@
                 <li><a href="#">LINK TEXT</a></li>
             </ul>
         </menu>
-        <nav>
+        <nav class="nav-toggle">
             <div class="hamT"></div>
             <div class="hamM"></div>
             <div class="hamB"></div>
@@ -993,14 +1041,14 @@
     <br>
     <br>
     <div id="introduction">
-        <div class="flex">
-            <div class="grid-10 grid-m-5">
+        <div class="flex horizontal-slide-in">
+            <div class="grid-10 grid-m-5 from-left">
                 <h2>Lorem Ipsum Dolor</h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non amet, molestias cum quae laborum
                     perspiciatis enim fugit eveniet? Saepe exercitationem dolor temporibus soluta eos tempore nemo neque
                     itaque dolores ut?</p>
             </div>
-            <div class="grid-10 grid-m-5">
+            <div class="grid-10 grid-m-5 from-right">
                 <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum magnam beatae odio asperiores
                     placeat
@@ -1201,37 +1249,44 @@
     </div>
     <div class="flex" id="section-2">
         <div class="grid-12 grid-m-4">
-            <h3>Lorem, ipsum dolor</h3>
-            <br>
-            <br>
-            <p class="max-lines-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deserunt cupiditate repudiandae
-                sapiente. Error, quas cum non odio in nobis sit?
-            </p>
-            <br>
-            <button class="btn">Read more</button>
+            <div class="flex">
+                <h3>Lorem, ipsum dolor</h3>
+                <br>
+                <br>
+                <p class="max-lines-3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deserunt cupiditate repudiandae
+                    sapiente. Error, quas cum non odio in nobis sit?
+                </p>
+                <br>
+                <button class="btn">Read more</button>
+            </div>
         </div>
         <div class="grid-12 grid-m-4">
-            <h3>Lorem, ipsum dolor</h3>
-            <br>
-            <br>
-            <p class="max-lines-3">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus facere cupiditate consequatur quis a
-                laudantium, velit placeat sed, perspiciatis molestiae illo.
-            </p>
-            <br>
-            <button class="btn transparent">Read more</button>
+            <div class="flex">
+                <h3>Lorem, ipsum dolor</h3>
+                <br>
+                <br>
+                <p class="max-lines-3">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus facere cupiditate consequatur
+                    quis a
+                    laudantium, velit placeat sed, perspiciatis molestiae illo.
+                </p>
+                <br>
+                <button class="btn transparent">Read more</button>
+            </div>
         </div>
         <div class="grid-12 grid-m-4">
-            <h3>Lorem, ipsum dolor.</h3>
-            <br>
-            <br>
-            <p class="max-lines-3">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente itaque voluptate cupiditate iste
-                similique ut, molestias inventore numquam eum aliquid recusandae.
-            </p>
-            <br>
-            <button class="btn">Read more</button>
+            <div class="flex">
+                <h3>Lorem, ipsum dolor.</h3>
+                <br>
+                <br>
+                <p class="max-lines-3">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente itaque voluptate cupiditate iste
+                    similique ut, molestias inventore numquam eum aliquid recusandae.
+                </p>
+                <br>
+                <button class="btn">Read more</button>
+            </div>
         </div>
     </div>
     <footer class="flex">
@@ -1377,6 +1432,48 @@
             </div>
         </div>
     </footer>
+    <script>
+        "use strict";
+
+        (function () {
+            let navs = document.getElementsByClassName("nav");
+            for (let nav of navs) {
+                let navToggleButton = nav.querySelector(".nav-toggle");
+            }
+
+            /* Refactor this code (consider of using a JSON object to save
+            slide in elements with their left child elements and right child elements). */
+            let horizontalSlideInElems = document.getElementsByClassName("horizontal-slide-in");
+            window.addEventListener("scroll", function () {
+                for (let horizontalSlideInElem of horizontalSlideInElems) {
+                    let horizontalSlideInElemBounds = horizontalSlideInElem.getBoundingClientRect();
+                    console.log(`Element top: ${horizontalSlideInElemBounds.top}, window inner height: ${window.innerHeight / 2}`);
+                    if (horizontalSlideInElemBounds.top < window.innerHeight / 2) {
+                        let fromLeftElems = horizontalSlideInElem.querySelectorAll(".from-left");
+                        let fromRightElems = horizontalSlideInElem.querySelectorAll(".from-right");
+                        for (let fromLeftElem of fromLeftElems) {
+                            fromLeftElem.style.transform = "translateX(0)";
+                        }
+                        for (let fromRightElem of fromRightElems) {
+                            fromRightElem.style.transform = "translateX(0)";
+                        }
+                    }
+                }
+            });
+            for (let horizontalSlideInElem of horizontalSlideInElems) {
+                let fromLeftElems = horizontalSlideInElem.querySelectorAll(".from-left");
+                let fromRightElems = horizontalSlideInElem.querySelectorAll(".from-right");
+                horizontalSlideInElem.style.overflow = "hidden";
+                horizontalSlideInElem.style.transition = "all 0.3s ease";
+                for (let fromLeftElem of fromLeftElems) {
+                    fromLeftElem.style.transform = "translateX(-150%)";
+                }
+                for (let fromRightElem of fromRightElems) {
+                    fromRightElem.style.transform = "translateX(150%)";
+                }
+            }
+        })();
+    </script>
 </body>
 
 </html>
