@@ -1447,8 +1447,7 @@
             window.addEventListener("scroll", function () {
                 for (let horizontalSlideInElem of horizontalSlideInElems) {
                     let horizontalSlideInElemBounds = horizontalSlideInElem.getBoundingClientRect();
-                    console.log(`Element top: ${horizontalSlideInElemBounds.top}, window inner height: ${window.innerHeight / 2}`);
-                    if (horizontalSlideInElemBounds.top < window.innerHeight / 2) {
+                    if (horizontalSlideInElemBounds.bottom <= window.innerHeight) {
                         let fromLeftElems = horizontalSlideInElem.querySelectorAll(".from-left");
                         let fromRightElems = horizontalSlideInElem.querySelectorAll(".from-right");
                         for (let fromLeftElem of fromLeftElems) {
@@ -1467,9 +1466,11 @@
                 horizontalSlideInElem.style.transition = "all 0.3s ease";
                 for (let fromLeftElem of fromLeftElems) {
                     fromLeftElem.style.transform = "translateX(-150%)";
+                    fromLeftElem.style.transition = "inherit";
                 }
                 for (let fromRightElem of fromRightElems) {
                     fromRightElem.style.transform = "translateX(150%)";
+                    fromRightElem.style.transition = "inherit";
                 }
             }
         })();
