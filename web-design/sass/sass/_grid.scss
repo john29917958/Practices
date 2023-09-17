@@ -1,0 +1,39 @@
+@mixin default {
+    @for $i from 1 through 12 {
+        .col-xs-#{$i} {
+            width: calc(100% / 12 * #{$i});
+        }
+    }
+}
+
+@mixin phone {
+    @for $i from 1 through 12 {
+        .col-sm-#{$i} {
+            width: calc(100% / 12 * #{$i});
+        }
+    }
+}
+
+@mixin tablet {
+    @for $i from 1 through 12 {
+        .col-md-#{$i} {
+            width: calc(100% / 12 * #{$i});
+        }
+    }
+}
+
+@mixin desktop {
+    @for $i from 1 through 12 {
+        .col-lg-#{$i} {
+            width: calc(100% / 12 * #{$i});
+        }
+    }
+}
+
+@mixin tv {
+    @for $i from 1 through 12 {
+        .col-xl-#{$i} {
+            width: calc(100% / 12 * #{$i});
+        }
+    }
+}
