@@ -1,0 +1,51 @@
+@import "color";
+@import "reset";
+
+.nav {
+    @include reset;
+    background-color: var(--gray-100);
+    border-radius: 0.1rem;
+    line-height: 3.6rem;
+
+    .logo {
+        @include reset;
+        @include link-reset;
+        display: inline-block;
+        height: 100%;
+        margin-right: 1rem;
+        font-size: larger;
+        color: var(--gray-900);
+    }
+
+    .nav-content {
+        @include reset;
+        display: inline-block;
+        height: 100%;
+
+        ul {
+            @include reset;
+            @include list-reset;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            li {
+                @include reset;
+
+                a {
+                    @include reset;
+                    @include link-reset;
+                    display: block;
+                    padding: 0 0.7rem;
+                    color: var(--gray-800);
+                    transition: all 0.3s ease;
+                }
+
+                a:hover {
+                    color: var(--gray-100);
+                    background-color: var(--gray-900);
+                }
+            }
+        }
+    }
+}
