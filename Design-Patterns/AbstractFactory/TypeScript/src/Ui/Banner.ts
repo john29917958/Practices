@@ -3,10 +3,8 @@ class Banner {
         return this._themeColor;
     }
 
-    private _themeColor: string;
-
-    public constructor(themeColor: string) {
-        this._themeColor = themeColor;
+    public constructor(private _themeColor: string) {
+        this._themeColor = _themeColor;
     }
 }
 
