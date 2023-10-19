@@ -1,0 +1,418 @@
+html,
+body {
+    margin: 0;
+}
+
+h1 {
+    color: gray;
+}
+
+nav {
+    background-color: #212121;
+    padding-left: 0.55em;
+    font-size: 0;
+}
+
+nav.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav * {
+    color: inherit;
+}
+
+nav>ul {
+    color: white;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav>ul>li {
+    display: inline-block;
+}
+
+nav>ul>li>a {
+    display: block;
+    color: lightgray;
+    padding: 1em 1.1em;
+    text-decoration: none;
+    transition: all 0.06s ease-in;
+    font-size: initial;
+}
+
+nav>ul>li>a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav>ul>li>a:active {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.highlight {
+    text-decoration: underline wavy yellow;
+}
+
+ul.special-list {
+    list-style: decimal-leading-zero inside;
+    list-style-image: url(https://cdn-icons-png.flaticon.com/128/426/426833.png);
+}
+
+ul.inside-list {
+    list-style-position: inside;
+}
+
+.float-left {
+    text-align: left;
+}
+
+.float-right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.justify {
+    text-align: justify;
+}
+
+p.indent {
+    text-indent: 2em;
+}
+
+p.shadow {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+p.spacing {
+    word-spacing: 10px;
+    letter-spacing: 5px;
+}
+
+.gradient {
+    color: transparent;
+    background-image: linear-gradient(90deg, green, darkred 30%);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.animated-gradient {
+    color: transparent;
+    background-image: linear-gradient(90deg, green, darkred 30%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: text-gradient-animation 0.5s linear infinite;
+}
+
+@keyframes text-gradient-animation {
+    0% {
+        background-image: linear-gradient(90deg, green, darkred 30%);
+    }
+
+    50% {
+        background-image: linear-gradient(90deg, darkred, green 30%);
+    }
+
+    100% {
+        background-image: linear-gradient(90deg, green, darkred 30%);
+    }
+}
+
+#background-color {
+    background-color: cyan;
+}
+
+#background-image {
+    color: white;
+    background-image: url("https://picsum.photos/id/684/600/400");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+#background-image-2 {
+    color: white;
+    background-image: url("https://picsum.photos/id/684/600/400");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#background-gradient {
+    background-image: linear-gradient(180deg, yellow, lightgreen);
+}
+
+#background-gradient-circle {
+    background-image: radial-gradient(circle, white 50%, gray);
+}
+
+#img-filter {
+    filter: saturate(0) blur(10px) brightness(2) contrast(0.5) opacity(0.5);
+}
+
+#img-grayscale {
+    filter: grayscale(1);
+}
+
+#img-filter-hue {
+    filter: hue-rotate(40deg);
+}
+
+#img-filter-invert {
+    filter: invert(1);
+}
+
+#img-filter-sepia {
+    filter: sepia(1);
+}
+
+#fire-text {
+    width: 100%;
+    color: transparent;
+    text-align: center;
+    font-size: 300px;
+    background-image: url(https://media.giphy.com/media/YgceFa5istesE/giphy.gif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+#css-box {
+    width: 300px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    background-color: cyan;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#flexible-width {
+    width: 50vw;
+    max-width: 500px;
+    min-width: 300px;
+    height: 100px;
+    background-color: cyan;
+}
+
+#search-bar {
+    position: sticky;
+    width: 100%;
+    background-color: #757575;
+    border: none;
+    margin: 0;
+    padding: 30px 0;
+    top: 0;
+    text-align: center;
+    z-index: 999;
+    color: white;
+}
+
+.inline {
+    display: inline;
+}
+
+.block {
+    display: block;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.adjust-width-and-height {
+    width: 100px;
+    height: 50px;
+}
+
+#moving-with-transition-div>div {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #212121;
+    color: white;
+    margin: 3px;
+    text-align: center;
+    line-height: 100px;
+    transition-property: all;
+    transition-duration: 2s;
+    transition-delay: 1s;
+    left: 0;
+}
+
+#moving-with-transition-div:hover>div {
+    left: calc(100% - 100px);
+}
+
+#move-linear {
+    transition-timing-function: linear;
+}
+
+#move-ease {
+    transition-timing-function: ease;
+}
+
+#move-ease-in {
+    transition-timing-function: ease-in;
+}
+
+#move-ease-out {
+    transition-timing-function: ease-out;
+}
+
+#move-ease-in-out {
+    transition-timing-function: ease-in-out;
+}
+
+#move-ease-in-out-back-with-cubic-bezier-function {
+    transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+#scale-and-move-and-skew-on-hover,
+#rotate-x-on-hover,
+#rotate-y-on-hover,
+#rotate-z-on-hover {
+    width: 300px;
+    height: 300px;
+    background-color: gray;
+    transition: all 1s ease-in-out;
+}
+
+#scale-and-move-and-skew-on-hover:hover {
+    transform: scaleX(1.5) scaleY(2) translateX(100px) translateY(150px) skewX(10deg) skewY(20deg);
+}
+
+#rotate-x-on-hover:hover {
+    transform: rotateX(180deg);
+}
+
+#rotate-y-on-hover:hover {
+    transform: rotateY(180deg);
+}
+
+#rotate-z-on-hover:hover {
+    transform: rotateZ(180deg);
+}
+
+.loading {
+    width: 50px;
+    height: 50px;
+    border: 10px solid lightgray;
+    border-radius: 50%;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    animation: loading 0.8s linear infinite;
+}
+
+@keyframes loading {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+.slide {
+    width: 100%;
+    height: 1080px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide>img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+    animation: sliding 25s ease-in-out infinite;
+}
+
+.slide>img:nth-last-of-type(1) {
+    animation-delay: 0s;
+}
+
+.slide>img:nth-last-of-type(2) {
+    animation-delay: 5s;
+}
+
+.slide>img:nth-last-of-type(3) {
+    animation-delay: 10s;
+}
+
+.slide>img:nth-last-of-type(4) {
+    animation-delay: 15s;
+}
+
+.slide>img:nth-last-of-type(5) {
+    animation-delay: 20s;
+}
+
+/*
+5 pictures
+25 seconds of animation
+5 seconds per picture
+- 1 second for sliding in: 1s/25s = 4%
+- 4 second for staying in the viewport: (4+1)s/25s = 5s/25s = 20%
+- 1 second for sliding out: (1+4+1)s/25s = 6s/25s = 24%
+*/
+@keyframes sliding {
+    0% {
+        transform: translateX(100%);
+        z-index: 999;
+    }
+
+    4% {
+        transform: translateX(0);
+        z-index: 999;
+    }
+
+    20% {
+        transform: translateX(0);
+        z-index: 999;
+    }
+
+    24% {
+        transform: translateX(-100%);
+        z-index: 999;
+    }
+
+    24.1% {
+        /* Reset position. */
+        transform: translateX(100%);
+        z-index: 1;
+    }
+}
+
+#scale-and-stay {
+    margin: 150px auto;
+    width: 100px;
+    height: 100px;
+    background-color: lightgray;
+    animation: scale-and-stay 1s ease 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes scale-and-stay {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(2);
+    }
+}

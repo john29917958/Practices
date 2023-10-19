@@ -1,0 +1,15 @@
+{
+    "name":  "AX TC's Home",
+    "short_name": "AX TC",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "/images/file-icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "white",
+    "background_color": "white",
+    "display": "standalone"
+}

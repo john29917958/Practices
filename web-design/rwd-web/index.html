@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        /* Reset CSS by Eric A. Meyer. http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
+        a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+    </style> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        html,
+        body,
+        header,
+        footer,
+        menu,
+        nav,
+        div,
+        span,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        a,
+        b,
+        u,
+        i,
+        strong,
+        em,
+        ins,
+        del,
+        s,
+        ul,
+        ol,
+        li,
+        img,
+        input,
+        button,
+        form {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            color: inherit;
+            font-family: sans-serif;
+            vertical-align: bottom;
+        }
+
+        :root {
+            --theme-color: #1D1E1F;
+            --light-color: white;
+            --gray-color: #797979;
+            --light-gray-color: #BBC1BD;
+            --gray-darker-color: #292B2C;
+            --alpha-color: #1B1B1B80;
+            --alpha-darker-color: rgba(0, 0, 0, 0.6);
+            --alpha-darker-color-2: rgba(0, 0, 0, 0.7);
+            --alpha-darker-color-3: rgba(0, 0, 0, 0.8);
+            --btn-color: #A1C6D9;
+            --transition-time: 0.3s;
+            --transition-timing-function: ease;
+            --transition-setting: all var(--transition-time) var(--transition-timing-function);
+        }
+
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .center-align {
+            text-align: center;
+        }
+
+        .grid-1 {
+            width: calc(100% / 12 * 1);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .grid-2 {
+            width: calc(100% / 12 * 2);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .grid-3 {
+            width: calc(100% / 12 * 3);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .grid-4 {
+            width: calc(100% / 12 * 4);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .grid-5 {
+            width: calc(100% / 12 * 5);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .grid-6 {
+            width: calc(100% / 12 * 6);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .grid-7 {
+            width: calc(100% / 12 * 7);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .grid-8 {
+            width: calc(100% / 12 * 8);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .grid-9 {
+            width: calc(100% / 12 * 9);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .grid-10 {
+            width: calc(100% / 12 * 10);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .grid-11 {
+            width: calc(100% / 12 * 11);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .grid-12 {
+            width: calc(100% / 12 * 12);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .section {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .section-one-half {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .image-cover {
+            background-color: var(--alpha-color);
+        }
+
+        .max-lines-2 {
+            display: -webkit-box;
+            width: 100%;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .max-lines-3 {
+            display: -webkit-box;
+            width: 100%;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            z-index: 999;
+            background-color: var(--light-color);
+        }
+
+        header>menu {
+            display: none;
+            background-color: var(--light-color);
+        }
+
+        header.toggled>menu {
+            display: initial;
+        }
+
+        header>menu>ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        header>menu>ul>li {
+            width: 100%;
+        }
+
+        header>menu>ul>li>a {
+            display: block;
+            padding: 0 1em;
+            transition: var(--transition-setting);
+        }
+
+        header>menu>ul>li:hover>a {
+            background-color: var(--theme-color);
+            color: var(--light-color);
+        }
+
+        header>nav {
+            width: 2em;
+            height: 1em;
+            position: absolute;
+            top: calc(40px - 0.5em);
+            right: 2em;
+        }
+
+        header>nav:hover {
+            cursor: pointer;
+        }
+
+        header>nav>div[class^=ham] {
+            width: 100%;
+            height: 2px;
+            background-color: var(--theme-color);
+            position: absolute;
+            transform-origin: 17.5% 50%;
+        }
+
+        header>nav>.hamT {
+            top: 0;
+        }
+
+        header>nav>.hamM {
+            top: calc(0.5em - 1px);
+        }
+
+        header>nav>.hamB {
+            bottom: 0;
+        }
+
+        header.toggled>.nav-toggle>.hamT {
+            transform: rotate(45deg);
+        }
+
+        header.toggled>.nav-toggle>.hamM {
+            transform: rotate(45deg);
+            opacity: 0;
+        }
+
+        header.toggled>.nav-toggle>.hamB {
+            transform: rotate(-45deg);
+        }
+
+        header a {
+            color: initial;
+        }
+
+        a {
+            color: var(--btn-color);
+        }
+
+        #header-adjustment {
+            display: block;
+            width: 100%;
+            height: 80px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 992px) {
+            #header-adjustment {
+                height: calc(80px * 2);
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.35rem 0.9rem;
+            line-height: 1.5rem;
+            border: none;
+            color: var(--light-color);
+            background-color: var(--btn-color);
+            transition: var(--transition-setting);
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            filter: brightness(1.07) saturate(1.022);
+        }
+
+        .btn:active {
+            filter: brightness(1.174) saturate(0.522);
+            transition: var(--transition-setting);
+        }
+
+        .btn.transparent {
+            border-style: solid;
+            border-width: 1px;
+            border-color: var(--light-color);
+            background: transparent;
+            color: var(--light-color);
+        }
+
+        .btn.transparent:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn.transparent:active {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        #theme {
+            width: 100%;
+            height: calc(100vh - 80px);
+            position: relative;
+            align-items: center;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 992px) {
+            #theme {
+                height: calc(100vh - 80px * 2);
+            }
+        }
+
+        #theme>.image-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 7;
+        }
+
+        #theme>.flex {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        #theme>.slide {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #theme>.slide>.img {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: slide 25s ease infinite;
+            transform: translateX(100%);
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(100%);
+                z-index: 6;
+            }
+
+            4% {
+                transform: translateX(0);
+                z-index: 6;
+            }
+
+            20% {
+                transform: translateX(0);
+                z-index: 6;
+            }
+
+            24% {
+                transform: translateX(-100%);
+                z-index: 6;
+            }
+
+            24.1% {
+                transform: translateX(100%);
+                display: none;
+                z-index: 1;
+            }
+        }
+
+        #theme>.slide>.img:nth-of-type(1) {
+            background-image: url(https://picsum.photos/1600/900?random=1);
+            animation-delay: 0s;
+        }
+
+        #theme>.slide>.img:nth-of-type(2) {
+            background-image: url(https://picsum.photos/1600/900?random=2);
+            animation-delay: 5s;
+        }
+
+        #theme>.slide>.img:nth-of-type(3) {
+            background-image: url(https://picsum.photos/1600/900?random=3);
+            animation-delay: 10s;
+        }
+
+        #theme>.slide>.img:nth-of-type(4) {
+            background-image: url(https://picsum.photos/1600/900?random=4);
+            animation-delay: 15s;
+        }
+
+        #theme>.slide>.img:nth-of-type(5) {
+            background-image: url(https://picsum.photos/1600/900?random=5);
+            animation-delay: 20s;
+        }
+
+        #theme>.flex {
+            justify-content: flex-start;
+            position: absolute;
+            z-index: 10;
+        }
+
+        #theme>.flex>.push {
+            color: var(--light-color);
+            line-height: 2.5em;
+            z-index: 10;
+        }
+
+        #introduction {
+            width: 100%;
+        }
+
+        #introduction h4 {
+            padding-top: 1rem;
+            padding-bottom: 0.3rem;
+        }
+
+        #introduction>.flex>.grid-10>i {
+            color: var(--btn-color);
+        }
+
+        #introduction h2,
+        #introduction h4 {
+            color: var(--gray-color);
+        }
+
+        #introduction p {
+            margin: 1rem 0;
+            color: var(--gray-color);
+        }
+
+        #service {
+            width: 100%;
+        }
+
+        #service>.grid-12:first-child {
+            background-color: var(--theme-color);
+            color: var(--light-gray-color);
+            text-align: center;
+            padding: 6em 1em;
+        }
+
+        #service>.grid-s-6 {
+            overflow: hidden;
+            position: relative;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        #service>.grid-s-6>img {
+            width: 100%;
+            filter: brightness(0.5);
+            scale: 1.01;
+            transition: var(--transition-setting);
+        }
+
+        #service>.grid-s-6>.push {
+            width: 100%;
+            left: 0;
+            bottom: -4em;
+            position: absolute;
+            text-align: center;
+            background-color: var(--alpha-color);
+            color: var(--light-color);
+            height: 4em;
+            line-height: 4em;
+            transition: var(--transition-setting);
+        }
+
+        #service>.grid-s-6:hover>.push {
+            bottom: 0;
+        }
+
+        #service>.grid-s-6:hover>img {
+            filter: brightness(1);
+            scale: 1.1;
+        }
+
+        #service-2 {
+            width: 100%;
+            color: var(--gray-color);
+        }
+
+        #service-2-text {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        #service-2>.flex {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        #service-2 .image-card {
+            overflow: hidden;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        #service-2 .image-card>.image-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 200px;
+        }
+
+        #service-2 .image-card>.image-container>img {
+            width: 100%;
+        }
+
+        #promotion {
+            width: 100%;
+            height: 100vh;
+            justify-content: flex-end;
+            background-image: url(https://picsum.photos/900/900?random=15);
+            background-position: center;
+            background-size: cover;
+        }
+
+        #promotion>div:first-child {
+            height: 100%;
+            padding-right: 0;
+            padding-left: 0;
+            background-color: var(--alpha-darker-color-3);
+            color: var(--light-color);
+            align-items: center;
+        }
+
+        #promotion p {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        #section {
+            color: var(--gray-color);
+        }
+
+        #section-2 {
+            width: 100%;
+        }
+
+        #section-2>.grid-12 {
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            height: 350px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #section-2>.grid-12:nth-child(1) {
+            background-image: url(https://picsum.photos/800/600?random=16);
+        }
+
+        #section-2>.grid-12:nth-child(2) {
+            background-image: url(https://picsum.photos/800/600?random=17);
+        }
+
+        #section-2>.grid-12:nth-child(3) {
+            background-image: url(https://picsum.photos/800/600?random=18);
+        }
+
+        #section-2>.grid-12>.flex {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            padding: 4em;
+            padding-top: 8em;
+            padding-bottom: 0;
+            align-items: center;
+            justify-content: initial;
+            background-color: transparent;
+            color: transparent;
+            transition: var(--transition-setting);
+        }
+
+        #section-2>.grid-12>.flex>button {
+            opacity: 0;
+        }
+
+        #section-2>.grid-12:hover>.flex {
+            padding-top: 4em;
+            padding-bottom: 4em;
+        }
+
+        #section-2>.grid-12:hover>.flex>button {
+            opacity: 1;
+        }
+
+        #section-2>.grid-12:nth-child(1):hover>.flex {
+            color: var(--light-color);
+            background-color: var(--alpha-darker-color-3);
+        }
+
+        #section-2>.grid-12:nth-child(2):hover>.flex {
+            color: var(--light-color);
+            background-color: var(--alpha-darker-color-2);
+        }
+
+        #section-2>.grid-12:nth-child(3):hover>.flex {
+            color: var(--light-color);
+            background-color: var(--alpha-darker-color);
+        }
+
+        footer {
+            background-color: var(--gray-darker-color);
+        }
+
+        footer>.flex[class^='grid-'],
+        footer>.flex>.flex[class^='grid-'] {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        footer>.flex>.flex>.grid-12 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        footer>.flex:last-child {
+            background-color: var(--theme-color);
+        }
+
+        footer>.flex:last-child>div[class^='grid-'] {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        footer h4 {
+            color: var(--light-color);
+        }
+
+        footer p,
+        footer ul>li {
+            color: var(--light-gray-color);
+        }
+
+        footer ul>li {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--theme-color);
+        }
+
+        footer ul>li:first-child {
+            padding-top: 0;
+        }
+
+        footer ul>li:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        footer ul>li [class^='grid-'] {
+            padding-left: 0.2rem;
+            padding-right: 0.2rem;
+        }
+
+        footer ul>li [class^='grid-']:first-child {
+            text-align: center;
+        }
+
+        footer ul>li [class^='grid-']:last-child {
+            text-align: left;
+        }
+
+        @media only screen and (min-width: 576px) {
+            .grid-s-1 {
+                width: calc(100% / 12 * 1);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-s-2 {
+                width: calc(100% / 12 * 2);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-s-3 {
+                width: calc(100% / 12 * 3);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-s-4 {
+                width: calc(100% / 12 * 4);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-s-5 {
+                width: calc(100% / 12 * 5);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-s-6 {
+                width: calc(100% / 12 * 6);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-s-7 {
+                width: calc(100% / 12 * 7);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-s-8 {
+                width: calc(100% / 12 * 8);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-s-9 {
+                width: calc(100% / 12 * 9);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-s-10 {
+                width: calc(100% / 12 * 10);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-s-11 {
+                width: calc(100% / 12 * 11);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-s-12 {
+                width: calc(100% / 12 * 12);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .grid-m-1 {
+                width: calc(100% / 12 * 1);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-m-2 {
+                width: calc(100% / 12 * 2);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-m-3 {
+                width: calc(100% / 12 * 3);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-m-4 {
+                width: calc(100% / 12 * 4);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-m-5 {
+                width: calc(100% / 12 * 5);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-m-6 {
+                width: calc(100% / 12 * 6);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-m-7 {
+                width: calc(100% / 12 * 7);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-m-8 {
+                width: calc(100% / 12 * 8);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-m-9 {
+                width: calc(100% / 12 * 9);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-m-10 {
+                width: calc(100% / 12 * 10);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-m-11 {
+                width: calc(100% / 12 * 11);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-m-12 {
+                width: calc(100% / 12 * 12);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            header>nav {
+                display: none;
+            }
+
+            header>menu {
+                display: initial;
+            }
+
+            header>menu>ul>li {
+                width: auto;
+            }
+
+            #service-2>.image-card:nth-child(2) {
+                margin-right: calc(100% / 12 * 1 / 2);
+            }
+
+            #service-2>.image-card:nth-child(4) {
+                margin-left: calc(100% / 12 * 1 / 2);
+            }
+
+            #promotion {
+                height: 50vh;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            .grid-l-1 {
+                width: calc(100% / 12 * 1);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-l-2 {
+                width: calc(100% / 12 * 2);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-l-3 {
+                width: calc(100% / 12 * 3);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-l-4 {
+                width: calc(100% / 12 * 4);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-l-5 {
+                width: calc(100% / 12 * 5);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-l-6 {
+                width: calc(100% / 12 * 6);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-l-7 {
+                width: calc(100% / 12 * 7);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-l-8 {
+                width: calc(100% / 12 * 8);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-l-9 {
+                width: calc(100% / 12 * 9);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-l-10 {
+                width: calc(100% / 12 * 10);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-l-11 {
+                width: calc(100% / 12 * 11);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-l-12 {
+                width: calc(100% / 12 * 12);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            .grid-xl-1 {
+                width: calc(100% / 12 * 1);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-xl-2 {
+                width: calc(100% / 12 * 2);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-xl-3 {
+                width: calc(100% / 12 * 3);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-xl-4 {
+                width: calc(100% / 12 * 4);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-xl-5 {
+                width: calc(100% / 12 * 5);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-xl-6 {
+                width: calc(100% / 12 * 6);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-xl-7 {
+                width: calc(100% / 12 * 7);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-xl-8 {
+                width: calc(100% / 12 * 8);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-xl-9 {
+                width: calc(100% / 12 * 9);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-xl-10 {
+                width: calc(100% / 12 * 10);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-xl-11 {
+                width: calc(100% / 12 * 11);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .grid-xl-12 {
+                width: calc(100% / 12 * 12);
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="flex nav">
+        <div class="logo grid-12 grid-l-4">
+            <h1>Appsea</h1>
+        </div>
+        <menu class="grid-12 grid-l-8">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">PAGES</a></li>
+                <li><a href="#">DROPDOWN</a></li>
+                <li><a href="#">LINK TEXT</a></li>
+                <li><a href="#">LINK TEXT</a></li>
+            </ul>
+        </menu>
+        <nav class="nav-toggle">
+            <div class="hamT"></div>
+            <div class="hamM"></div>
+            <div class="hamB"></div>
+        </nav>
+    </header>
+    <div id="header-adjustment"></div>
+    <div class="flex" id="theme">
+        <div class="slide">
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+        </div>
+        <div class="image-cover"></div>
+        <div class="flex grid-10">
+            <div class="push grid-12 grid-m-6">
+                <h2>THEME's DESIGN</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, dolorem.</p>
+                <a href="#" class="btn">More</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="introduction">
+        <div class="flex horizontal-slide-in">
+            <div class="grid-10 grid-m-5 from-left">
+                <h2>Lorem Ipsum Dolor</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non amet, molestias cum quae laborum
+                    perspiciatis enim fugit eveniet? Saepe exercitationem dolor temporibus soluta eos tempore nemo neque
+                    itaque dolores ut?</p>
+            </div>
+            <div class="grid-10 grid-m-5 from-right">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum magnam beatae odio asperiores
+                    placeat
+                    laboriosam eum dolor alias animi consequatur!
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dignissimos tempore consequatur
+                    quaerat
+                    mollitia sequi, nam impedit provident in odit.
+                </p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="flex">
+            <div class="grid-10 grid-m-5 grid-l-3">
+                <i class="fa-solid fa-key fa-3x"></i>
+                <h4>Lorem Ipsum Dolor</h4>
+                <p class="max-lines-3">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dicta quae velit dignissimos!
+                </p>
+            </div>
+            <div class="grid-10 grid-m-5 grid-l-4">
+                <i class="fa-solid fa-leaf fa-3x"></i>
+                <h4>Lorem Ipsum Dolor</h4>
+                <p class="max-lines-3">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis quibusdam eligendi repellat
+                    aspernatur.
+                </p>
+            </div>
+            <div class="grid-10 grid-m-5 grid-l-3">
+                <i class="fa-solid fa-gavel fa-3x"></i>
+                <h4>Lorem Ipsum Dolor</h4>
+                <p class="max-lines-3">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo totam accusamus facilis
+                    reiciendis!
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="flex" id="service">
+        <div class="grid-12">
+            <h2>Lorem Ipsum Dolor Sit</h2>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="grid-12 grid-s-6 grid-m-4 grid-l-2">
+            <img src="https://picsum.photos/600/600?random=6" alt="">
+            <div class="push">
+                <h3>Lorem</h3>
+            </div>
+        </div>
+        <div class="grid-12 grid-s-6 grid-m-4 grid-l-2">
+            <img src="https://picsum.photos/600/600?random=7" alt="">
+            <div class="push">
+                <h3>Lorem</h3>
+            </div>
+        </div>
+        <div class="grid-12 grid-s-6 grid-m-4 grid-l-2">
+            <img src="https://picsum.photos/600/600?random=8" alt="">
+            <div class="push">
+                <h3>Lorem</h3>
+            </div>
+        </div>
+        <div class="grid-12 grid-s-6 grid-m-4 grid-l-2">
+            <img src="https://picsum.photos/600/600?random=9" alt="">
+            <div class="push">
+                <h3>Lorem</h3>
+            </div>
+        </div>
+        <div class="grid-12 grid-s-6 grid-m-4 grid-l-2">
+            <img src="https://picsum.photos/600/600?random=10" alt="">
+            <div class="push">
+                <h3>Lorem</h3>
+            </div>
+        </div>
+        <div class="grid-12 grid-s-6 grid-m-4 grid-l-2">
+            <img src="https://picsum.photos/600/600?random=11" alt="">
+            <div class="push">
+                <h3>Lorem</h3>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="flex" id="service-2">
+        <div class="grid-10" id="service-2-text">
+            <h2>Lorem, ipsum dolor.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita?</p>
+        </div>
+        <div class="grid-10 flex">
+            <div class="grid-12 grid-m-4 image-card">
+                <div class="image-container">
+                    <img src="https://picsum.photos/600/600?random=12" alt="">
+                </div>
+                <br>
+                <br>
+                <h3>Lorem ipsum dolor sit.</h3>
+                <div class="section">
+                    <p class="max-lines-3">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis inventore quam asperiores
+                        omnis
+                        et
+                        ea,
+                        beatae iure.
+                    </p>
+                </div>
+                <button class="btn">
+                    Read more
+                </button>
+            </div>
+            <div class="grid-12 grid-m-4 image-card">
+                <div class="image-container">
+                    <img src="https://picsum.photos/600/600?random=13" alt="">
+                </div>
+                <br>
+                <br>
+                <h3>Lorem ipsum dolor sit.</h3>
+                <div class="section">
+                    <p class="max-lines-3">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis inventore quam asperiores
+                        omnis
+                        et
+                        ea,
+                        beatae iure.
+                    </p>
+                </div>
+                <button class="btn">
+                    Read more
+                </button>
+            </div>
+            <div class="grid-12 grid-m-4 image-card">
+                <div class="image-container">
+                    <img src="https://picsum.photos/600/600?random=14" alt="">
+                </div>
+                <br>
+                <br>
+                <h3>Lorem ipsum dolor sit.</h3>
+                <div class="section">
+                    <p class="max-lines-3">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis inventore quam asperiores
+                        omnis
+                        et
+                        ea,
+                        beatae iure.
+                    </p>
+                </div>
+                <button class="btn">
+                    Read more
+                </button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="flex" id="promotion">
+        <div class="flex grid-12 grid-m-6">
+            <div class="grid-10">
+                <h2>Lorem, ipsum dolor</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum odit aspernatur ratione tempore
+                    voluptate
+                    nam assumenda.
+                </p>
+                <button class="btn">Read more</button>
+            </div>
+        </div>
+    </div>
+    <div class="flex" id="section">
+        <div class="grid-10 grid-m-5 center-align">
+            <br>
+            <br>
+            <br>
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+            <br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, non.</p>
+            <br>
+            <br>
+            <button class="btn">
+                Ridiculus
+            </button>
+            <br>
+            <br>
+            <br>
+            <p>** Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, saepe</p>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+    <div class="flex" id="section-2">
+        <div class="grid-12 grid-m-4">
+            <div class="flex">
+                <h3>Lorem, ipsum dolor</h3>
+                <br>
+                <br>
+                <p class="max-lines-3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus deserunt cupiditate repudiandae
+                    sapiente. Error, quas cum non odio in nobis sit?
+                </p>
+                <br>
+                <button class="btn">Read more</button>
+            </div>
+        </div>
+        <div class="grid-12 grid-m-4">
+            <div class="flex">
+                <h3>Lorem, ipsum dolor</h3>
+                <br>
+                <br>
+                <p class="max-lines-3">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus facere cupiditate consequatur
+                    quis a
+                    laudantium, velit placeat sed, perspiciatis molestiae illo.
+                </p>
+                <br>
+                <button class="btn transparent">Read more</button>
+            </div>
+        </div>
+        <div class="grid-12 grid-m-4">
+            <div class="flex">
+                <h3>Lorem, ipsum dolor.</h3>
+                <br>
+                <br>
+                <p class="max-lines-3">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente itaque voluptate cupiditate iste
+                    similique ut, molestias inventore numquam eum aliquid recusandae.
+                </p>
+                <br>
+                <button class="btn">Read more</button>
+            </div>
+        </div>
+    </div>
+    <footer class="flex">
+        <div class="grid-12 flex">
+            <div class="grid-10 flex">
+                <div class="grid-12 grid-m-6 grid-l-3">
+                    <h4>Lorem, ipsum dolor</h4>
+                    <br>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quibusdam ratione facere et
+                        sit,
+                        tempore laborum amet neque architecto, sequi, quasi id voluptatem possimus deleniti modi.
+                        Impedit
+                        architecto vitae hic?
+                    </p>
+                    <br>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque sint iste molestiae accusamus
+                        et,
+                        cum reiciendis, porro aliquid illum minus omnis quisquam unde ab! Pariatur sapiente aut nesciunt
+                        unde nulla.
+                    </p>
+                </div>
+                <div class="grid-12 grid-m-6 grid-l-3">
+                    <h4>Lorem, ipsum dolor</h4>
+                    <br>
+                    <br>
+                    <ul>
+                        <li>
+                            <div class="flex">
+                                <div class="grid-2">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="grid-10">
+                                    <span>Street Name & Number, Town, Postcode/Zip</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex">
+                                <div class="grid-2">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="grid-10">
+                                    <span>
+                                        +00 (123) 456 7890
+                                        <br>
+                                        +00 (123) 456 7890
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex">
+                                <div class="grid-2">
+                                    <i class="fa-solid fa-blender-phone"></i>
+                                </div>
+                                <div class="grid-10">
+                                    <span>+00 (123) 456 7890</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex">
+                                <div class="grid-2">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div class="grid-10">
+                                    <span>info@domain.com</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid-12 grid-m-6 grid-l-3">
+                    <h4>Lorem, ipsum dolor</h4>
+                    <br>
+                    <br>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Lorem ipsum dolor sit amet
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Lorem, ipsum
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Lorem, ipsum dolor
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Lorem ipsum dolor sit
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Lorem ipsum dolor sit
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid-12 grid-m-6 grid-l-3">
+                    <h4>Lorem, ipsum dolor</h4>
+                    <br>
+                    <br>
+                    <ul>
+                        <li>
+                            <h4>
+                                <a href="#">Lorem ipsum dolor sit</a>
+                            </h4>
+                            <small>Friday, 6<sup>th</sup> April 2045</small>
+                            <br>
+                            <br>
+                            <p class="max-lines-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident?
+                            </p>
+                        </li>
+                        <li>
+                            <h4>
+                                <a href="#">Lorem ipsum dolor sit amet</a>
+                            </h4>
+                            <small>Thursday, 5<sup>th</sup> April 2045</small>
+                            <br>
+                            <br>
+                            <p class="max-lines-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident?
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="grid-12 flex">
+            <div class="grid-10">
+                <br>
+                <p>
+                    Copyright &copy; 2016 - All Rights Reserved - Domain Name
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        "use strict";
+
+        (function () {
+            let navs = document.getElementsByClassName("nav");
+            for (let nav of navs) {
+                let navToggleButton = nav.querySelector(".nav-toggle");
+                navToggleButton.addEventListener("click", () => {
+                    let isToggled = nav.classList.contains("toggled");
+                    if (isToggled) {
+                        nav.classList.remove("toggled");
+                    } else {
+                        nav.classList.add("toggled");
+                    }
+                });
+            }
+
+            /* Refactor this code (consider of using a JSON object to save
+            slide in elements with their left child elements and right child elements). */
+            let horizontalSlideInElems = document.getElementsByClassName("horizontal-slide-in");
+            window.addEventListener("scroll", function () {
+                for (let horizontalSlideInElem of horizontalSlideInElems) {
+                    let horizontalSlideInElemBounds = horizontalSlideInElem.getBoundingClientRect();
+                    if (horizontalSlideInElemBounds.bottom <= window.innerHeight) {
+                        let fromLeftElems = horizontalSlideInElem.querySelectorAll(".from-left");
+                        let fromRightElems = horizontalSlideInElem.querySelectorAll(".from-right");
+                        for (let fromLeftElem of fromLeftElems) {
+                            fromLeftElem.style.transform = "translateX(0)";
+                        }
+                        for (let fromRightElem of fromRightElems) {
+                            fromRightElem.style.transform = "translateX(0)";
+                        }
+                    }
+                }
+            });
+            for (let horizontalSlideInElem of horizontalSlideInElems) {
+                let fromLeftElems = horizontalSlideInElem.querySelectorAll(".from-left");
+                let fromRightElems = horizontalSlideInElem.querySelectorAll(".from-right");
+                horizontalSlideInElem.style.overflow = "hidden";
+                horizontalSlideInElem.style.transition = "all 0.3s ease";
+                for (let fromLeftElem of fromLeftElems) {
+                    fromLeftElem.style.transform = "translateX(-150%)";
+                    fromLeftElem.style.transition = "inherit";
+                }
+                for (let fromRightElem of fromRightElems) {
+                    fromRightElem.style.transform = "translateX(150%)";
+                    fromRightElem.style.transition = "inherit";
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+@mixin reset {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    vertical-align: bottom;
+}
+
+@mixin list-reset {
+    list-style: none;
+}
+
+@mixin link-reset {
+    color: inherit;
+    text-decoration: none;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    border: none;
+}

@@ -1,0 +1,115 @@
+@mixin default {
+    @for $i from 1 through 12 {
+        &>.col-#{$i} {
+            display: inline-block;
+            margin: 0;
+            box-sizing: border-box;
+            border: none;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            width: calc(100% * #{$i}/12);
+        }
+    }
+}
+
+@mixin phone {
+    @for $i from 1 through 12 {
+        &>.col-sm-#{$i} {
+            display: inline-block;
+            margin: 0;
+            box-sizing: border-box;
+            border: none;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            width: calc(100% * #{$i}/12);
+        }
+    }
+}
+
+@mixin tablet {
+    @for $i from 1 through 12 {
+        &>.col-md-#{$i} {
+            display: inline-block;
+            margin: 0;
+            box-sizing: border-box;
+            border: none;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            width: calc(100% * #{$i}/12);
+        }
+    }
+}
+
+@mixin desktop {
+    @for $i from 1 through 12 {
+        &>.col-lg-#{$i} {
+            display: inline-block;
+            margin: 0;
+            box-sizing: border-box;
+            border: none;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            width: calc(100% * #{$i}/12);
+        }
+    }
+}
+
+@mixin tv {
+    @for $i from 1 through 12 {
+        &>.col-xl-#{$i} {
+            display: inline-block;
+            margin: 0;
+            box-sizing: border-box;
+            border: none;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            width: calc(100% * #{$i}/12);
+        }
+    }
+}
+
+@mixin extreme-large {
+    @for $i from 1 through 12 {
+        &>.col-xxl-#{$i} {
+            display: inline-block;
+            margin: 0;
+            box-sizing: border-box;
+            border: none;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            width: calc(100% * #{$i}/12);
+        }
+    }
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+
+    @include default;
+
+    @media only screen and (min-width: 576px) {
+        @include phone;
+    }
+
+    @media only screen and (min-width: 768px) {
+        @include tablet;
+    }
+
+    @media only screen and (min-width: 992px) {
+        @include desktop;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        @include tv;
+    }
+
+    @media only screen and (min-width: 1400px) {
+        @include extreme-large;
+    }
+}
