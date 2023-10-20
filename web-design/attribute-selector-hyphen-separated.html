@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute Selector Hyphen Separated</title>
+    <style>
+      [lang|="fr"] {
+        font-style: italic;
+      }
+      [lang|="fr"] q:before {
+        content: "\00AB"; /* Left angle quote */
+      }
+      [lang|="fr"] q:after {
+        content: "\00BB"; /* Right angle quote */
+      }
+    </style>
+  </head>
+  <body>
+    <p lang="fr-FR"><q>Tout le monde</q></p>
+    <p><q>All the world</q>, or <q>Everyone</q></p>
+  </body>
+</html>
