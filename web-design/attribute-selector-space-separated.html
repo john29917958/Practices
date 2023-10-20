@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute Selector</title>
+    <style>
+      [rel~="friend"] {
+        font-size: 2rem;
+        background: #eee;
+        padding: 4px;
+        text-decoration: none;
+        border-bottom: 3px solid #ccc;
+      }
+      [rel~="friend"]:link,
+      [rel~="friend"]:visited {
+        color: #34444c;
+      }
+      [rel~="friend"]:hover {
+        background-color: #ffeb3b;
+        border-color: #ffc107;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="http://bob.example.com" rel="external friend">Bob</a>
+      <a href="http://maria.example.com" rel="external acquaintance"
+        >Mar&iacute;a</a
+      >
+      <a href="http://ifeoma.example.com" rel="external colleague">Ifeoma</a>
+    </nav>
+  </body>
+</html>
