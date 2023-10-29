@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typed Child-indexed Selectors</title>
+    <style>
+      .box {
+        display: inline-block;
+        padding: 1rem 3rem;
+        margin: 0.1rem;
+        font-size: initial;
+        color: white;
+        background: purple;
+        box-sizing: border-box;
+      }
+
+      p.box {
+        border-radius: 2rem;
+      }
+
+      .group-of-boxes {
+        font-size: 0;
+      }
+
+      #group-of-boxes-1 p:first-of-type {
+        color: black;
+        background: #cddc39;
+      }
+
+      #group-of-boxes-2 p:last-of-type {
+        color: black;
+        background: #cddc39;
+      }
+
+      #group-of-boxes-3 p:only-of-type {
+        color: black;
+        background: #e91e63;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Group of Boxes 1</h1>
+    <div class="group-of-boxes" id="group-of-boxes-1">
+      <div class="box">1</div>
+      <p class="box">2</p>
+      <div class="box">3</div>
+      <p class="box">4</p>
+      <div class="box">5</div>
+      <p class="box">6</p>
+      <div class="box">7</div>
+      <p class="box">8</p>
+      <div class="box">9</div>
+      <p class="box">10</p>
+      <div class="box">11</div>
+      <p class="box">12</p>
+      <div class="box">13</div>
+      <p class="box">14</p>
+      <div class="box">15</div>
+      <p class="box">16</p>
+      <div class="box">17</div>
+      <p class="box">18</p>
+      <div class="box">19</div>
+      <p class="box">20</p>
+      <div class="box">21</div>
+      <p class="box">22</p>
+      <div class="box">23</div>
+      <p class="box">24</p>
+      <div class="box">25</div>
+    </div>
+    <br />
+
+    <h1>Group of Boxes 2</h1>
+    <div class="group-of-boxes" id="group-of-boxes-2">
+      <div class="box">1</div>
+      <p class="box">2</p>
+      <div class="box">3</div>
+      <p class="box">4</p>
+      <div class="box">5</div>
+      <p class="box">6</p>
+      <div class="box">7</div>
+      <p class="box">8</p>
+      <div class="box">9</div>
+      <p class="box">10</p>
+      <div class="box">11</div>
+      <p class="box">12</p>
+      <div class="box">13</div>
+      <p class="box">14</p>
+      <div class="box">15</div>
+      <p class="box">16</p>
+      <div class="box">17</div>
+      <p class="box">18</p>
+      <div class="box">19</div>
+      <p class="box">20</p>
+      <div class="box">21</div>
+      <p class="box">22</p>
+      <div class="box">23</div>
+      <p class="box">24</p>
+      <div class="box">25</div>
+    </div>
+    <br />
+
+    <h1>Group of Boxes 3</h1>
+    <div class="group-of-boxes" id="group-of-boxes-3">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+      <p class="box">7</p>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box">13</div>
+      <div class="box">14</div>
+      <div class="box">15</div>
+      <div class="box">16</div>
+      <div class="box">17</div>
+      <div class="box">18</div>
+      <div class="box">19</div>
+      <div class="box">20</div>
+      <div class="box">21</div>
+      <div class="box">22</div>
+      <div class="box">23</div>
+      <div class="box">24</div>
+      <div class="box">25</div>
+    </div>
+    <br />
+  </body>
+</html>
