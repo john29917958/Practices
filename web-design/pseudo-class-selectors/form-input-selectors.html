@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Input Selectors</title>
+    <style>
+      .bold {
+        font-weight: bold;
+      }
+
+      label:not(input[type="radio"] + label) {
+        font-weight: bold;
+      }
+
+      input,
+      select {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+      }
+
+      input:required {
+        border: 1px solid #ffc107;
+      }
+
+      select:optional {
+        border: 1px solid #ccc;
+      }
+
+      #backup-email:not(:placeholder-shown):invalid {
+        background-color: rgba(195, 4, 4, 0.25);
+        border-color: rgba(194, 4, 4, 1);
+        outline-color: rgba(194, 4, 4, 1);
+      }
+
+      input[type="radio"],
+      input[type="radio"] + label {
+        cursor: pointer;
+      }
+
+      input[type="radio"]:checked + label {
+        font-weight: bold;
+        font-size: 1.05rem;
+      }
+
+      input[type="radio"].custom-button-radio {
+        appearance: none;
+        border: none;
+      }
+
+      input[type="radio"].custom-button-radio + label:before {
+        background: #fff;
+        content: "";
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 1000px;
+        height: 0.8rem;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+        width: 0.8rem;
+      }
+
+      input[type="radio"].custom-button-radio:checked + label:before {
+        background: #4caf50;
+      }
+
+      input[type="radio"].custom-button-radio {
+        border: none;
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        padding: 0.5rem 1rem;
+      }
+
+      progress {
+        background: #ccc;
+        box-shadow: 0 0 8px 0px #000a;
+        border-radius: 1000rem;
+        display: block;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      progress::-moz-progress-bar {
+        background: #ccc;
+      }
+
+      progress::-webkit-progress-bar {
+        background: #ccc;
+      }
+
+      progress:indeterminate::-moz-progress-bar {
+        background: repeating-linear-gradient(
+          -45deg,
+          #999,
+          #999 1rem,
+          #eee 1rem,
+          #eee 2rem
+        );
+      }
+
+      progress:indeterminate::-webkit-progress-bar {
+        background: repeating-linear-gradient(
+          -45deg,
+          #999,
+          #999 1rem,
+          #eee 1rem,
+          #eee 2rem
+        );
+      }
+
+      progress:indeterminate {
+        background: repeating-linear-gradient(
+          -45deg,
+          #999,
+          #999 1rem,
+          #eee 1rem,
+          #eee 2rem
+        );
+      }
+
+      #picknum:out-of-range {
+        background: #ffeb3b;
+      }
+
+      #picknum:in-range {
+        background: #fff;
+      }
+
+      button:enabled {
+        color: white;
+        background-color: #1e88e5;
+      }
+
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <label for="email">E-mail</label>
+      <br />
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Example: abc@domain.com"
+        required
+      />
+      <br />
+      <br />
+      <label for="backup-email">Backup e-mail</label>
+      <br />
+      <input
+        type="email"
+        name="backup-email"
+        id="backup-email"
+        placeholder=" "
+        required
+      />
+      <br />
+      <br />
+      <label for="role">I am:</label>
+      <br />
+      <select name="role" id="role">
+        <option value="" disabled selected hidden>-- Select --</option>
+        <option value="guest">Guest</option>
+        <option value="developer">Developer</option>
+        <option value="manager">Manager</option>
+      </select>
+      <br />
+      <br />
+      <span class="bold">Gender:</span>
+      <br />
+      <input type="radio" name="gender" id="radio-gender-male" value="male" />
+      <label for="radio-gender-male">Male</label>
+      <input
+        type="radio"
+        name="gender"
+        id="radio-gender-female"
+        value="female"
+      />
+      <label for="radio-gender-female">Female</label>
+      <br />
+      <br />
+      <span class="bold">Do you need a special meal?</span>
+      <br />
+      <input
+        class="custom-button-radio"
+        type="radio"
+        name="special-meal"
+        id="radio-special-meal-no"
+        value="no"
+        checked
+      />
+      <label for="radio-special-meal-no">No, thanks</label>
+      <input
+        class="custom-button-radio"
+        type="radio"
+        name="special-meal"
+        id="radio-special-meal-kosher"
+        value="kosher"
+      />
+      <label for="radio-special-meal-kosher">Kosher</label>
+      <input
+        class="custom-button-radio"
+        type="radio"
+        name="special-meal"
+        id="radio-special-meal-vegetarian"
+        value="vegetarian"
+      />
+      <label for="radio-special-meal-vegetarian">Vegetarian</label>
+      <input
+        class="custom-button-radio"
+        type="radio"
+        name="special-meal"
+        id="radio-special-meal-vegan"
+        value="vegan"
+      />
+      <label for="radio-special-meal-vegan">Vegan</label>
+      <input
+        class="custom-button-radio"
+        type="radio"
+        name="special-meal"
+        id="radio-special-meal-gluten-free"
+        value="gluten-free"
+      />
+      <label for="radio-special-meal-gluten-free">Gluten-free</label>
+      <br />
+      <br />
+      <div>
+        <label for="upload">Uploading progress</label>
+        <br />
+        <br />
+        <progress
+          max="100"
+          id="upload"
+          aria-describedby="progress-text"
+        ></progress>
+        <br />
+        <span id="progress-text">0 of <i>unknown</i> bytes.</span>
+      </div>
+      <br />
+      <label for="picknum">Enter a number from 1-100</label>
+      <br />
+      <input
+        type="number"
+        name="picknum"
+        id="picknum"
+        min="1"
+        max="100"
+        size="10"
+      />
+      <br />
+      <br />
+      <button type="submit">Save draft</button>
+      <button type="submit" disabled>Save draft</button>
+    </form>
+  </body>
+</html>
