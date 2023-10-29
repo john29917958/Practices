@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Target Selector</title>
+    <style>
+      .comment:target {
+        background: #ffeb3b;
+        border-color: #ffc107;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a href="#comment-1">Go to comment 1</a></li>
+      <li><a href="#comment-2">Go to comment 2</a></li>
+      <li><a href="#comment-3">Go to comment 3</a></li>
+    </ul>
+    <section id="comments">
+      <h2>Comments</h2>
+      <article class="comment" id="comment-1">Comment 1</article>
+      <article class="comment" id="comment-2">Comment 2</article>
+      <article class="comment" id="comment-3">Comment 3</article>
+    </section>
+  </body>
+</html>
