@@ -5,20 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marker Selector</title>
     <style>
-      ol ::marker,
-      ul ::marker {
+      ol.blue-large ::marker,
+      ul.blue-large ::marker {
         color: blue;
         font-size: 2rem;
+      }
+
+      ul.error li::marker {
+        content: "❌";
+      }
+
+      ul.error li::before {
+        content: "\00a0";
+        display: inline-block;
+        padding: 0 10px;
       }
     </style>
   </head>
   <body>
-    <ol>
+    <ol class="blue-large">
       <li>Lorem, ipsum dolor.</li>
       <li>Lorem, ipsum.</li>
       <li>Lorem.</li>
     </ol>
-    <ul>
+    <ul class="blue-large">
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum.</li>
+      <li>Lorem.</li>
+    </ul>
+    <ul class="error">
       <li>Lorem, ipsum dolor.</li>
       <li>Lorem, ipsum.</li>
       <li>Lorem.</li>
