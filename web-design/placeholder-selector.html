@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placeholder Selector</title>
+    <style>
+      input::placeholder {
+        color: rgba(0, 0, 100, 1);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="post">
+      <label for="subscriber-email">Your e-mail address</label>
+      <input
+        type="email"
+        name="subscriber-email"
+        id="subscriber-email"
+        placeholder="yourname@example.com"
+        size="25"
+      />
+    </form>
+  </body>
+</html>
