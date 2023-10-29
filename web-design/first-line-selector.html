@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First Line Selector</title>
+    <style>
+      p::first-line {
+        font: bold 1.5rem serif;
+        font-style: italic;
+        color: #673ab7;
+      }
+
+      p::before {
+        content: "Generated content using ::before pseudo element selector.";
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos,
+      earum culpa illum enim nam quod minus magni omnis vero repudiandae nemo
+      esse expedita. Assumenda culpa animi quo quos nulla nesciunt, delectus
+      deserunt harum, omnis natus vitae incidunt minima enim? Consequatur non
+      commodi doloremque quis recusandae corporis aliquid atque deserunt ipsa!
+    </p>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam ad
+      fugiat animi necessitatibus eaque quaerat, ut, beatae reiciendis ea
+      accusantium sequi alias, cumque quo maiores quidem. Officia a omnis qui
+      sed sapiente repellendus saepe fugit quo illo unde optio ducimus
+      reiciendis eius, fuga beatae modi maxime corrupti tempora id consectetur.
+    </p>
+  </body>
+</html>
