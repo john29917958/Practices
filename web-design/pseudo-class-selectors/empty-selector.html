@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empty Selector</title>
+    <style>
+      p:empty {
+        display: none;
+      }
+
+      input:empty {
+        display: none;
+      }
+
+      img:empty {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <p>A paragraph.</p>
+    <p></p>
+    <!-- This <p> element will be hidden. -->
+    <p>Another paragraph.</p>
+    <p>
+      <!-- This <p> element will not be hidden. -->
+    </p>
+    <input
+      type="text"
+      name="input-hidden-unexpectedly"
+      id="input-hidden-unexpectedly"
+      value="input-hidden-unexpectedly"
+    />
+    <!-- This <img> element will be hidden. -->
+    <img src="https://picsum.photos/id/684/600/400" alt="" />
+  </body>
+</html>
