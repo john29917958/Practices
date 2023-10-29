@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Where Selector</title>
+    <style>
+      a:where(:not(:hover)) {
+        /* Adjust the CSS specificity to 0:0:1 instead of 0:1:1. */
+        text-decoration: underline 2px;
+      }
+
+      nav a {
+        /* CSS specificity: 0:0:2. */
+        text-decoration: hsl(340, 82%, 52%) wavy underline 1.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#">This is a link</a>
+    </nav>
+  </body>
+</html>
