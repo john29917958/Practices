@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not Selector</title>
+    <style>
+      label:not(.label-radio) {
+        font-weight: bold;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <h1>Join the Cool Kids Club</h1>
+      <p>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required />
+      </p>
+      <p>
+        <label for="email">E-mail:</label>
+        <input type="email" name="email" id="email" required />
+      </p>
+      <fieldset>
+        <legend>Receive a digest?</legend>
+        <p>
+          <input type="radio" name="daily" id="digest" />
+          <label for="daily" class="label-radio">Daily</label>
+          <input type="radio" name="weekly" id="digest" />
+          <label for="weekly" class="label-radio">Weekly</label>
+        </p>
+      </fieldset>
+      <br />
+      <button type="submit">Buy Tickets!</button>
+    </form>
+  </body>
+</html>
