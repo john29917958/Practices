@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo Element Selector</title>
+    <style>
+      .helptext::before,
+      .helptext::after {
+        color: hsl(340, 82%, 52%);
+      }
+      .helptext::before {
+        content: "( ";
+      }
+      .helptext::after {
+        content: " )";
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Change Your Password</legend>
+        <p>
+          <label for="password">Enter a new password</label>
+          <input type="password" name="password" id="password" />
+        </p>
+        <p>
+          <label for="password2">Retype your password</label>
+          <input type="password" name="password2" id="password2" />
+        </p>
+        <p class="helptext">Longer passwords are stronger.</p>
+        <p><button type="submit">Save changes</button></p>
+      </fieldset>
+    </form>
+  </body>
+</html>
