@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marker Selector Priority</title>
+    <style>
+      ul {
+        list-style: upper-roman; /* Visible when ::marker is not supported. */
+      }
+
+      ul ::marker {
+        content: "💎"; /* Rendered in browsers that support ::marker */
+        font-size: 2.3rem;
+        font-weight: bold;
+        color: #090;
+      }
+    </style>
+  </head>
+  <body>
+    <ul style="margin-left: 5rem">
+      <li>Lorem, ipsum dolor</li>
+      <li>Lorem, ipsum</li>
+      <li>Lorem ipsum dolor sit amet</li>
+    </ul>
+  </body>
+</html>
