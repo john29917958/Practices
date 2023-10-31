@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Attribute</title>
+    <style>
+      :root {
+        --primary-hue: 270deg;
+        --primary-hue-alt: 0.25turn;
+        --primary-color: hsl(var(--primary-hue), 100%, 50%);
+        --primary-color-lighten: hsl(var(--primary-hue), 100%, 75%);
+        --primary-color-darken: hsl(var(--primary-hue), 100%, 25%);
+        --secondary-color: hsl(var(--primary-hue-alt), 100%, 50%);
+        --secondary-color-lighten: hsl(var(--primary-hue-alt), 100%, 75%);
+        --secondary-color-darken: hsl(var(--primary-hue-alt), 100%, 25%);
+      }
+
+      p {
+        --primary-color: gray;
+      }
+
+      h1 {
+        color: var(--primary-color);
+      }
+
+      a {
+        color: var(--secondary-color);
+      }
+
+      p {
+        color: var(--primary-color); /* Overridden to gray. */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lorem Ipsum Dolor</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus
+      labore rem, placeat minus voluptatem commodi laboriosam aspernatur
+      assumenda reprehenderit dolorum necessitatibus quos laudantium similique
+      ad nulla? <a href="#">quod corrupti et</a>.
+    </p>
+  </body>
+</html>
