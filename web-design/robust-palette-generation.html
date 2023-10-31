@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Robust Palette Generation Example</title>
+    <style>
+      :root {
+        --base-hue: 310deg; /* Hot pink. */
+        --distance: 90deg;
+
+        --color-a: hsl(var(--base-hue), 100%, 50%);
+        --color-b: hsl(calc(var(--base-hue) + var(--distance)), 100%, 50%);
+        --color-c: hsl(calc(var(--base-hue) + var(--distance) * 2), 100%, 50%);
+        --color-d: hsl(calc(var(--base-hue) + var(--distance) * 3), 100%, 50%);
+      }
+
+      .color-palette {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      .box {
+        display: inline-block;
+        width: 10rem;
+        height: 10rem;
+        box-sizing: border-box;
+        margin: 0.5rem;
+      }
+
+      .color-a {
+        background: var(--color-a);
+      }
+
+      .color-b {
+        background: var(--color-b);
+      }
+
+      .color-c {
+        background: var(--color-c);
+      }
+
+      .color-d {
+        background: var(--color-d);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="color-palette">
+      <div class="color-a box"></div>
+      <div class="color-b box"></div>
+      <div class="color-c box"></div>
+      <div class="color-d box"></div>
+    </div>
+  </body>
+</html>
