@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Property</title>
+    <style>
+      :root {
+        --text-color: black;
+      }
+
+      h1 {
+        --text-color: gray;
+      }
+
+      p {
+        --text-color: darkgray;
+      }
+
+      h1 {
+        color: var(--text-color); /* Overridden to gray. */
+      }
+
+      p {
+        color: var(--text-color); /* Overridden to darkgray. */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Custom Property</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+      necessitatibus nam aspernatur quaerat fugiat architecto ipsa sunt
+      accusantium enim fuga fugit ipsum quis, nulla rem recusandae eaque eum
+      optio possimus.
+    </p>
+    <p style="--text-color: red">
+      Color of text in this paragraph is overridden to red by inline CSS rule.
+    </p>
+  </body>
+</html>
