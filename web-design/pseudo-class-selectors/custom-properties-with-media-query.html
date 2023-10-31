@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Properties with Media Query</title>
+    <style>
+      :root {
+        --background-primary: hsl(34, 78%, 91%);
+        --text-primary: hsl(25, 76%, 10%);
+        --button-primary-bg: hsl(214, 77%, 10%);
+        --button-primary-fg: hsl(214, 77%, 98%);
+      }
+
+      @media screen and (prefers-color-scheme: dark) {
+        :root {
+          --background-primary: hsl(25, 76%, 10%);
+          --text-primary: hsl(34, 78%, 91%);
+          --button-primary-bg: hsl(214, 77%, 98%);
+          --button-primary-fg: hsl(214, 77%, 10%);
+        }
+      }
+
+      html,
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--background-primary);
+        color: var(--text-primary);
+        margin: 0;
+        padding: 1rem 10%;
+      }
+
+      .btn {
+        color: var(--button-primary-fg);
+        background: var(--button-primary-bg);
+        border: none;
+        box-sizing: border-box;
+        border-radius: 0.15rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lorem Ipsum Dolor</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem,
+      exercitationem.
+    </p>
+    <button class="btn">Lorem</button>
+  </body>
+</html>
