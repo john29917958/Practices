@@ -1,0 +1,16 @@
+.FieldButtonGroup label {
+  display: block;
+}
+
+.FieldButtonGroup button {
+  box-sizing: border-box;
+  flex: 0 1 10rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.7rem 0.7rem;
+  color: #fff;
+  background-color: var(--button-bg-color, rgb(103, 58, 183));
+  border: none;
+  border-radius: 0.23rem;
+  cursor: pointer;
+}
