@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Block Formatting</title>
+    <style>
+      html,
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1,
+      h2 {
+        color: #212121;
+      }
+
+      .container {
+        box-sizing: border-box;
+        display: block;
+        margin: 1rem 0;
+        border: 0.2rem solid #424242;
+      }
+
+      .child {
+        box-sizing: border-box;
+        padding: 1rem;
+        color: #212121;
+        background: #f44336;
+        border: #d32f2f solid 0.2rem;
+      }
+
+      .display-block {
+        display: block;
+      }
+
+      .list-item {
+        display: list-item;
+        list-style: none;
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      .grid {
+        display: grid;
+      }
+
+      .flow-root {
+        display: flow-root;
+      }
+
+      .contain-content {
+        contain: content;
+      }
+
+      .right-to-left {
+        writing-mode: vertical-rl;
+        width: 100%;
+        overflow-x: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Block Formatting</h1>
+    <h2>Horizontal Writing Mode</h2>
+    <div class="container">
+      <div class="display-block child">Display: block</div>
+      <div class="display-block child">Display: block</div>
+      <div class="display-block child">Display: block</div>
+    </div>
+    <div class="container">
+      <div class="list-item child">Display: list-item</div>
+      <div class="list-item child">Display: list-item</div>
+      <div class="list-item child">Display: list-item</div>
+    </div>
+    <div class="container">
+      <div class="flex child">Display: flex</div>
+      <div class="flex child">Display: flex</div>
+      <div class="flex child">Display: flex</div>
+    </div>
+    <div class="container">
+      <div class="grid child">Display: grid</div>
+      <div class="grid child">Display: grid</div>
+      <div class="grid child">Display: grid</div>
+    </div>
+    <div class="container">
+      <div class="flow-root child">Display: flow-root</div>
+      <div class="flow-root child">Display: flow-root</div>
+      <div class="flow-root child">Display: flow-root</div>
+    </div>
+    <div class="container">
+      <div class="contain-content child">Contain: content</div>
+    </div>
+    <h2>Vertical Writing Mode</h2>
+    <div class="container right-to-left">
+      <div class="display-block child">Display: block</div>
+      <div class="display-block child">Display: block</div>
+      <div class="display-block child">Display: block</div>
+      <div class="display-block child">Display: block</div>
+      <div class="display-block child">Display: block</div>
+      <div class="display-block child">Display: block</div>
+      <div class="display-block child">Display: block</div>
+      <div class="display-block child">Display: block</div>
+      <div class="display-block child">Display: block</div>
+      <div class="display-block child">Display: block</div>
+    </div>
+    <div class="container right-to-left">
+      <div class="list-item child">Display: list-item</div>
+      <div class="list-item child">Display: list-item</div>
+      <div class="list-item child">Display: list-item</div>
+    </div>
+    <div class="container right-to-left">
+      <div class="flex child">Display: flex</div>
+      <div class="flex child">Display: flex</div>
+      <div class="flex child">Display: flex</div>
+    </div>
+    <div class="container right-to-left">
+      <div class="grid child">Display: grid</div>
+      <div class="grid child">Display: grid</div>
+      <div class="grid child">Display: grid</div>
+    </div>
+    <div class="container right-to-left">
+      <div class="flow-root child">Display: flow-root</div>
+      <div class="flow-root child">Display: flow-root</div>
+      <div class="flow-root child">Display: flow-root</div>
+    </div>
+    <div class="container right-to-left">
+      <div class="contain-content child">Contain: content</div>
+    </div>
+  </body>
+</html>
