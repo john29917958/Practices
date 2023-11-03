@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logical Properties</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .container {
+        box-sizing: border-box;
+        height: 100vh;
+        position: relative;
+        background: #1976d2;
+        writing-mode: horizontal-tb;
+      }
+
+      .container-verti {
+        width: 100%;
+        writing-mode: vertical-rl;
+      }
+
+      .box {
+        box-sizing: border-box;
+        height: 10rem;
+        position: absolute;
+        width: 10rem;
+        background: #ff5722;
+      }
+
+      .start {
+        inset-block-start: 0;
+      }
+
+      .end {
+        inset-block-end: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Logical Properties</h1>
+    <h2>Horizontal Writing Mode</h2>
+    <div class="container">
+      <div class="box start">inset-block-start: 0</div>
+      <div class="box end">inset-block-end: 0</div>
+    </div>
+    <br />
+    <h2>Vertical Writing Mode</h2>
+    <div class="container container-verti">
+      <div class="box start">inset-block-start: 0</div>
+      <div class="box end">inset-block-end: 0</div>
+    </div>
+  </body>
+</html>
