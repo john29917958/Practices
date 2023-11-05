@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box-Model</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .box {
+        height: 300px;
+        margin: 10px;
+        padding: 10px;
+        width: 300px;
+        background: #eee;
+        border: 3px solid #bdbdbd;
+      }
+    </style>
+  </head>
+  <body>
+    <p style="background: #eee">The margin-bottom of upper paragraph.</p>
+    <p style="background: #eee">
+      Collapses with the margin-top of lower paragraph.
+    </p>
+    <div class="box" style="box-sizing: border-box">
+      <p>
+        The total width and height are the sum of padding, border-width and
+        content when box-sizing property is set to border-box.
+      </p>
+    </div>
+    <div class="box" style="box-sizing: content-box">
+      The total width and height are the exact value of width property and
+      height property without considering the padding and border-width
+      properties.
+    </div>
+  </body>
+</html>
