@@ -12,6 +12,10 @@
         font-family: Arial, Helvetica, sans-serif;
       }
 
+      body {
+        padding: 1rem 1rem 0 1rem;
+      }
+
       .container {
         box-sizing: border-box;
         height: 100vh;
@@ -44,16 +48,45 @@
   </head>
   <body>
     <h1>Logical Properties</h1>
-    <h2>Horizontal Writing Mode</h2>
+    <h2>Inset Block Start and Inset Block End</h2>
+    <h3>Horizontal Writing Mode</h3>
     <div class="container">
       <div class="box start">inset-block-start: 0</div>
       <div class="box end">inset-block-end: 0</div>
     </div>
     <br />
-    <h2>Vertical Writing Mode</h2>
+    <h3>Vertical Writing Mode</h3>
     <div class="container container-verti">
       <div class="box start">inset-block-start: 0</div>
       <div class="box end">inset-block-end: 0</div>
     </div>
+    <h2>Block Size and Inline Size</h2>
+    <h3>Horizontal Writing Mode</h3>
+    <div
+      style="
+        block-size: 10rem;
+        inline-size: 20rem;
+        padding: 1rem;
+        background: #eeeeee;
+        writing-mode: horizontal-tb;
+        border-radius: 0.3rem;
+      "
+    >
+      <p>Horizontal writing mode, block-size 10, inline size 20.</p>
+    </div>
+    <h3>Vertical Writing Mode</h3>
+    <div
+      style="
+        block-size: 10rem;
+        inline-size: 20rem;
+        padding: 1rem;
+        background: #eeeeee;
+        writing-mode: vertical-rl;
+        border-radius: 0.3rem;
+      "
+    >
+      <p>Vertical writing mode, block-size 10, inline size 20.</p>
+    </div>
+    <br />
   </body>
 </html>
