@@ -1,0 +1,36 @@
+<!-- Please refer to Chris Coyier's CSS Tricks post: Inheriting box-sizing
+  Probably Slightly Better Best-Practice.
+  URL: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Sizing CSS Reset</title>
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="width: 300px; padding: 10px; background: #eee">A DIV</div>
+    <div
+      style="
+        width: 300px;
+        padding: 10px;
+        background: #eee;
+        box-sizing: content-box;
+      "
+    >
+      Box-sizing set to content-box.
+    </div>
+  </body>
+</html>
