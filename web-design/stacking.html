@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stacking</title>
+    <style>
+      #a {
+        background: rgba(233, 30, 99, 0.5);
+        height: 10rem;
+      }
+
+      #b,
+      #c,
+      #d,
+      #e {
+        position: absolute;
+      }
+
+      #b {
+        background: rgba(103, 58, 183, 0.8);
+        top: 230px;
+        width: 450px;
+        height: 100px;
+        z-index: 2;
+      }
+
+      #c {
+        background: rgba(255, 235, 59, 0.8);
+        top: 150px;
+        width: 430px;
+        height: 100px;
+        z-index: 1;
+      }
+
+      #d {
+        background: #03a9f4;
+        height: 500px;
+        top: 10px;
+        width: 25rem;
+        z-index: -1;
+      }
+
+      #e {
+        background: rgba(255, 87, 34, 0.7);
+        top: 75px;
+        width: 430px;
+        height: 100px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="a">
+      div#a
+    </div>
+    <div id="b">
+      div#b
+    </div>
+    <div id="c">
+      div#c
+    </div>
+    <div id="d">
+      div#d
+    </div>
+    <div id="e">
+      div#e
+    </div>
+  </body>
+</html>
