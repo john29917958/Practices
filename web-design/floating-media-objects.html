@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Floating Media Objects</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #implementation-1 .media-object {
+        background: #ccc;
+        padding: 1rem;
+        display: flow-root;
+      }
+
+      #implementation-1 .media-object img {
+        float: left;
+        margin-right: 1rem;
+      }
+
+      #implementation-2 .media-object {
+        background: #ccc;
+        padding: 1rem;
+        contain: content;
+      }
+
+      #implementation-2 .media-object img {
+        float: right;
+        margin-left: 1rem;
+      }
+
+      #implementation-3 .media-object {
+        background: #ccc;
+        padding: 1rem;
+      }
+
+      #implementation-3 .media-object::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      #implementation-3 .media-object img {
+        float: left;
+        margin-right: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="implementation-1">
+      <h1>Using display: flow-root</h1>
+      <div class="media-object">
+        <img src="https://picsum.photos/180/120" alt="An image" />
+        <div class="media-object-text">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates
+          ipsa dolorem voluptate perferendis dignissimos magnam repellendus
+          porro numquam.
+        </div>
+      </div>
+      <div class="media-object">
+        <img src="https://picsum.photos/180/120" alt="An image" />
+        <div class="media-object-text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis libero
+          obcaecati ratione, eveniet aspernatur minima laboriosam sequi,
+          eligendi ab nostrum molestiae dicta, laudantium error odio tenetur
+          facilis cumque! Perferendis, ex!
+        </div>
+      </div>
+    </div>
+    <br />
+    <div id="implementation-2">
+      <h1>Using contain: content</h1>
+      <div class="media-object">
+        <img src="https://picsum.photos/180/120" alt="An image" />
+        <div class="media-object-text">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates
+          ipsa dolorem voluptate perferendis dignissimos magnam repellendus
+          porro numquam.
+        </div>
+      </div>
+      <br />
+      <div class="media-object">
+        <img class="right" src="https://picsum.photos/180/120" alt="An image" />
+        <div class="media-object-text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis libero
+          obcaecati ratione, eveniet aspernatur minima laboriosam sequi,
+          eligendi ab nostrum molestiae dicta, laudantium error odio tenetur
+          facilis cumque! Perferendis, ex!
+        </div>
+      </div>
+    </div>
+    <div id="implementation-3">
+      <h1>Using clearfix</h1>
+      <div class="media-object">
+        <img src="https://picsum.photos/180/120" alt="An image" />
+        <div class="media-object-text">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates
+          ipsa dolorem voluptate perferendis dignissimos magnam repellendus
+          porro numquam.
+        </div>
+      </div>
+      <br />
+      <div class="media-object">
+        <img class="right" src="https://picsum.photos/180/120" alt="An image" />
+        <div class="media-object-text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis libero
+          obcaecati ratione, eveniet aspernatur minima laboriosam sequi,
+          eligendi ab nostrum molestiae dicta, laudantium error odio tenetur
+          facilis cumque! Perferendis, ex!
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
