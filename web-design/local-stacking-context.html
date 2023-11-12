@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Stacking Context</title>
+    <style>
+      #f,
+      #g {
+        position: absolute;
+        padding: 1rem;
+      }
+
+      #f {
+        background: rgba(255, 193, 7, 0.9);
+        width: 300px;
+        height: 100px;
+        opacity: 0.99; /* This creates local stacking context for #f. */
+      }
+
+      #f > p {
+        background: rgb(34, 34, 34);
+        color: whitesmoke;
+        position: relative;
+        height: 50px;
+        z-index: 1;
+      }
+
+      #another-child-of-f {
+        position: absolute;
+        top: 70px;
+        width: 300px;
+        z-index: 2;
+        background: rgba(0, 255, 0, 0.7);
+      }
+
+      #g {
+        background: rgba(3, 169, 244, 0.7);
+        top: 50px;
+        left: 100px;
+        width: 300px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="f">
+      <p><b>div#f</b></p>
+      <div id="another-child-of-f">
+        <p><b>Another child of #f</b></p>
+      </div>
+    </div>
+    <div id="g">
+      <p><b>div#g</b></p>
+    </div>
+  </body>
+</html>
