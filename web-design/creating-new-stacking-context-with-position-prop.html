@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating New Stacking Context with Position Property</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #broken-example .panel {
+        position: relative;
+        padding: 1rem;
+        background: #eee;
+        box-sizing: border-box;
+      }
+
+      #broken-example .should-between-heading-and-content {
+        position: absolute;
+        top: 3rem;
+        left: 0;
+        padding: 1rem;
+        background: #bdbdbd;
+        z-index: -1;
+      }
+
+      #fixed-example .panel {
+        position: relative;
+        padding: 1rem;
+        background: #eee;
+        z-index: 1;
+      }
+
+      #fixed-example .should-between-heading-and-content {
+        position: absolute;
+        top: 3rem;
+        left: 0;
+        padding: 1rem;
+        background: #bdbdbd;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Creating New Stacking Context with Position Property</h1>
+    <div id="broken-example">
+      <div class="panel">
+        <h2>Broken Example</h2>
+        <div class="should-between-heading-and-content">
+          <h3>This block should be between heading and content</h3>
+          <br />
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+          repudiandae, id maxime sunt inventore tempore possimus, nesciunt velit
+          ducimus incidunt molestias deleniti odit, quae repellat. Quia sapiente
+          omnis sed quisquam?
+        </div>
+      </div>
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas illum
+          quo numquam praesentium aspernatur dolorem culpa autem asperiores
+          facilis illo expedita officia, rem a molestiae debitis inventore ad
+          consequatur quidem accusamus soluta cum quasi. Asperiores voluptate
+          similique possimus sed nesciunt cupiditate unde minus quod? Nisi
+          excepturi corrupti aliquam possimus reiciendis cupiditate distinctio
+          dolores amet modi. Corrupti, eveniet neque. At aut unde molestias
+          optio laboriosam odit a magni iste sunt, illum tempore minima magnam
+          possimus ut. Inventore ducimus saepe nam harum recusandae, veritatis
+          doloremque deleniti, quaerat odit, et fugiat. Nobis dicta sequi
+          asperiores, ab cum iste quaerat ipsum laboriosam ut hic dignissimos
+          aliquid dolores numquam eum laudantium voluptatum facilis praesentium,
+          esse perferendis et veritatis ea deleniti. Similique minima voluptatum
+          excepturi sed animi dicta molestias, reiciendis amet, voluptatem
+          ratione dolores natus non ad. Iste neque magni voluptatem numquam quis
+          velit laudantium, quod assumenda modi inventore minus fuga asperiores
+          corrupti reiciendis? Veniam sapiente quisquam vero vel eius alias
+          eveniet mollitia animi magni vitae. Impedit ipsa minima inventore
+          praesentium aspernatur tempora autem, illum hic, eum sit molestias
+          soluta vero iusto esse vitae excepturi blanditiis possimus magnam
+          assumenda. Inventore earum et quibusdam, sed obcaecati deserunt
+          doloremque. Ullam, illo at. Repellendus suscipit odio enim nisi sunt.
+        </p>
+      </div>
+    </div>
+    <div id="fixed-example">
+      <div class="panel">
+        <h2>Success Example</h2>
+        <div class="should-between-heading-and-content">
+          <h3>This block should be between heading and content</h3>
+          <br />
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+          repudiandae, id maxime sunt inventore tempore possimus, nesciunt velit
+          ducimus incidunt molestias deleniti odit, quae repellat. Quia sapiente
+          omnis sed quisquam?
+        </div>
+      </div>
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+          corporis quasi obcaecati magni doloremque dolores provident eveniet
+          rerum incidunt aperiam, quam ad deserunt eligendi dolor nulla autem.
+          Inventore earum consequuntur sequi explicabo saepe, voluptatum
+          possimus suscipit? Eveniet libero asperiores ad, animi doloribus
+          accusantium, a, saepe nulla reiciendis magni voluptas expedita minus
+          qui deleniti? Possimus incidunt quia commodi doloremque rerum
+          reiciendis, similique facilis itaque quam. Reprehenderit debitis aut
+          itaque est quas amet sed, velit placeat autem nisi assumenda et earum
+          ducimus optio labore suscipit perferendis dolor culpa tenetur vero
+          nulla? Eum iste labore tenetur, ad nulla recusandae et. Dolores
+          officiis atque sequi quam at numquam id consectetur expedita! Ratione
+          modi adipisci labore. Voluptatibus sapiente repudiandae numquam
+          fugiat, porro iusto, illum tenetur dolorum ex molestias atque nostrum.
+          Dolorum accusantium ipsa provident molestias a. Obcaecati mollitia,
+          architecto numquam tempore placeat nisi modi possimus porro culpa
+          rerum laboriosam ducimus voluptatum assumenda similique autem
+          consequuntur cupiditate atque nobis explicabo reiciendis! Ea possimus
+          quidem eos distinctio! Laborum dolore, error itaque quam beatae atque
+          quidem laboriosam corrupti eius debitis culpa distinctio mollitia
+          natus dolor tenetur nemo ullam molestiae iste porro minus non saepe
+          accusamus perspiciatis! Natus facere illo cum. Aperiam vitae, sint
+          tempore impedit facilis qui libero?
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
