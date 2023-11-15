@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shape</title>
+    <style>
+      #circle p:first-of-type::before {
+        content: "";
+        float: left;
+        width: 15rem;
+        height: 15rem;
+        shape-outside: circle(50%);
+      }
+
+      #ellipse p:first-of-type::before {
+        content: "";
+        float: left;
+        width: 15rem;
+        height: 15rem;
+        shape-outside: ellipse(50% 25% at 50% 4rem);
+      }
+
+      #inset p:first-of-type::before {
+        content: "";
+        float: left;
+        width: 15rem;
+        height: 15rem;
+        shape-outside: inset(10% 20% 20% 0 round 3rem);
+      }
+
+      #polygon p:first-of-type::before {
+        content: "";
+        float: right;
+        width: 15rem;
+        height: 15rem;
+        shape-outside: polygon(100% 0, 100% 100%, 0 50%);
+      }
+
+      #image img {
+        float: right;
+        width: 20rem;
+        height: 20rem;
+        shape-outside: url("images/coffee-cup.png");
+        shape-margin: 2rem;
+      }
+
+      #gradient {
+        background: hsl(183, 80%, 80%);
+      }
+
+      #gradient::before {
+        content: " ";
+        display: block;
+        float: right;
+        height: 100vh;
+        width: 100%;
+        background-size: cover;
+
+        background-image: linear-gradient(
+          -45deg,
+          hsl(240, 86%, 25%) 0%,
+          hsla(213, 100%, 50%, 0.8) 22%,
+          hsla(183, 100%, 50%, 0) 53%
+        );
+
+        shape-outside: linear-gradient(
+          -45deg,
+          hsl(240, 86%, 25%) 0%,
+          hsla(213, 100%, 50%, 0.8) 22%,
+          hsla(183, 100%, 50%, 0) 53%
+        );
+
+        /* Only reserve portion with alpha larger than or equal to 0.2. */
+        shape-image-threshold: 0.2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="circle">
+      <h1>Using Circle</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vero
+        dolorum repellendus eligendi quas tempore officiis quis voluptates odio
+        atque aspernatur amet totam eum distinctio exercitationem dolores ipsum
+        ullam quisquam repellat delectus nobis, architecto minus harum tenetur.
+        Aperiam sunt quisquam nulla unde voluptas, eos culpa ratione atque odio
+        obcaecati quidem laboriosam amet facilis, nostrum, id dolore nisi ea
+        numquam cupiditate explicabo! Voluptatem necessitatibus libero et nobis
+        amet placeat earum, sapiente soluta est ducimus voluptate eligendi natus
+        magni sed illum. Ipsam quam fugiat odio ut laboriosam, nisi natus unde
+        blanditiis ducimus fugit, harum odit labore quidem non minima laudantium
+        nesciunt dolorem!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum illo
+        minus facere doloribus, aut, beatae amet nulla facilis iusto tempore
+        nesciunt cum. Voluptatem quas tenetur quis perspiciatis repellat at
+        mollitia incidunt quos itaque. Maxime voluptatem cupiditate aut, vitae
+        perferendis cum. Expedita iste doloremque sed quae. Exercitationem
+        nesciunt eum temporibus aliquam distinctio laborum esse harum voluptates
+        sunt numquam officiis officia ea, aliquid rem facilis sapiente vel
+        accusamus sit nemo doloremque deserunt facere asperiores. Illo maiores
+        eaque perspiciatis, aspernatur possimus doloribus magni consequuntur
+        consectetur libero at! Ullam earum illo eveniet atque eos, laborum,
+        fugiat qui quae recusandae iure, tempore voluptatem perferendis nulla
+        dignissimos. Nemo, odio! Saepe id excepturi nam praesentium accusantium
+        porro odit ullam, corrupti ex, labore consectetur, incidunt provident
+        deserunt perspiciatis cupiditate nostrum expedita debitis eaque iste
+        doloribus necessitatibus veniam! Possimus deleniti neque nostrum vero
+        ab, ipsam quam cupiditate est impedit repudiandae quia eum magni nisi
+        autem laboriosam, provident omnis minima!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia itaque
+        accusamus voluptatum aspernatur in voluptates molestias nisi rem autem
+        tenetur magni possimus, pariatur eius eveniet est voluptate assumenda
+        facere ab dicta quia ratione exercitationem. Aspernatur sed, rerum
+        consectetur nisi voluptate veritatis esse magnam voluptatibus eveniet
+        nihil laboriosam sint cum nemo non error aliquam ducimus numquam dolore
+        debitis assumenda similique aperiam, autem tempora at. Voluptate
+        consequuntur ratione necessitatibus dignissimos, totam aliquid quidem,
+        doloribus possimus excepturi veniam obcaecati laudantium architecto
+        voluptates nemo quo tempore deleniti debitis voluptas repudiandae cum.
+        Culpa, exercitationem? Corporis similique fugiat dolorem ipsa ex
+        sapiente architecto repellat ipsam eaque?
+      </p>
+    </div>
+    <div id="ellipse">
+      <h1>Using Ellipse</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vero
+        dolorum repellendus eligendi quas tempore officiis quis voluptates odio
+        atque aspernatur amet totam eum distinctio exercitationem dolores ipsum
+        ullam quisquam repellat delectus nobis, architecto minus harum tenetur.
+        Aperiam sunt quisquam nulla unde voluptas, eos culpa ratione atque odio
+        obcaecati quidem laboriosam amet facilis, nostrum, id dolore nisi ea
+        numquam cupiditate explicabo! Voluptatem necessitatibus libero et nobis
+        amet placeat earum, sapiente soluta est ducimus voluptate eligendi natus
+        magni sed illum. Ipsam quam fugiat odio ut laboriosam, nisi natus unde
+        blanditiis ducimus fugit, harum odit labore quidem non minima laudantium
+        nesciunt dolorem!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum illo
+        minus facere doloribus, aut, beatae amet nulla facilis iusto tempore
+        nesciunt cum. Voluptatem quas tenetur quis perspiciatis repellat at
+        mollitia incidunt quos itaque. Maxime voluptatem cupiditate aut, vitae
+        perferendis cum. Expedita iste doloremque sed quae. Exercitationem
+        nesciunt eum temporibus aliquam distinctio laborum esse harum voluptates
+        sunt numquam officiis officia ea, aliquid rem facilis sapiente vel
+        accusamus sit nemo doloremque deserunt facere asperiores. Illo maiores
+        eaque perspiciatis, aspernatur possimus doloribus magni consequuntur
+        consectetur libero at! Ullam earum illo eveniet atque eos, laborum,
+        fugiat qui quae recusandae iure, tempore voluptatem perferendis nulla
+        dignissimos. Nemo, odio! Saepe id excepturi nam praesentium accusantium
+        porro odit ullam, corrupti ex, labore consectetur, incidunt provident
+        deserunt perspiciatis cupiditate nostrum expedita debitis eaque iste
+        doloribus necessitatibus veniam! Possimus deleniti neque nostrum vero
+        ab, ipsam quam cupiditate est impedit repudiandae quia eum magni nisi
+        autem laboriosam, provident omnis minima!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia itaque
+        accusamus voluptatum aspernatur in voluptates molestias nisi rem autem
+        tenetur magni possimus, pariatur eius eveniet est voluptate assumenda
+        facere ab dicta quia ratione exercitationem. Aspernatur sed, rerum
+        consectetur nisi voluptate veritatis esse magnam voluptatibus eveniet
+        nihil laboriosam sint cum nemo non error aliquam ducimus numquam dolore
+        debitis assumenda similique aperiam, autem tempora at. Voluptate
+        consequuntur ratione necessitatibus dignissimos, totam aliquid quidem,
+        doloribus possimus excepturi veniam obcaecati laudantium architecto
+        voluptates nemo quo tempore deleniti debitis voluptas repudiandae cum.
+        Culpa, exercitationem? Corporis similique fugiat dolorem ipsa ex
+        sapiente architecto repellat ipsam eaque?
+      </p>
+    </div>
+    <div id="inset">
+      <h1>Using Inset</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vero
+        dolorum repellendus eligendi quas tempore officiis quis voluptates odio
+        atque aspernatur amet totam eum distinctio exercitationem dolores ipsum
+        ullam quisquam repellat delectus nobis, architecto minus harum tenetur.
+        Aperiam sunt quisquam nulla unde voluptas, eos culpa ratione atque odio
+        obcaecati quidem laboriosam amet facilis, nostrum, id dolore nisi ea
+        numquam cupiditate explicabo! Voluptatem necessitatibus libero et nobis
+        amet placeat earum, sapiente soluta est ducimus voluptate eligendi natus
+        magni sed illum. Ipsam quam fugiat odio ut laboriosam, nisi natus unde
+        blanditiis ducimus fugit, harum odit labore quidem non minima laudantium
+        nesciunt dolorem!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum illo
+        minus facere doloribus, aut, beatae amet nulla facilis iusto tempore
+        nesciunt cum. Voluptatem quas tenetur quis perspiciatis repellat at
+        mollitia incidunt quos itaque. Maxime voluptatem cupiditate aut, vitae
+        perferendis cum. Expedita iste doloremque sed quae. Exercitationem
+        nesciunt eum temporibus aliquam distinctio laborum esse harum voluptates
+        sunt numquam officiis officia ea, aliquid rem facilis sapiente vel
+        accusamus sit nemo doloremque deserunt facere asperiores. Illo maiores
+        eaque perspiciatis, aspernatur possimus doloribus magni consequuntur
+        consectetur libero at! Ullam earum illo eveniet atque eos, laborum,
+        fugiat qui quae recusandae iure, tempore voluptatem perferendis nulla
+        dignissimos. Nemo, odio! Saepe id excepturi nam praesentium accusantium
+        porro odit ullam, corrupti ex, labore consectetur, incidunt provident
+        deserunt perspiciatis cupiditate nostrum expedita debitis eaque iste
+        doloribus necessitatibus veniam! Possimus deleniti neque nostrum vero
+        ab, ipsam quam cupiditate est impedit repudiandae quia eum magni nisi
+        autem laboriosam, provident omnis minima!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia itaque
+        accusamus voluptatum aspernatur in voluptates molestias nisi rem autem
+        tenetur magni possimus, pariatur eius eveniet est voluptate assumenda
+        facere ab dicta quia ratione exercitationem. Aspernatur sed, rerum
+        consectetur nisi voluptate veritatis esse magnam voluptatibus eveniet
+        nihil laboriosam sint cum nemo non error aliquam ducimus numquam dolore
+        debitis assumenda similique aperiam, autem tempora at. Voluptate
+        consequuntur ratione necessitatibus dignissimos, totam aliquid quidem,
+        doloribus possimus excepturi veniam obcaecati laudantium architecto
+        voluptates nemo quo tempore deleniti debitis voluptas repudiandae cum.
+        Culpa, exercitationem? Corporis similique fugiat dolorem ipsa ex
+        sapiente architecto repellat ipsam eaque?
+      </p>
+    </div>
+    <div id="polygon">
+      <h1>Using Polygon</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vero
+        dolorum repellendus eligendi quas tempore officiis quis voluptates odio
+        atque aspernatur amet totam eum distinctio exercitationem dolores ipsum
+        ullam quisquam repellat delectus nobis, architecto minus harum tenetur.
+        Aperiam sunt quisquam nulla unde voluptas, eos culpa ratione atque odio
+        obcaecati quidem laboriosam amet facilis, nostrum, id dolore nisi ea
+        numquam cupiditate explicabo! Voluptatem necessitatibus libero et nobis
+        amet placeat earum, sapiente soluta est ducimus voluptate eligendi natus
+        magni sed illum. Ipsam quam fugiat odio ut laboriosam, nisi natus unde
+        blanditiis ducimus fugit, harum odit labore quidem non minima laudantium
+        nesciunt dolorem!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum illo
+        minus facere doloribus, aut, beatae amet nulla facilis iusto tempore
+        nesciunt cum. Voluptatem quas tenetur quis perspiciatis repellat at
+        mollitia incidunt quos itaque. Maxime voluptatem cupiditate aut, vitae
+        perferendis cum. Expedita iste doloremque sed quae. Exercitationem
+        nesciunt eum temporibus aliquam distinctio laborum esse harum voluptates
+        sunt numquam officiis officia ea, aliquid rem facilis sapiente vel
+        accusamus sit nemo doloremque deserunt facere asperiores. Illo maiores
+        eaque perspiciatis, aspernatur possimus doloribus magni consequuntur
+        consectetur libero at! Ullam earum illo eveniet atque eos, laborum,
+        fugiat qui quae recusandae iure, tempore voluptatem perferendis nulla
+        dignissimos. Nemo, odio! Saepe id excepturi nam praesentium accusantium
+        porro odit ullam, corrupti ex, labore consectetur, incidunt provident
+        deserunt perspiciatis cupiditate nostrum expedita debitis eaque iste
+        doloribus necessitatibus veniam! Possimus deleniti neque nostrum vero
+        ab, ipsam quam cupiditate est impedit repudiandae quia eum magni nisi
+        autem laboriosam, provident omnis minima!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia itaque
+        accusamus voluptatum aspernatur in voluptates molestias nisi rem autem
+        tenetur magni possimus, pariatur eius eveniet est voluptate assumenda
+        facere ab dicta quia ratione exercitationem. Aspernatur sed, rerum
+        consectetur nisi voluptate veritatis esse magnam voluptatibus eveniet
+        nihil laboriosam sint cum nemo non error aliquam ducimus numquam dolore
+        debitis assumenda similique aperiam, autem tempora at. Voluptate
+        consequuntur ratione necessitatibus dignissimos, totam aliquid quidem,
+        doloribus possimus excepturi veniam obcaecati laudantium architecto
+        voluptates nemo quo tempore deleniti debitis voluptas repudiandae cum.
+        Culpa, exercitationem? Corporis similique fugiat dolorem ipsa ex
+        sapiente architecto repellat ipsam eaque?
+      </p>
+    </div>
+    <div id="image">
+      <h1>Using Image</h1>
+      <p>
+        <img src="images/coffee-cup.png" alt="A cup of coffee" />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vero
+        dolorum repellendus eligendi quas tempore officiis quis voluptates odio
+        atque aspernatur amet totam eum distinctio exercitationem dolores ipsum
+        ullam quisquam repellat delectus nobis, architecto minus harum tenetur.
+        Aperiam sunt quisquam nulla unde voluptas, eos culpa ratione atque odio
+        obcaecati quidem laboriosam amet facilis, nostrum, id dolore nisi ea
+        numquam cupiditate explicabo! Voluptatem necessitatibus libero et nobis
+        amet placeat earum, sapiente soluta est ducimus voluptate eligendi natus
+        magni sed illum. Ipsam quam fugiat odio ut laboriosam, nisi natus unde
+        blanditiis ducimus fugit, harum odit labore quidem non minima laudantium
+        nesciunt dolorem!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum illo
+        minus facere doloribus, aut, beatae amet nulla facilis iusto tempore
+        nesciunt cum. Voluptatem quas tenetur quis perspiciatis repellat at
+        mollitia incidunt quos itaque. Maxime voluptatem cupiditate aut, vitae
+        perferendis cum. Expedita iste doloremque sed quae. Exercitationem
+        nesciunt eum temporibus aliquam distinctio laborum esse harum voluptates
+        sunt numquam officiis officia ea, aliquid rem facilis sapiente vel
+        accusamus sit nemo doloremque deserunt facere asperiores. Illo maiores
+        eaque perspiciatis, aspernatur possimus doloribus magni consequuntur
+        consectetur libero at! Ullam earum illo eveniet atque eos, laborum,
+        fugiat qui quae recusandae iure, tempore voluptatem perferendis nulla
+        dignissimos. Nemo, odio! Saepe id excepturi nam praesentium accusantium
+        porro odit ullam, corrupti ex, labore consectetur, incidunt provident
+        deserunt perspiciatis cupiditate nostrum expedita debitis eaque iste
+        doloribus necessitatibus veniam! Possimus deleniti neque nostrum vero
+        ab, ipsam quam cupiditate est impedit repudiandae quia eum magni nisi
+        autem laboriosam, provident omnis minima!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia itaque
+        accusamus voluptatum aspernatur in voluptates molestias nisi rem autem
+        tenetur magni possimus, pariatur eius eveniet est voluptate assumenda
+        facere ab dicta quia ratione exercitationem. Aspernatur sed, rerum
+        consectetur nisi voluptate veritatis esse magnam voluptatibus eveniet
+        nihil laboriosam sint cum nemo non error aliquam ducimus numquam dolore
+        debitis assumenda similique aperiam, autem tempora at. Voluptate
+        consequuntur ratione necessitatibus dignissimos, totam aliquid quidem,
+        doloribus possimus excepturi veniam obcaecati laudantium architecto
+        voluptates nemo quo tempore deleniti debitis voluptas repudiandae cum.
+        Culpa, exercitationem? Corporis similique fugiat dolorem ipsa ex
+        sapiente architecto repellat ipsam eaque?
+      </p>
+    </div>
+    <div id="gradient">
+      <h1>Using Linear Gradient</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vero
+        dolorum repellendus eligendi quas tempore officiis quis voluptates odio
+        atque aspernatur amet totam eum distinctio exercitationem dolores ipsum
+        ullam quisquam repellat delectus nobis, architecto minus harum tenetur.
+        Aperiam sunt quisquam nulla unde voluptas, eos culpa ratione atque odio
+        obcaecati quidem laboriosam amet facilis, nostrum, id dolore nisi ea
+        numquam cupiditate explicabo! Voluptatem necessitatibus libero et nobis
+        amet placeat earum, sapiente soluta est ducimus voluptate eligendi natus
+        magni sed illum. Ipsam quam fugiat odio ut laboriosam, nisi natus unde
+        blanditiis ducimus fugit, harum odit labore quidem non minima laudantium
+        nesciunt dolorem!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum illo
+        minus facere doloribus, aut, beatae amet nulla facilis iusto tempore
+        nesciunt cum. Voluptatem quas tenetur quis perspiciatis repellat at
+        mollitia incidunt quos itaque. Maxime voluptatem cupiditate aut, vitae
+        perferendis cum. Expedita iste doloremque sed quae. Exercitationem
+        nesciunt eum temporibus aliquam distinctio laborum esse harum voluptates
+        sunt numquam officiis officia ea, aliquid rem facilis sapiente vel
+        accusamus sit nemo doloremque deserunt facere asperiores. Illo maiores
+        eaque perspiciatis, aspernatur possimus doloribus magni consequuntur
+        consectetur libero at! Ullam earum illo eveniet atque eos, laborum,
+        fugiat qui quae recusandae iure, tempore voluptatem perferendis nulla
+        dignissimos. Nemo, odio! Saepe id excepturi nam praesentium accusantium
+        porro odit ullam, corrupti ex, labore consectetur, incidunt provident
+        deserunt perspiciatis cupiditate nostrum expedita debitis eaque iste
+        doloribus necessitatibus veniam! Possimus deleniti neque nostrum vero
+        ab, ipsam quam cupiditate est impedit repudiandae quia eum magni nisi
+        autem laboriosam, provident omnis minima!
+      </p>
+      <p>
+        Aliqua elit voluptate esse tempor sit eiusmod reprehenderit. Id do qui
+        nulla ipsum do nisi consequat elit culpa non minim. Ipsum enim qui sit
+        pariatur esse exercitation aliqua. Proident enim anim eiusmod ex
+        incididunt. Et eu enim aliquip proident. Ea cupidatat eiusmod ipsum
+        exercitation quis nulla nisi ea amet cillum officia magna nostrud nisi.
+        Veniam velit sint culpa ullamco occaecat et.Sint mollit ullamco quis
+        nostrud enim deserunt laboris quis ad in id quis do officia. Dolore ex
+        est et aliqua ipsum velit elit culpa consequat tempor minim consectetur
+        ea labore. Excepteur excepteur sint irure commodo eiusmod ipsum ipsum do
+        in. Lorem proident occaecat voluptate incididunt est non excepteur est.
+        Deserunt laborum elit ullamco sit reprehenderit deserunt excepteur
+        consequat velit eiusmod dolore do. Dolore voluptate quis amet est
+      </p>
+    </div>
+  </body>
+</html>
