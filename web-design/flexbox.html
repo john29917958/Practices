@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flexbox with Text</h1>
+    <div style="display: flex; width: 1000px; margin: 5rem auto">
+      <span>This text is contained by a SPAN element.</span>
+      <b>This text is contained by a B element.</b>
+      This un-wrapped text node still behaves like a flex item.
+    </div>
+    <h1>Flexbox with Children Elements</h1>
+    <div style="display: flex; inline-size: 1500px">
+      <div style="background: #eee">
+        <b>A</b>
+      </div>
+      <div style="background: #e0e0e0">
+        <b>B</b>
+        <p>This is a short sentence made of short words.</p>
+        <p>Antidisestablishmentarianism is a long word.</p>
+      </div>
+      <div style="background: #eee">
+        <b>C</b>
+        <img src="https://picsum.photos/400/300" alt="placeholder" />
+      </div>
+      <div style="background: #e0e0e0">
+        <b>D</b>
+      </div>
+      <div style="background: #eee">
+        <b>E</b>
+      </div>
+    </div>
+    <h1>Flex Items with <code>flex-basis</code> CSS Rule</h1>
+    <div style="display: flex; inline-size: 1500px">
+      <div style="background: #eee; flex-basis: 47.733px">
+        <b>A</b>
+      </div>
+      <div style="background: #e0e0e0; flex-basis: 386.663px">
+        <b>B</b>
+        <p>This is a short sentence made of short words.</p>
+        <p>Antidisestablishmentarianism is a long word.</p>
+      </div>
+      <div style="background: #eee; flex-basis: 400px">
+        <b>C</b>
+        <img src="https://picsum.photos/400/300" alt="placeholder" />
+      </div>
+      <div style="background: #e0e0e0; flex-basis: 43.983px">
+        <b>D</b>
+      </div>
+      <div style="background: #eee; flex-basis: 37.333px">
+        <b>E</b>
+      </div>
+    </div>
+    <h1>Flex Grow 1</h1>
+    <div style="display: flex; inline-size: 1500px">
+      <div style="background: #eee; flex: 1">
+        <b>A</b>
+      </div>
+      <div style="background: #e0e0e0; flex: 1">
+        <b>B</b>
+        <p>This is a short sentence made of short words.</p>
+        <p>Antidisestablishmentarianism is a long word.</p>
+      </div>
+      <div style="background: #eee; flex: 1">
+        <b>C</b>
+        <img src="https://picsum.photos/400/300" alt="placeholder" />
+      </div>
+      <div style="background: #e0e0e0; flex: 1">
+        <b>D</b>
+      </div>
+      <div style="background: #eee; flex: 1">
+        <b>E</b>
+      </div>
+    </div>
+    <h1>Flex Grow Application</h1>
+    <div style="display: flex; inline-size: 1500px">
+      <div style="background: #eee; flex: 1">
+        <b>A</b>
+      </div>
+      <div style="background: #e0e0e0; flex: 1">
+        <b>B</b>
+        <p>This is a short sentence made of short words.</p>
+        <p>Antidisestablishmentarianism is a long word.</p>
+      </div>
+      <div style="background: #eee; flex: 1">
+        <b>C</b>
+        <img src="https://picsum.photos/400/300" alt="placeholder" />
+      </div>
+      <div style="background: #e0e0e0; flex: 1">
+        <b>D</b>
+      </div>
+      <div style="background: #eee; flex: 5">
+        <b>E</b>
+      </div>
+    </div>
+    <h1>Flex Shrink</h1>
+    <div style="display: flex; inline-size: 1500px">
+      <div style="background: #eee; flex: 1 1 410px">
+        <b>A</b>
+      </div>
+      <div style="background: #e0e0e0; flex: 1 1 410px">
+        <b>B</b>
+        <p>This is a short sentence made of short words.</p>
+        <p>Antidisestablishmentarianism is a long word.</p>
+      </div>
+      <div style="background: #eee; flex: 1 1 410px">
+        <b>C</b>
+        <img src="https://picsum.photos/400/300" alt="placeholder" />
+      </div>
+      <div style="background: #e0e0e0; flex: 1 1 410px">
+        <b>D</b>
+      </div>
+      <div style="background: #eee; flex: 1 5 410px">
+        <b>E</b>
+      </div>
+    </div>
+    <h1>Multi-line Flexible Layout</h1>
+    <div style="display: flex; inline-size: 1500px; gap: 20px; flex-wrap: wrap">
+      <div style="background: #eee; flex: 0 1 33.333%">
+        <b>A</b>
+      </div>
+      <div style="background: #e0e0e0; flex: 0 1 33.333%">
+        <b>B</b>
+        <p>This is a short sentence made of short words.</p>
+        <p>Antidisestablishmentarianism is a long word.</p>
+      </div>
+      <div style="background: #eee; flex: 0 1 33.333%">
+        <b>C</b>
+        <img src="https://picsum.photos/400/300" alt="placeholder" />
+      </div>
+      <div style="background: #e0e0e0; flex: 0 1 33.333%">
+        <b>D</b>
+      </div>
+      <div style="background: #eee; flex: 0 1 33.333%">
+        <b>E</b>
+      </div>
+    </div>
+    <h1>Multi-line Flexible Layout Reversed</h1>
+    <div
+      style="
+        display: flex;
+        inline-size: 1500px;
+        gap: 20px;
+        flex-wrap: wrap-reverse;
+      "
+    >
+      <div style="background: #eee; flex: 0 1 33.333%">
+        <b>A</b>
+      </div>
+      <div style="background: #e0e0e0; flex: 0 1 33.333%">
+        <b>B</b>
+        <p>This is a short sentence made of short words.</p>
+        <p>Antidisestablishmentarianism is a long word.</p>
+      </div>
+      <div style="background: #eee; flex: 0 1 33.333%">
+        <b>C</b>
+        <img src="https://picsum.photos/400/300" alt="placeholder" />
+      </div>
+      <div style="background: #e0e0e0; flex: 0 1 33.333%">
+        <b>D</b>
+      </div>
+      <div style="background: #eee; flex: 0 1 33.333%">
+        <b>E</b>
+      </div>
+    </div>
+    <h1>Vertical Flexbox</h1>
+    <div style="display: flex; flex-direction: column">
+      <div style="background: #eee">
+        <b>A</b>
+      </div>
+      <div style="background: #e0e0e0">
+        <b>B</b>
+        <p>This is a short sentence made of short words.</p>
+        <p>Antidisestablishmentarianism is a long word.</p>
+      </div>
+      <div style="background: #eee">
+        <b>C</b>
+        <img src="https://picsum.photos/400/300" alt="placeholder" />
+      </div>
+      <div style="background: #e0e0e0">
+        <b>D</b>
+      </div>
+      <div style="background: #eee">
+        <b>E</b>
+      </div>
+    </div>
+    <div
+      style="display: flex; flex-direction: column; writing-mode: vertical-lr"
+    >
+      <div style="background: #eee">
+        <b>A</b>
+      </div>
+      <div style="background: #e0e0e0">
+        <b>B</b>
+        <p>This is a short sentence made of short words.</p>
+        <p>Antidisestablishmentarianism is a long word.</p>
+      </div>
+      <div style="background: #eee">
+        <b>C</b>
+        <img src="https://picsum.photos/400/300" alt="placeholder" />
+      </div>
+      <div style="background: #e0e0e0">
+        <b>D</b>
+      </div>
+      <div style="background: #eee">
+        <b>E</b>
+      </div>
+    </div>
+  </body>
+</html>
