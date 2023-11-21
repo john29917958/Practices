@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #named-grid-areas {
+        display: grid;
+        grid-template: repeat(2, auto) / 4fr 1fr;
+        grid-template-areas:
+          "pagehead pagehead"
+          "mains navigation"
+          "pagefoot pagefoot";
+      }
+
+      #named-grid-areas header {
+        grid-area: pagehead;
+      }
+
+      #named-grid-areas article {
+        grid-area: mains;
+      }
+
+      #named-grid-areas nav {
+        grid-area: navigation;
+      }
+
+      #named-grid-areas footer {
+        grid-area: pagefoot;
+      }
+
+      .grid {
+        width: 80%;
+        margin: auto;
+      }
+
+      .grid-row {
+        display: flex;
+      }
+
+      .grid-row > * {
+        flex: 0 0 calc(25% - 2rem);
+        background-color: #121212;
+        color: white;
+        margin: 0 2rem 2rem 0;
+        padding: 1rem;
+      }
+
+      @supports (display: grid) {
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .grid-row {
+          display: contents;
+        }
+        .grid-row > * {
+          width: unset;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Grid</h1>
+    <div style="display: grid; background: #eee">
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+    </div>
+    <h1>Inline Grid</h1>
+    <div style="display: inline-grid; background: #eee">
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+    </div>
+    Some additional text that's adjacent to our inline grid.
+    <h1>Explicit Grid</h1>
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 35rem 30rem 20rem;
+        grid-template-rows: 20rem 10rem;
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+    </div>
+    <h1>Explicit Grid with Implicit Grid Items</h1>
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 25rem 25rem 25rem;
+        grid-template-rows: 20rem 20rem;
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item G (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">
+        Grid item H (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item I (implicit)
+      </div>
+    </div>
+    <h1>
+      <code>100rem</code> Height Explicit Grid with Implicit Grid Items (Last
+      Row)
+    </h1>
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 25rem 25rem 25rem;
+        grid-template-rows: 20rem 20rem;
+        height: 100rem;
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item G (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">
+        Grid item H (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item I (implicit)
+      </div>
+    </div>
+    <h1>
+      <code>100rem</code> Height Explicit Grid with Implicit Grid Items (Last
+      Two Rows)
+    </h1>
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 25rem 25rem 25rem;
+        grid-template-rows: 20rem 20rem;
+        height: 100rem;
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item G (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">
+        Grid item H (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item I (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">
+        Grid item J (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item K (implicit)
+      </div>
+    </div>
+    <h1>
+      Explicit Grid with Implicit Grid Items and Specified
+      <code>grid-auto-rows</code> Rule
+    </h1>
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 25rem 15rem 25rem;
+        grid-template-rows: 10rem 10rem;
+        grid-auto-rows: 30rem;
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item G (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">
+        Grid item H (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item I (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">
+        Grid item J (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item K (implicit)
+      </div>
+    </div>
+    <h1>Grid with Overflowed Content</h1>
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 25rem 15rem 25rem;
+        grid-template-rows: 10rem 10rem;
+        grid-auto-rows: 5rem;
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item G (implicit) which has content exceeding the
+        <code>grid-auto-rows</code> size.<br />
+        Et ad consequat sunt commodo aliqua. Adipisicing et deserunt qui sunt
+        duis. Cupidatat do do id labore dolore deserunt culpa id excepteur id in
+        magna magna occaecat. Aliquip excepteur proident veniam aliquip.
+        Cupidatat in culpa adipisicing velit labore sint anim ut commodo
+        reprehenderit est consequat proident nostrud.
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">
+        Grid item H (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item I (implicit)
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1>Grid with <code>grid-auto-rows: minmax()</code> CSS Rule</h1>
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 25rem 15rem 25rem;
+        grid-template-rows: 10rem 10rem;
+        grid-auto-rows: minmax(5rem, auto);
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item G (implicit) which has content exceeding the
+        <code>grid-auto-rows</code> size.<br />
+        Et ad consequat sunt commodo aliqua. Adipisicing et deserunt qui sunt
+        duis. Cupidatat do do id labore dolore deserunt culpa id excepteur id in
+        magna magna occaecat. Aliquip excepteur proident veniam aliquip.
+        Cupidatat in culpa adipisicing velit labore sint anim ut commodo
+        reprehenderit est consequat proident nostrud.
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">
+        Grid item H (implicit)
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #eee">
+        Grid item I (implicit)
+      </div>
+    </div>
+    <h1>Flexible Grid with Flex Unit <code>fr</code></h1>
+    <div
+      style="display: grid; grid-template-columns: 3fr 2fr 1fr; width: 1500px"
+    >
+      <div style="background: #eee; padding: 0.8rem 1rem">Grid item A</div>
+      <div style="background: #e0e0e0; padding: 0.8rem 1rem">Grid item B</div>
+      <div style="background: #eee; padding: 0.8rem 1rem">
+        Grid item C
+        <br />
+        <img src="https://picsum.photos/400/300" alt="Picture" />
+      </div>
+      <div style="background: #e0e0e0; padding: 0.8rem 1rem">Grid item D</div>
+      <div style="background: #eee; padding: 0.8rem 1rem">Grid item E</div>
+      <div style="background: #e0e0e0; padding: 0.8rem 1rem">Grid item F</div>
+    </div>
+    <h1><code>grid-template</code> Shorthand Property</h1>
+    <div style="display: grid; grid-template: 10rem 10rem / 25rem 25rem 25rem">
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+    </div>
+    <h1>Repeating Rows and Columns</h1>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr)">
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item G</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item H</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item I</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item J</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item K</div>
+    </div>
+    <h1>Repeating Rows and Columns with Multiple Columns Pattern</h1>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr 3fr)">
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item G</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item H</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item I</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item J</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item K</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item L</div>
+    </div>
+    <h1><code>auto-fill</code> and <code>auto-fit</code></h1>
+    <h2><code>auto-fill</code></h2>
+    <div
+      style="
+        display: grid;
+        width: 1500px;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+    </div>
+    <h2><code>auto-fit</code></h2>
+    <div
+      style="
+        display: grid;
+        width: 1500px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+    </div>
+    <h1>Grid Column Start and Grid Column End</h1>
+    <div style="display: grid">
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #eee;
+          grid-column-start: 1;
+          grid-column-end: 11;
+        "
+      >
+        Grid item A. The column starts at line 1 and ends at line 11.
+      </div>
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #e0e0e0;
+          grid-column-start: 1;
+          grid-column-end: 6;
+        "
+      >
+        Grid item B. The column starts at line 1 and ends at line 6.
+      </div>
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #eee;
+          grid-column-start: 6;
+          grid-column-end: 11;
+        "
+      >
+        Grid item C. The columns starts at line 6 and ends at line 11.
+      </div>
+    </div>
+    <h1>Spanning Grid Rows or Grid Columns</h1>
+    <div style="display: grid">
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #eee;
+          grid-column-start: span 10;
+        "
+      >
+        Grid item A which spans 10 columns.
+      </div>
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #e0e0e0;
+          grid-column-start: span 5;
+        "
+      >
+        Grid item B which spans 5 columns.
+      </div>
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #eee;
+          grid-column-start: span 5;
+        "
+      >
+        Grid item C which spans 5 columns.
+      </div>
+    </div>
+    <h1>Complex Layouts with Line-based Placement</h1>
+    <div
+      style="display: grid; grid-template: repeat(5, 9.5rem) / repeat(10, 10%)"
+    >
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #eee;
+          grid-column-start: span 10;
+        "
+      >
+        Grid item A
+      </div>
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #e0e0e0;
+          grid-row-start: span 3;
+          grid-column-start: span 2;
+        "
+      >
+        Grid item B
+      </div>
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #eee;
+          grid-column-start: span 4;
+        "
+      >
+        Grid item C
+      </div>
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #e0e0e0;
+          grid-column-start: span 4;
+        "
+      >
+        Grid item D
+      </div>
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #eee;
+          grid-column-start: span 3;
+        "
+      >
+        Grid item E
+      </div>
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #eee;
+          grid-column-start: span 3;
+          grid-column-end: -1;
+        "
+      >
+        Grid item F
+      </div>
+      <div
+        style="
+          padding: 0.8rem 1rem;
+          background: #eee;
+          grid-column-start: span 5;
+          grid-column-end: -1;
+        "
+      >
+        Grid item G
+      </div>
+    </div>
+    <h1>Named Grid Areas</h1>
+    <div id="named-grid-areas">
+      <header><h1>GoodRecipes!</h1></header>
+      <article>
+        Pariatur ea et incididunt laborum esse eu.
+        <img src="https://picsum.photos/600/400" alt="Picture" />
+        <p>
+          Ad cillum ea esse voluptate do aute Lorem culpa commodo sint aliqua
+          non fugiat in. Occaecat est irure proident laborum. Pariatur Lorem
+          aliqua veniam quis anim fugiat quis ea et non esse cillum elit. Do
+          culpa tempor ullamco consequat aliqua cillum labore aute nisi nisi.
+          Voluptate aliquip nulla exercitation consequat voluptate aliqua quis.
+          Non fugiat dolor do adipisicing consequat excepteur labore deserunt.
+        </p>
+        <p>
+          Ad adipisicing aliqua veniam minim laboris id pariatur consequat.
+          Officia mollit id do aute duis. Esse mollit eiusmod amet labore nisi
+          reprehenderit in cupidatat sint aliquip.
+        </p>
+        <p>
+          Aute enim ea esse velit laboris. Quis dolore anim do eu tempor
+          excepteur tempor ex aute laboris cupidatat. Quis fugiat ea occaecat et
+          quis aute sit. Minim mollit voluptate non ad elit adipisicing qui ea
+          cupidatat nisi. Labore officia ut culpa id ipsum. Amet culpa commodo
+          veniam consequat deserunt adipisicing tempor laborum proident enim
+          velit occaecat proident anim. Ullamco ea mollit id irure.
+        </p>
+      </article>
+      <nav>
+        <ul>
+          <li>Breakfast</li>
+          <li>Lunch</li>
+          <li>Desserts</li>
+          <li>Your Recipe Box</li>
+        </ul>
+      </nav>
+      <footer>© 2023 GoodRecipes.</footer>
+    </div>
+    <h1>Column Gap and Row Gap</h1>
+    <div
+      style="
+        display: grid;
+        grid-template: 5rem 5rem / 10rem 10rem 10rem 10rem;
+        column-gap: 0.5rem;
+        row-gap: 0.5rem;
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item G</div>
+    </div>
+    <h1>Gap Shorthand</h1>
+    <div
+      style="
+        display: grid;
+        grid-template: 5rem 5rem / 10rem 10rem 10rem 10rem;
+        gap: 0.3rem 0.5rem;
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item C</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item G</div>
+    </div>
+    <h1>Grid Items and Margins Which Do Not Collapse</h1>
+    <div style="display: grid; grid-template: 5rem 4rem / 10rem 9rem 8rem">
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 1rem;
+          background: #eee;
+        "
+      >
+        Grid item A
+      </div>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 1rem;
+          background: #eee;
+        "
+      >
+        Grid item B
+      </div>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 1rem;
+          background: #eee;
+        "
+      >
+        Grid item C
+      </div>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 1rem;
+          background: #eee;
+        "
+      >
+        Grid item D
+      </div>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 1rem;
+          background: #eee;
+        "
+      >
+        Grid item E
+      </div>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 1rem;
+          background: #eee;
+        "
+      >
+        Grid item F
+      </div>
+    </div>
+    <h1>Images Within Grid Exceeds Grid Size</h1>
+    <div
+      style="
+        display: grid;
+        grid-template: 8rem 4rem / 8rem 8rem 8rem 8rem;
+        gap: 0.1rem;
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee; overflow: hidden">
+        Grid item C
+        <br />
+        <img src="https://picsum.photos/600/400" alt="" />
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item G</div>
+    </div>
+    <h1>Images Within Grid With Size: Auto</h1>
+    <div
+      style="
+        display: grid;
+        grid-template: 8rem 4rem / 8rem 8rem auto 8rem;
+        gap: 0.1rem;
+      "
+    >
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item A</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item B</div>
+      <div style="padding: 0.8rem 1rem; background: #eee; overflow: hidden">
+        Grid item C
+        <br />
+        <img src="https://picsum.photos/600/400" alt="" />
+      </div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item D</div>
+      <div style="padding: 0.8rem 1rem; background: #eee">Grid item E</div>
+      <div style="padding: 0.8rem 1rem; background: #e0e0e0">Grid item F</div>
+      <div style="padding: 0.8rem 1rem; background: #eee; overflow: hidden">
+        Grid item G<br />
+        <img src="https://picsum.photos/600/400" style="width: 100%" />
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="grid">
+      <div class="grid-row">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+        <div>Item 4</div>
+      </div>
+      <div class="grid-row">
+        <div>Item 5</div>
+        <div>Item 6</div>
+        <div>Item 7</div>
+        <div>Item 8</div>
+      </div>
+    </div>
+  </body>
+</html>
