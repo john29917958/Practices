@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Font</title>
+    <style>
+      @font-face {
+        font-family: "MPLUS1p";
+        src: url("./MPLUS1p-Regular.ttf") format("truetype");
+        font-display: block;
+        unicode-range: U+0061-006B, U+0077-007A;
+      }
+
+      @font-face {
+        font-family: "MPLUS1p";
+        src: url("./MPLUS1p-Bold.ttf") format("truetype");
+        font-weight: bold;
+        font-display: block;
+        unicode-range: U+0061-006B, U+0077-007A;
+      }
+
+      @font-face {
+        font-family: "Adobe Variable Font Prototype";
+        src: url("./AdobeVFPrototype.ttf") format("truetype-variations"),
+          url("./AdobeVFPrototype.ttf") format("truetype");
+        src: url("./AdobeVFPrototype.ttf")
+          format("truetype" supports variations);
+        font-weight: 1 1000;
+        font-display: fallback;
+        unicode-range: U+0061-006B, U+0077-007A;
+      }
+
+      @font-face {
+        font-family: "Gaegu-Regular";
+        src: url("./Gaegu-Regular.subset.woff2") format("woff2");
+        font-display: block;
+      }
+
+      .font-mplus1p {
+        font-family: "MPLUS1p";
+      }
+
+      .font-adobe-variable-font-prototype {
+        font-family: "Adobe Variable Font Prototype";
+      }
+
+      .font-gaegu-regular {
+        font-family: "Gaegu-Regular";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="font-mplus1p">
+      <h1>Font Family: MPLUS1p</h1>
+      <small>Unicode range: U+0061-006B and U+0077-007A</small>
+      <p>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</p>
+    </div>
+
+    <div class="font-adobe-variable-font-prototype">
+      <h1>Font Family: Adobe Variable Font Prototype (Variable Font)</h1>
+      <small>Unicode range: U+0061-006B and U+0077-007A</small>
+      <p>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</p>
+      <h3>With Variation Settings of WGHT 900 and ITAL 0.9</h3>
+      <p style="font-variation-settings: 'wght' 900, 'ital' 0.9">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+      </p>
+    </div>
+
+    <div class="font-gaegu-regular">
+      <h1>Font Family: Gaegu Regular</h1>
+      <p>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</p>
+    </div>
+  </body>
+</html>
