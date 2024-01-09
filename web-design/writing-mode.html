@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Writing Modes</title>
+  </head>
+  <body>
+    <div dir="rtl">
+      <h1>Right to Left Writing Direction</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore iure
+        fugiat quas veniam sint, labore quibusdam velit corporis a,
+        exercitationem similique ab atque perferendis!
+        <bdo dir="ltr" lang="en"
+          ><a href="https://www.google.com/"
+            >https://www.google.com (a left to right link)</a
+          ></bdo
+        >
+        Cum veniam quae harum inventore sint?
+      </p>
+    </div>
+    <p style="writing-mode: vertical-rl; width: 100%">
+      Vertical right to left paragraph. 一些文字。Lorem, ipsum dolor sit amet
+      consectetur adipisicing elit. Illum, perferendis. Est enim quasi maiores
+      et, fuga soluta totam quaerat tempore ex asperiores, ab ea, voluptatibus
+      laborum dolor iste minima quod?
+    </p>
+    <p style="writing-mode: sideways-rl; width: 100%">
+      Vertical right to left paragraph. 一些文字。Lorem, ipsum dolor sit amet
+      consectetur adipisicing elit. Illum, perferendis. Est enim quasi maiores
+      et, fuga soluta totam quaerat tempore ex asperiores, ab ea, voluptatibus
+      laborum dolor iste minima quod?
+    </p>
+    <p
+      style="
+        display: inline-block;
+        height: 200px;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      "
+    >
+      Text-orientation: mixed：一些文字中有一些數字123。
+    </p>
+    <p
+      style="
+        display: inline-block;
+        height: 200px;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+      "
+    >
+      Text-orientation: upright：一些文字中有一些數字123。
+    </p>
+    <p
+      style="
+        display: inline-block;
+        height: 200px;
+        writing-mode: vertical-rl;
+        text-orientation: sideways;
+      "
+    >
+      Text-orientation: sideways：一些文字中有一些數字123。
+    </p>
+    <table style="direction: rtl; text-align: start">
+      <caption>
+        Right to left direction with text align start
+      </caption>
+      <thead>
+        <th>Unit price</th>
+        <th>Quantity</th>
+        <th>Fruit</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>50.</td>
+          <td>5</td>
+          <td>Apple</td>
+        </tr>
+        <tr>
+          <td>20.</td>
+          <td>10</td>
+          <td>Orange</td>
+        </tr>
+        <tr>
+          <td>35.</td>
+          <td>9</td>
+          <td>Banana</td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="direction: ltr; text-align: start">
+      <caption>
+        Left to right direction with text align start
+      </caption>
+      <thead>
+        <th>Unit price</th>
+        <th>Quantity</th>
+        <th>Fruit</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>50.</td>
+          <td>5</td>
+          <td>Apple</td>
+        </tr>
+        <tr>
+          <td>20.</td>
+          <td>10</td>
+          <td>Orange</td>
+        </tr>
+        <tr>
+          <td>35.</td>
+          <td>9</td>
+          <td>Banana</td>
+        </tr>
+      </tbody>
+    </table>
+    <h1>
+      Flex Container with Direction Left to Right and Justify Content Flex-start
+    </h1>
+    <div
+      style="
+        display: flex;
+        writing-mode: horizontal-tb;
+        direction: ltr;
+        justify-content: flex-start;
+        background: #000;
+        padding: 0.5rem;
+      "
+    >
+      <div style="background: #ffeb3b; padding: 0.2rem">A</div>
+      <div style="background: #03a9f4; padding: 0.2rem">B</div>
+      <div style="background: #8bc34a; padding: 0.2rem">C</div>
+    </div>
+    <h1>
+      Flex Container with Direction Right to Left and Justify Content Flex-start
+    </h1>
+    <div
+      style="
+        display: flex;
+        writing-mode: horizontal-tb;
+        direction: rtl;
+        justify-content: flex-start;
+        background: #000;
+        padding: 0.5rem;
+      "
+    >
+      <div style="background: #ffeb3b; padding: 0.2rem">A</div>
+      <div style="background: #03a9f4; padding: 0.2rem">B</div>
+      <div style="background: #8bc34a; padding: 0.2rem">C</div>
+    </div>
+  </body>
+</html>
