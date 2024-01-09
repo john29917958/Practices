@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transition</title>
+    <style>
+      .change {
+        background: #0cf;
+      }
+
+      html,
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background: #fcf;
+        transition: background 3s steps(5) 0.5s;
+      }
+
+      a {
+        transition: color 1s;
+      }
+
+      a:link {
+        color: #309;
+      }
+
+      a:hover {
+        color: #f0c;
+      }
+
+      form ul {
+        padding: 0;
+        list-style: none;
+      }
+
+      form li input:hover,
+      form li label:hover {
+        cursor: pointer;
+      }
+
+      form li {
+        padding: 0.9rem 0.5rem;
+        transition: 500ms;
+      }
+
+      form li:has(#red) {
+        background: #f44336;
+      }
+
+      form li:has(#yellow) {
+        background: #ffeb3b;
+      }
+
+      form li:has(#blue) {
+        background: #2196f3;
+      }
+
+      .fade {
+        opacity: 0;
+      }
+
+      .btn {
+        margin: 0;
+        padding: 0.7rem 1rem;
+        border: none;
+        color: #fff;
+        background: #43a047;
+        cursor: pointer;
+      }
+
+      .mb-1 {
+        margin-bottom: 1rem;
+      }
+
+      #multi-trans {
+        color: #000;
+        background: transparent;
+        transition: color 0.5s ease 0.5s, background 0.5s ease;
+      }
+
+      #multi-trans:hover {
+        color: #fff;
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Mouse over <a href="#">this link</a> to see the transition effect.</p>
+    <button class="btn" id="btn-change">Change background color</button>
+
+    <h1>Please select your favorite color of the ones shown below.</h1>
+    <form id="form-fave-color">
+      <ul>
+        <li>
+          <input type="radio" name="favecolor" id="red" />
+          <label for="red">Red</label>
+        </li>
+        <li>
+          <input type="radio" name="favecolor" id="yellow" />
+          <label for="yellow">Yellow</label>
+        </li>
+        <li>
+          <input type="radio" name="favecolor" id="blue" />
+          <label for="blue">Blue</label>
+        </li>
+      </ul>
+      <div class="mb-1" id="thanks" hidden>
+        Thank you for selecting your favorite color.
+      </div>
+      <button class="btn" type="reset">Reset</button>
+    </form>
+    <p id="multi-trans">Hover it to see transitions.</p>
+    <script>
+      window.onload = function () {
+        const changeButton = document.getElementById("btn-change");
+        changeButton.addEventListener("click", () => {
+          document.body.classList.toggle("change");
+        });
+
+        const changeHandler = function () {
+          const notfave = document.querySelectorAll("input:not(:checked)");
+          notfave.forEach((item) => {
+            item.parentNode.classList.add("fade");
+          });
+        };
+
+        const form = document.getElementById("form-fave-color");
+        form.addEventListener("change", changeHandler);
+
+        const transitionedHandler = function (e) {
+          console.log(e.propertyName);
+          e.target.setAttribute("hidden", "");
+          document.getElementById("thanks").removeAttribute("hidden");
+        };
+        form.addEventListener("transitionend", transitionedHandler);
+      };
+    </script>
+  </body>
+</html>
