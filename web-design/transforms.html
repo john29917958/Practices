@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transforms</title>
+    <style>
+      .container {
+        transform: skewX(-15deg);
+        width: 100px;
+        height: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        background: #e91e63;
+      }
+
+      .btn {
+        margin: 0;
+        padding: 0.7rem 1rem;
+        border: none;
+        border-radius: 0.2rem;
+        background: #eeeeee;
+        color: #000000;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+      }
+
+      .child-elem {
+        --size: 50%;
+        position: absolute;
+        left: 0;
+        width: var(--size);
+        height: var(--size);
+        top: calc(var(--size) - var(--size) / 2);
+        background: #8bc34a;
+      }
+
+      .box {
+        width: 10rem;
+        height: 10rem;
+        box-sizing: border-box;
+        padding: 0.4rem;
+        color: #fff;
+      }
+
+      .perspective-container-200 {
+        perspective: 200px;
+        -webkit-perspective: 200px;
+        perspective-origin: center;
+        -webkit-perspective-origin: center;
+      }
+
+      .spin {
+        animation: spin 1s linear infinite;
+      }
+
+      .face {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-origin: 50% 50%;
+        background: rgba(10, 10, 10, 0.05);
+        border: 0.3px solid #00000040;
+        color: #00000095;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.3rem;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotateY(0deg);
+        }
+
+        to {
+          transform: rotateY(360deg);
+        }
+      }
+
+      .card {
+        border: 1px solid #ccc;
+        height: 300px;
+        position: relative;
+        transition: transform 1s linear;
+        transform-style: preserve-3d;
+        width: 240px;
+      }
+
+      .side {
+        height: inherit;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: inherit;
+        backface-visibility: hidden;
+        overflow: hidden;
+      }
+
+      .front {
+        transform: rotateY(180deg);
+      }
+
+      .back {
+        background: rgba(204, 204, 204, 0.8);
+      }
+
+      .suit {
+        line-height: 1;
+        text-align: center;
+        font-size: 300px;
+      }
+
+      .flipped {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="child-elem"></div>
+    </div>
+    <br /><br />
+    <div
+      class="box"
+      style="
+        background: #f44336;
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        z-index: -1;
+      "
+    >
+      Positioned, z-index -1
+    </div>
+    <div
+      class="box"
+      style="background: #d81b60; margin-top: -2rem; margin-left: 0.5rem"
+    >
+      Nonpositioned
+    </div>
+    <div
+      class="box"
+      style="
+        background: #673ab7;
+        position: absolute;
+        left: 1rem;
+        top: 13rem;
+        z-index: 0;
+      "
+      onclick="console.log('Clicked!')"
+    >
+      Positioned, z-index 0 (auto)
+    </div>
+    <div
+      id="transformed-box"
+      class="box"
+      style="
+        background: #8e24aa;
+        transform: translate(0.5rem, 2rem);
+        pointer-events: none;
+      "
+    >
+      Transformed
+    </div>
+    <div
+      class="box"
+      style="
+        background: #3f51b5;
+        position: absolute;
+        left: 1rem;
+        top: 25rem;
+        z-index: 1;
+      "
+    >
+      Positioned, z-index 1
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <div
+      class="box"
+      style="
+        margin-left: auto;
+        margin-right: auto;
+        background: #2196f3;
+        transform: rotate(30deg);
+        transform-origin: 50% 50%;
+      "
+    >
+      Rotation transform (30 degrees)
+    </div>
+    <br /><br /><br /><br />
+    <div
+      class="box"
+      style="
+        margin-left: auto;
+        margin-right: auto;
+        background: #03a9f4;
+        transform: rotate(-30deg);
+        transform-origin: 50% 50%;
+      "
+    >
+      Rotation transform (-30 degrees)
+    </div>
+    <br /><br /><br /><br /><br />
+    <div
+      class="box"
+      style="
+        background: #00bcd4;
+        transform: scale(1.5);
+        margin-left: auto;
+        margin-right: auto;
+      "
+    >
+      Scale transform (x1.5)
+    </div>
+    <br /><br /><br /><br /><br />
+    <div
+      class="box"
+      style="
+        background: #009688;
+        transform: scale(-1.5);
+        margin-left: auto;
+        margin-right: auto;
+      "
+    >
+      Scale transform (x-1.5)
+    </div>
+    <br /><br /><br /><br /><br />
+    <div
+      class="box"
+      style="
+        background: #4caf50;
+        transform: scale(1);
+        margin-left: auto;
+        margin-right: auto;
+      "
+    >
+      Scale transform (x1)
+    </div>
+    <br />
+    <div
+      class="box"
+      style="
+        background: #8bc34a;
+        transform: scale(-1, 1);
+        margin-left: auto;
+        margin-right: auto;
+      "
+    >
+      Scale transform (x-1, 1) which causes horizontal reflection
+    </div>
+    <br />
+    <div class="box" style="background: #cddc39; transform: translateX(5rem)">
+      Transform: translateX 5rem
+    </div>
+    <div class="box" style="background: #ffeb3b; transform: translateY(5rem)">
+      Transform: translateY 5rem
+    </div>
+    <br /><br /><br /><br /><br /><br />
+    <div
+      class="box"
+      style="
+        background: #ffc107;
+        transform: skew(15deg, 15deg);
+        margin-left: 3rem;
+      "
+    >
+      Transform: skew 15, 15 degrees
+    </div>
+    <br /><br /><br />
+    <div
+      class="box"
+      style="background: #ff9800; transform: skewX(15deg); margin-left: 3rem"
+    >
+      Transform: skew 15 degrees in x-axis
+    </div>
+    <br /><br /><br />
+    <div
+      class="box"
+      style="background: #ff5722; transform: skewY(15deg); margin-left: 3rem"
+    >
+      Transform: skew 15 degrees in y-axis
+    </div>
+    <br /><br /><br />
+    <div
+      class="box"
+      style="
+        background: #795548;
+        transform: skew(10deg, 15deg) rotate(45deg);
+        margin-left: 3rem;
+      "
+    >
+      Transform: skew 10deg, 15deg and rotate 45deg
+    </div>
+    <br /><br /><br /><br /><br />
+    <div
+      class="box"
+      style="
+        background: #9e9e9e;
+        transform: rotate(45deg) skew(10deg, 15deg);
+        margin-left: 3rem;
+      "
+    >
+      Transform: rotate 45deg and skew 10deg, 15deg
+    </div>
+    <br /><br /><br /><br /><br />
+    <div
+      class="box"
+      style="
+        background: #9e9e9e;
+        transform: matrix(2, 0, 0, 2, 60, 100);
+        margin-left: 3rem;
+      "
+    >
+      Transform: matrix(2, 0, 0, 2, 60, 100)
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <div
+      class="box"
+      style="
+        background: #607d8b;
+        transform: matrix(2, 0, 0, 2, 30, 50);
+        margin-left: 3rem;
+      "
+    >
+      Transform: matrix(2, 0, 0, 2, 30, 50)
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br />
+    <div
+      class="box"
+      style="
+        transform: skewX(25deg);
+        background: #000000;
+        margin-left: 3rem;
+        width: 15rem;
+        height: 15rem;
+      "
+    >
+      Transform: skewX(25deg)
+      <div
+        class="box"
+        style="
+          transform: rotate(-15deg);
+          color: #000000;
+          background: #ffffff;
+          margin-left: 1rem;
+          margin-top: 2rem;
+        "
+      >
+        Transform: rotate(-15deg)
+      </div>
+    </div>
+    <div
+      class="box"
+      style="
+        transform: perspective(200px) rotateX(45deg);
+        background: #e0e0e0;
+        border: 1rem solid #000000;
+        border-radius: 50%;
+        color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+      "
+    >
+      Rotate X 45
+    </div>
+    <br />
+    <div
+      class="box"
+      style="
+        transform: perspective(200px) rotateX(-45deg);
+        background: #e0e0e0;
+        border: 1rem solid #000000;
+        border-radius: 50%;
+        color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+      "
+    >
+      Rotate X -45
+    </div>
+    <br />
+    <div
+      class="box"
+      style="
+        transform: perspective(200px) rotateY(45deg);
+        background: #e0e0e0;
+        border: 1rem solid #000000;
+        border-radius: 50%;
+        color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+      "
+    >
+      Rotate Y 45
+    </div>
+    <br />
+    <div
+      class="box"
+      style="
+        transform: perspective(200px) rotateY(-45deg);
+        background: #e0e0e0;
+        border: 1rem solid #000000;
+        border-radius: 50%;
+        color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+      "
+    >
+      Rotate Y -45
+    </div>
+    <br />
+    <div
+      class="box"
+      style="
+        transform: perspective(200px) rotate3d(1, 1, 0, 45deg);
+        background: #e0e0e0;
+        border: 1rem solid #000000;
+        border-radius: 50%;
+        color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+      "
+    >
+      Rotate 3D: X, Y 45deg
+    </div>
+    <br />
+    <div
+      class="perspective-container-200"
+      style="width: max-content; height: max-content; padding: 1rem"
+    >
+      <div
+        class="box spin"
+        style="
+          transform: rotateX(0);
+          background: #e0e0e0;
+          border: 1rem solid #000000;
+          border-radius: 50%;
+          color: #000000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 1rem;
+        "
+      >
+        CSS spin
+      </div>
+    </div>
+    <div
+      class="perspective-container-200"
+      style="
+        width: max-content;
+        height: max-content;
+        padding: 1rem;
+        margin-left: 1rem;
+      "
+    >
+      <div
+        class="box"
+        style="
+          transform: rotate3d(1, 1, 0, 45deg) translateZ(-150px);
+          transform-origin: 50% 50%;
+          background: #e0e0e0;
+          border: 1rem solid #000000;
+          border-radius: 50%;
+          color: #000000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 1rem;
+        "
+      >
+        Transform: translate Z -150px
+      </div>
+    </div>
+    <div
+      class="perspective-container-200"
+      style="
+        width: max-content;
+        height: max-content;
+        padding: 1rem;
+        margin-left: 1rem;
+      "
+    >
+      <div
+        class="box"
+        style="
+          transform: translateZ(40px) rotate3d(1, 1, 0, 45deg);
+          transform-origin: 50% 50%;
+          background: #e0e0e0;
+          border: 1rem solid #000000;
+          border-radius: 50%;
+          color: #000000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 1rem;
+        "
+      >
+        Transform: translate Z 40px
+      </div>
+    </div>
+    <div
+      class="perspective-container-200"
+      style="
+        width: max-content;
+        height: max-content;
+        padding: 1rem;
+        margin-left: 2rem;
+      "
+    >
+      <div
+        class="box"
+        style="
+          transform: scaleZ(2) rotate3d(1, 1, 0, 45deg);
+          transform-origin: 50% 50%;
+          background: #e0e0e0;
+          border: 1rem solid #000000;
+          border-radius: 50%;
+          color: #000000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 1rem;
+        "
+      >
+        Transform: Scale Z 2
+      </div>
+    </div>
+    <br /><br /><br /><br />
+    <div
+      style="
+        perspective: 400px;
+        perspective-origin: -30% -30%;
+        width: 10rem;
+        height: 10rem;
+        margin-left: 2rem;
+        transform-style: preserve-3d;
+      "
+    >
+      <div class="box face" style="transform: translateX(0) translateY(0)">
+        CSS 3D Box
+      </div>
+      <div
+        class="box face"
+        style="
+          transform: translateX(5rem) translateZ(-5rem) translateY(0)
+            rotateY(-90deg);
+        "
+      ></div>
+      <div
+        class="box face"
+        style="
+          transform: translateX(-5rem) translateZ(-5rem) translateY(0)
+            rotateY(-90deg);
+        "
+      ></div>
+      <div
+        class="box face"
+        style="transform: translateY(-5rem) translateZ(-5rem) rotateX(-90deg)"
+      ></div>
+      <div
+        class="box face"
+        style="transform: translateY(5rem) translateZ(-5rem) rotateX(90deg)"
+      ></div>
+      <div class="box face" style="transform: translateZ(-10rem)"></div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="card" id="card">
+      <div class="side front">
+        <div class="suit">&clubs;</div>
+      </div>
+      <div class="side back"></div>
+    </div>
+    <br />
+    <button class="btn" id="btn-flip-card" type="button">Flip the card</button>
+    <script>
+      window.onload = function () {
+        const transformedBox = document.getElementById("transformed-box");
+        const clientRects = transformedBox.getClientRects();
+        console.log("Transformed box client rects:", clientRects);
+        const boundingClientRect = transformedBox.getBoundingClientRect();
+        console.log(
+          "Transformed box bounding client rects:",
+          boundingClientRect
+        );
+        console.log("Transformed box top:", transformedBox.offsetTop);
+        const card = document.getElementById("card");
+        const flipCardButton = document.getElementById("btn-flip-card");
+        flipCardButton.addEventListener("click", () => {
+          card.classList.toggle("flipped");
+        });
+      };
+    </script>
+  </body>
+</html>
