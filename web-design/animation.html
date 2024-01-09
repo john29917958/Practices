@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background: #f44336;
+      }
+
+      .pulse-and-fade {
+        /* animation: pulse 500ms infinite, fade 500ms 8; */
+        animation-name: pulse, fade;
+        animation-duration: 500ms;
+        animation-iteration-count: infinite, 1;
+        animation-direction: alternate;
+      }
+
+      .wiggle {
+        --wiggle-min-scale: 0.5;
+        --wiggle-max-scale: 1.5;
+        animation: wiggle 500ms forwards;
+        animation-play-state: paused;
+
+        /* Indicate browser this property will change soon. */
+        will-change: transform;
+      }
+
+      @media only screen and (prefers-reduced-motion) {
+        .wiggle {
+          --wiggle-min-scale: 1;
+          --wiggle-max-scale: 1;
+        }
+      }
+
+      .running {
+        animation-play-state: running;
+      }
+
+      @keyframes pulse {
+        from {
+          transform: scale(0.5);
+        }
+
+        to {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.8;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes wiggle {
+        25% {
+          transform: scale(var(--wiggle-min-scale)) skewX(-5deg) rotate(-5deg);
+        }
+
+        50% {
+          transform: skewY(5deg) rotate(5deg);
+        }
+
+        75% {
+          transform: skewX(-5deg) rotate(-5deg) scale(var(--wiggle-max-scale));
+        }
+
+        100% {
+          transform: scale(var(--wiggle-max-scale));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box pulse-and-fade"></div>
+    <br /><br />
+    <div class="box wiggle" id="animated-box"></div>
+    <br /><br />
+    <button id="animation-play-state-toggler" type="button">
+      Toggle animation play state
+    </button>
+    <script>
+      let hasAnimations = "CSSKeyframeRule" in window;
+      console.log("Does browser supports CSS animation: ", hasAnimations);
+      hasAnimations = CSS.supports("animation-duration: 2s");
+      console.log(
+        "Does browser supports CSS rule: animation-duration",
+        hasAnimations
+      );
+      window.onload = function () {
+        const animationToggleButton = document.getElementById(
+          "animation-play-state-toggler"
+        );
+        const animatedBox = document.getElementById("animated-box");
+        animationToggleButton.addEventListener("click", () => {
+          animatedBox.classList.toggle("running");
+        });
+        animatedBox.addEventListener("animationend", (e) => {
+          console.log(`The ${e.animationName} animation has ended.`);
+        });
+      };
+    </script>
+  </body>
+</html>
