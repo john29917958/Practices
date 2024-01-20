@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clipping and Masking</title>
+  </head>
+  <body>
+    <h1>Clip Path: Ellipse</h1>
+    <div
+      style="
+        width: 100%;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #e0e0e0;
+      "
+    >
+      <img
+        src="https://picsum.photos/600/400"
+        alt="Photo"
+        style="
+          display: block;
+          height: 95%;
+          margin: 2rem auto;
+          width: auto;
+          clip-path: ellipse(50% 50% at 50% 50%);
+        "
+      />
+    </div>
+    <h1>Clip Path: Polygon</h1>
+    <div
+      style="
+        width: 100%;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #e0e0e0;
+      "
+    >
+      <img
+        src="https://picsum.photos/600/400"
+        alt="Photo"
+        style="
+          display: block;
+          height: 95%;
+          margin: 2rem auto;
+          width: auto;
+          clip-path: polygon(
+            25% 0%,
+            75% 0%,
+            100% 50%,
+            75% 100%,
+            25% 100%,
+            0% 50%
+          );
+        "
+      />
+    </div>
+    <h1>Clip Path: Heart Path</h1>
+    <p>Try to hover the heart.</p>
+    <div
+      style="
+        width: 100%;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #e0e0e0;
+      "
+    >
+      <img
+        src="https://picsum.photos/600/400"
+        alt="Photo"
+        style="
+          display: block;
+          height: 95%;
+          margin: 2rem auto;
+          width: auto;
+          clip-path: path(
+            'M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z'
+          );
+          cursor: pointer;
+        "
+      />
+    </div>
+    <h1>Clip Path: Use URL to Link to SVG Element</h1>
+    <svg
+      width="0"
+      height="0"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <clipPath id="heart">
+        <path
+          d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+          fill="#1C274C"
+        />
+      </clipPath>
+    </svg>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="clip-path: url(#heart)"
+    />
+    <h1>Clip Path: Use External SVG Link (Supported in Firefox)</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="clip-path: url(./heart.svg#heart)"
+    />
+    <h1>Mask with Mask Image (Supported in Firefox)</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="mask-image: url('./heart-mask.svg#heart')"
+    />
+    <h1>Mask with Image Set With Alpha Values (Supported by Firefox)</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="
+        -webkit-mask-image: url('./star.png');
+        mask-image: url('./star.png');
+      "
+    />
+    <h1>Mask with Mask Image Created By Linear Gradient</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="mask-image: linear-gradient(to bottom, #000, #fff0 90%)"
+    />
+    <h1>Mask with Mask Mode Alpha</h1>
+    <div style="background: #000000; padding: 3rem; box-sizing: border-box">
+      <img
+        src="https://picsum.photos/600/400"
+        alt="Photo"
+        style="
+          mask-image: linear-gradient(
+            #f006 0 33.33%,
+            #ff0a 33.33% 66.66%,
+            #080 66.66% 100%
+          );
+          mask-mode: alpha;
+        "
+      />
+    </div>
+    <h1>Mask with Mask Mode Luminance</h1>
+    <div style="background: #000000; padding: 3rem; box-sizing: border-box">
+      <img
+        src="https://picsum.photos/600/400"
+        alt="Photo"
+        style="
+          mask-image: linear-gradient(
+            #f006 0 33.33%,
+            #ff0a 33.33% 66.66%,
+            #080 66.66% 100%
+          );
+          mask-mode: luminance;
+        "
+      />
+    </div>
+    <h1>Mask with Mask Mode Luminance (Mask Image of Blue to White)</h1>
+    <div style="background: #000000; padding: 3rem; box-sizing: border-box">
+      <img
+        src="https://picsum.photos/600/400"
+        alt="Photo"
+        style="
+          mask-image: linear-gradient(
+            #0000ff 0 33.33%,
+            #8080ff 33.33% 66.66%,
+            #ffffff 66.66% 100%
+          );
+          mask-mode: luminance;
+        "
+      />
+    </div>
+    <h1>Do Not Repeat Mask Image</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="
+        -webkit-mask-image: url('./star.png');
+        mask-image: url('./star.png');
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+      "
+    />
+    <h1>Resizing Mask Image</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="
+        -webkit-mask-image: url('./star.png');
+        mask-image: url('./star.png');
+        -webkit-mask-repeat: round;
+        mask-repeat: round;
+        -webkit-mask-size: 5vw auto;
+        mask-size: 5vw auto;
+      "
+    />
+    <h1>Changing Mask Position to Right and Set Mask Origin to Border Box</h1>
+    <div style="background: #000000; padding: 1rem">
+      <img
+        src="https://picsum.photos/600/400"
+        alt="Photo"
+        style="
+          -webkit-mask-image: url('./star.png');
+          mask-image: url('./star.png');
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          -webkit-mask-size: 5vw auto;
+          mask-size: 5vw auto;
+          -webkit-mask-position: right;
+          mask-position: right;
+          -webkit-mask-origin: border-box;
+          mask-origin: border-box;
+          border: #000 3rem solid;
+        "
+      />
+    </div>
+    <h1>Using Multiple Mask Images</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-image: url('./circle.svg'), url('./square.svg');
+        mask-image: url('./circle.svg'), url('./square.svg');
+        -webkit-mask-position: left, right;
+        mask-position: 40% 40%, 60% 60%;
+        -webkit-mask-size: 150px auto;
+        mask-size: 150px auto;
+        -webkit-mask-origin: border-box;
+        mask-origin: border-box;
+      "
+    />
+    <h1>Mask Compositing: Add</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-image: url('./circle.svg'), url('./square.svg');
+        mask-image: url('./circle.svg'), url('./square.svg');
+        -webkit-mask-position: left, right;
+        mask-position: 40% 40%, 60% 60%;
+        -webkit-mask-size: 150px auto;
+        mask-size: 150px auto;
+        -webkit-mask-origin: border-box;
+        mask-origin: border-box;
+        -webkit-mask-composite: add;
+        mask-composite: add;
+      "
+    />
+    <h1>Mask Compositing: Subtract</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-image: url('./circle.svg'), url('./square.svg');
+        mask-image: url('./circle.svg'), url('./square.svg');
+        -webkit-mask-position: left, right;
+        mask-position: 40% 40%, 60% 60%;
+        -webkit-mask-size: 150px auto;
+        mask-size: 150px auto;
+        -webkit-mask-origin: border-box;
+        mask-origin: border-box;
+        -webkit-mask-composite: subtract;
+        mask-composite: subtract;
+      "
+    />
+    <h1>Mask Compositing: Intersect</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-image: url('./circle.svg'), url('./square.svg');
+        mask-image: url('./circle.svg'), url('./square.svg');
+        -webkit-mask-position: left, right;
+        mask-position: 40% 40%, 60% 60%;
+        -webkit-mask-size: 150px auto;
+        mask-size: 150px auto;
+        -webkit-mask-origin: border-box;
+        mask-origin: border-box;
+        -webkit-mask-composite: intersect;
+        mask-composite: intersect;
+      "
+    />
+    <h1>Mask Compositing: Exclude</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-image: url('./circle.svg'), url('./square.svg');
+        mask-image: url('./circle.svg'), url('./square.svg');
+        -webkit-mask-position: left, right;
+        mask-position: 40% 40%, 60% 60%;
+        -webkit-mask-size: 150px auto;
+        mask-size: 150px auto;
+        -webkit-mask-origin: border-box;
+        mask-origin: border-box;
+        -webkit-mask-composite: exclude;
+        mask-composite: exclude;
+      "
+    />
+    <h1>Mask Compositing: Subtract (Substituted)</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-image: url('./square.svg'), url('./circle.svg');
+        mask-image: url('./square.svg'), url('./circle.svg');
+        -webkit-mask-position: left, right;
+        mask-position: 40% 40%, 60% 60%;
+        -webkit-mask-size: 150px auto;
+        mask-size: 150px auto;
+        -webkit-mask-origin: border-box;
+        mask-origin: border-box;
+        -webkit-mask-composite: subtract;
+        mask-composite: subtract;
+      "
+    />
+    <h1>Mask Compositing: Subtract (Shorthand Property)</h1>
+    <img
+      src="https://picsum.photos/600/400"
+      alt="Photo"
+      style="
+        mask: url('./circle.svg') no-repeat border-box subtract,
+          url('./square.svg') no-repeat border-box 0 0 / 200px 200px subtract;
+      "
+    />
+  </body>
+</html>
