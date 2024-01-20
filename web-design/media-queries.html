@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Queries</title>
+    <style>
+      :root {
+        --red: #f44336;
+      }
+
+      @media screen {
+        .red-screen-only {
+          color: var(--red);
+        }
+      }
+
+      @media print {
+        .red-print-only {
+          color: var(--red);
+        }
+      }
+
+      @media screen, print {
+        .red-screen-and-print {
+          color: var(--red);
+        }
+      }
+
+      @media screen and (width: 480px) {
+        .red-on-screen-480 {
+          color: var(--red);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .red-480-and-down {
+          color: var(--red);
+        }
+      }
+
+      @media (min-width: 481px) and (max-width: 1600px) {
+        .red-481-to-1600 {
+          color: var(--red);
+        }
+      }
+
+      @media (aspect-ratio: 1024/768) {
+        .red-ratio-4-3 {
+          color: var(--red);
+        }
+      }
+
+      @media (min-aspect-ratio: 16/9) {
+        .red-ratio-min-16-9 {
+          color: var(--red);
+        }
+      }
+
+      @media (min-color: 8) {
+        .red-color-8-bits-and-higher {
+          color: var(--red);
+        }
+      }
+
+      @media (color-index: 0) {
+        .bold-color-index-0 {
+          font-weight: bold;
+        }
+      }
+
+      @media (max-height: 400px) {
+        .red-h-400-and-down {
+          color: var(--red);
+        }
+      }
+
+      @media (min-width: 500px) {
+        .red-w-500-and-up {
+          color: var(--red);
+        }
+      }
+
+      @media (monochrome: 0) {
+        .red-on-non-monochrome-and-bold-on-monochrome {
+          color: var(--red);
+        }
+      }
+
+      @media (min-monochrome: 1) {
+        .red-on-non-monochrome-and-bold-on-monochrome {
+          font-weight: bold;
+        }
+      }
+
+      @media (min-resolution: 3dppx) {
+        .red-on-res-3dppx-and-up {
+          color: var(--red);
+        }
+      }
+
+      @media (orientation: portrait) {
+        .orientation-detector::before {
+          content: "Orientation: Portrait";
+        }
+      }
+
+      @media (orientation: landscape) {
+        .orientation-detector::before {
+          content: "Orientation: Landscape";
+        }
+      }
+
+      .any-hover-detector::before {
+        content: "Any hover: No";
+      }
+
+      @media (any-hover: hover) {
+        .any-hover-detector::before {
+          content: "Any hover: Yes";
+        }
+      }
+
+      .hover-detector::before {
+        content: "Have hover state: No";
+      }
+
+      @media (hover: hover) {
+        .hover-detector::before {
+          content: "Have hover state: Yes";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p class="red-screen-only">
+      This line of text will be red only on screens.
+    </p>
+    <p class="red-print-only">This line of text will be red only on prints.</p>
+    <p class="red-screen-and-print">
+      This line of text will be red on screen and print type devices.
+    </p>
+    <p class="red-on-screen-480">
+      This line of text will be red on 480 pixels width screen device.
+    </p>
+    <p class="red-480-and-down">
+      This line of text will be red on devices with a width narrower than 480
+      pixels.
+    </p>
+    <p class="red-481-to-1600">
+      This line of text will be red when width is between 481 pixels to 1600
+      pixels.
+    </p>
+    <p class="red-ratio-4-3">
+      This line of text will be red when aspect ratio is 4:3, for example:
+      1024x768.
+    </p>
+    <p class="red-ratio-min-16-9">
+      This line of text will be red when aspect ratio is greater than or equal
+      to 16:9, for example: 1920x1080.
+    </p>
+    <p class="red-color-8-bits-and-higher">
+      This line of text will be red if the number of device color bits is
+      greater than or equal to 8.
+    </p>
+    <p class="bold-color-index-0">
+      This line of text will be bold if the minimum number of colors available
+      on the device is 0 or the device does not use color lookup table.
+    </p>
+    <p class="red-h-400-and-down">
+      This line of text will be red if the viewport height is less than or equal
+      to 400 pixels.
+    </p>
+    <p class="red-w-500-and-up">
+      This line of text will be red if the viewport width is greater than or
+      equal to 500 pixels.
+    </p>
+    <p class="red-on-non-monochrome-and-bold-on-monochrome">
+      This line of text will be red on non-monochrome devices and be bold on
+      monochrome devices.
+    </p>
+    <p class="red-on-res-3dppx-and-up">
+      This line of text will be red on devices with resolution greater than or
+      equal to 3dppx.
+    </p>
+    <p class="orientation-detector"></p>
+    <p class="any-hover-detector"></p>
+    <p class="hover-detector"></p>
+  </body>
+</html>
