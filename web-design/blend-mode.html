@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blend Mode</title>
+    <style>
+      #blend-mode-diff {
+        background-image: linear-gradient(to left, #f30, #fc0);
+        width: 60vw;
+        margin: 3rem auto;
+        position: relative;
+      }
+
+      #blend-mode-diff p {
+        position: absolute;
+        color: #000000;
+        margin: 4rem;
+        font-size: 3rem;
+      }
+
+      #blend-mode-diff img {
+        display: block;
+        height: auto;
+        width: 100%;
+        mix-blend-mode: difference;
+      }
+
+      #blend-mode-multiply {
+        width: 60vw;
+        height: 60vh;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: linear-gradient(90deg, rgb(255, 0, 0), rgb(0, 0, 255)),
+          linear-gradient(270deg, rgb(127, 255, 0), rgb(255, 255, 0));
+        background-blend-mode: multiply;
+      }
+
+      #multiple-blend-modes {
+        width: 60vw;
+        height: 60vh;
+        margin-left: auto;
+        margin-right: auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 0 0, center, center;
+        background-image: linear-gradient(to bottom, #f90d, #f30d, #f0fd 105%),
+          url("https://picsum.photos/600/400?random=1"),
+          url("https://picsum.photos/600/400?random=2");
+        background-blend-mode: saturation, darken, screen;
+        background-color: green;
+      }
+
+      .gradient-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+        background: linear-gradient(to right, magenta, purple, blue);
+      }
+
+      .bg-img-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50vh;
+        background-image: url("https://picsum.photos/600/400");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .d-flex {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .w-50 {
+        width: 50%;
+      }
+
+      .w-100 {
+        width: 100%;
+      }
+
+      .backdrop-filter-elem {
+        width: 100%;
+        text-align: center;
+      }
+
+      #backdrop-filter-container {
+        background-image: url("https://picsum.photos/600/400");
+        background-size: contain;
+        width: 600px;
+        height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+      }
+
+      #backdrop-filter-container p {
+        margin: 0;
+        align-items: center;
+        padding: 6rem 2rem;
+        background: hsla(22.4, 44.9%, 63.7%, 0.9);
+      }
+
+      @supports (
+        (backdrop-filter: blur(8px) hue-rotate(180deg)) or
+          (-webkit-backdrop-filter: blur(8px) hue-rotate(180deg))
+      ) {
+        #backdrop-filter-container p {
+          background-color: initial;
+          backdrop-filter: blur(8px) hue-rotate(180deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Difference Blend Mode</h1>
+    <div id="blend-mode-diff">
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, cum.
+      </p>
+      <img src="https://picsum.photos/600/400" alt="" />
+    </div>
+    <h1>Multiply Blend Mode</h1>
+    <div id="blend-mode-multiply"></div>
+    <h1>Multiple Blend Modes</h1>
+    <div
+      style="
+        background-color: #000000;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div id="multiple-blend-modes"></div>
+    </div>
+    <h1>Sixteen Blend Modes</h1>
+    <h2>Blend Mode: None</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: none"
+      />
+    </div>
+    <h2>Blend Mode: Color</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: color"
+      />
+    </div>
+    <h2>Blend Mode: Color Burn</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: color-burn"
+      />
+    </div>
+    <h2>Blend Mode: Color Dodge</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: color-dodge"
+      />
+    </div>
+    <h2>Blend Mode: Darken</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: darken"
+      />
+    </div>
+    <h2>Blend Mode: Difference</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: difference"
+      />
+    </div>
+    <h2>Blend Mode: Exclusion</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: exclusion"
+      />
+    </div>
+    <h2>Blend Mode: Hard Light</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: hard-light"
+      />
+    </div>
+    <h2>Blend Mode: Hue</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: hue"
+      />
+    </div>
+    <h2>Blend Mode: Lighten</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: lighten"
+      />
+    </div>
+    <h2>Blend Mode: Luminosity</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: luminosity"
+      />
+    </div>
+    <h2>Blend Mode: Multiply</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: multiply"
+      />
+    </div>
+    <h2>Blend Mode: Overlay</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: overlay"
+      />
+    </div>
+    <h2>Blend Mode: Saturation</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: saturation"
+      />
+    </div>
+    <h2>Blend Mode: Screen</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: screen"
+      />
+    </div>
+    <h2>Blend Mode: Soft Light</h2>
+    <div class="gradient-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+        alt="Lemon"
+        style="mix-blend-mode: soft-light"
+      />
+    </div>
+    <h1>Filter Functions</h1>
+    <h2>Filter Function: Blur</h2>
+    <div class="d-flex">
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: blur(10px)">
+          <h1>blur(10px)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p>Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div class="backdrop-filter-elem" style="backdrop-filter: blur(10px)">
+            <h1>blur(10px)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>Filter Function: Brightness</h2>
+    <div class="d-flex">
+      <h3 class="w-100">Darker</h3>
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: brightness(0.2)">
+          <h1 style="color: #ffffff">brightness(0.2)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p>Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="backdrop-filter: brightness(0.2)"
+          >
+            <h1 style="color: #ffffff">brightness(0.2)</h1>
+          </div>
+        </div>
+      </div>
+      <h3 class="w-100">No Change</h3>
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: brightness(1)">
+          <h1>brightness(1)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p>Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="backdrop-filter: brightness(1)"
+          >
+            <h1>brightness(1)</h1>
+          </div>
+        </div>
+      </div>
+      <h3 class="w-100">Brighter</h3>
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: brightness(1.8)">
+          <h1>brightness(1.8)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p>Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="backdrop-filter: brightness(1.8)"
+          >
+            <h1>brightness(1.8)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>Filter Function: Contrast</h2>
+    <div class="d-flex">
+      <h3 class="w-100">Turns Gray</h3>
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: contrast(0.2)">
+          <h1 style="color: #ffffff">contrast(0.2)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p>Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="backdrop-filter: contrast(0.2)"
+          >
+            <h1 style="color: #ffffff">contrast(0.2)</h1>
+          </div>
+        </div>
+      </div>
+      <h3 class="w-100">No Change</h3>
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: contrast(1)">
+          <h1>contrast(1)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p>Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="backdrop-filter: contrast(1)"
+          >
+            <h1>contrast(1)</h1>
+          </div>
+        </div>
+      </div>
+      <h3 class="w-100">Increase Contrast</h3>
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: contrast(1.8)">
+          <h1>contrast(1.8)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p>Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="backdrop-filter: contrast(1.8)"
+          >
+            <h1>contrast(1.8)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>Filter Function: Drop Shadow</h2>
+    <div class="d-flex">
+      <div class="w-50">
+        <p>Filter</p>
+        <div
+          class="bg-img-box"
+          style="filter: drop-shadow(3px 3px 5px #9c27b0)"
+        >
+          <h1 style="color: #ffffff">drop-shadow(8px, 8px, 5px, #f44336)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p style="color: red">Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="backdrop-filter: drop-shadow(3px 3px 5px #9c27b0)"
+          >
+            <h1 style="color: #ffffff">drop-shadow(3px 3px 5px #9c27b0)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>Filter Function: Grayscale</h2>
+    <div class="d-flex">
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: grayscale(90%)">
+          <h1 style="color: #ffffff">grayscale(90%)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p>Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="backdrop-filter: grayscale(90%)"
+          >
+            <h1 style="color: #ffffff">grayscale(90%)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>Filter Function: Hue Rotate</h2>
+    <div class="d-flex">
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: hue-rotate(30deg)">
+          <h1 style="color: #ffffff">hue-rotate(30deg)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p>Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="backdrop-filter: hue-rotate(30deg)"
+          >
+            <h1 style="color: #ffffff">hue-rotate(30deg)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>Filter Function: Invert</h2>
+    <div class="d-flex">
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: invert(90%)">
+          <h1 style="color: #ffffff">invert(90%)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p>Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="backdrop-filter: invert(90%)"
+          >
+            <h1 style="color: #ffffff">invert(90%)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>Filter Function: Opacity</h2>
+    <div class="d-flex">
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: opacity(50%)">
+          <h1 style="color: #ffffff">opacity(50%)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p style="color: red">Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="backdrop-filter: opacity(50%)"
+          >
+            <h1 style="color: #ffffff">opacity(50%)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>Filter Function: Saturate</h2>
+    <div class="d-flex">
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: saturate(200%)">
+          <h1>saturate(200%)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p>Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="backdrop-filter: saturate(200%)"
+          >
+            <h1>saturate(200%)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>Filter Function: Sepia</h2>
+    <div class="d-flex">
+      <div class="w-50">
+        <p>Filter</p>
+        <div class="bg-img-box" style="filter: sepia(80%)">
+          <h1>sepia(200%)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p>Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div class="backdrop-filter-elem" style="backdrop-filter: sepia(80%)">
+            <h1>sepia(80%)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>Multiple Filters</h2>
+    <div class="d-flex">
+      <div class="w-50">
+        <p>Filter</p>
+        <div
+          class="bg-img-box"
+          style="filter: sepia(100%) drop-shadow(3px 3px 8px #0da8cc)"
+        >
+          <h1>sepia(100%)<br />drop-shadow(3px 3px 8px #0da8cc)</h1>
+        </div>
+      </div>
+      <div class="w-50">
+        <p style="color: red">Backdrop Filter</p>
+        <div class="bg-img-box">
+          <div
+            class="backdrop-filter-elem"
+            style="
+              backdrop-filter: sepia(100%) drop-shadow(3px 3px 8px #0da8cc);
+            "
+          >
+            <h1>sepia(100%)<br />drop-shadow(3px 3px 8px #0da8cc)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>Drop Shadow vs Box Shadow</h2>
+    <div class="d-flex">
+      <div class="w-50">
+        <p>Drop Shadow</p>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+          alt="Lemon"
+          style="filter: drop-shadow(3px 3px 8px #0da8cc)"
+        />
+      </div>
+      <div class="w-50">
+        <p>Box Shadow</p>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lemon.svg"
+          alt="Lemon"
+          style="box-shadow: 3px 3px 8px #0da8cc"
+        />
+      </div>
+    </div>
+    <h2>Backdrop Filter</h2>
+    <div id="backdrop-filter-container">
+      <p>Flamingos are pink</p>
+    </div>
+    <h1>Filter Effect Affecting Layout</h1>
+    <h2>Before Adding Filter Property</h2>
+    <div style="position: relative">
+      <div
+        style="
+          width: 100%;
+          height: 50vh;
+          padding: 3rem;
+          background: #80deea;
+          margin-left: 3rem;
+        "
+      >
+        <p>An un-positioned <code>div</code> element.</p>
+        <div
+          style="
+            left: 0;
+            bottom: 0;
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            background-color: #ffff00;
+          "
+        >
+          <p>This paragraph:</p>
+          <pre>
+  p {
+    left: 0;
+    bottom: 0;
+    position: absolute;
+  }          
+          </pre>
+        </div>
+      </div>
+    </div>
+    <h2>After Adding Filter Property</h2>
+    <div style="position: relative">
+      <div
+        style="
+          width: 100%;
+          height: 50vh;
+          padding: 3rem;
+          background: #80deea;
+          margin-left: 3rem;
+          filter: hue-rotate(45deg);
+        "
+      >
+        <p>An un-positioned <code>div</code> element.</p>
+        <div
+          style="
+            left: 0;
+            bottom: 0;
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            background-color: #ffff00;
+          "
+        >
+          <p>This paragraph:</p>
+          <pre>
+  p {
+    left: 0;
+    bottom: 0;
+    position: absolute;
+  }          
+          </pre>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
