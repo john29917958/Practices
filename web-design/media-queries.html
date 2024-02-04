@@ -99,6 +99,78 @@
         }
       }
 
+      @media (any-hover: none) {
+        .any-hover-detector::before {
+          content: "Any input has hover state: No";
+        }
+      }
+
+      @media (any-hover: hover) {
+        .any-hover-detector::before {
+          content: "Any input has hover state: Yes";
+        }
+      }
+
+      @media (hover: none) {
+        .hover-detector::before {
+          content: "Have hover state: No";
+        }
+      }
+
+      @media (hover: hover) {
+        .hover-detector::before {
+          content: "Have hover state: Yes";
+        }
+      }
+
+      @media (any-pointer: none) {
+        .any-pointer-detector::before {
+          content: "Any pointing: No";
+        }
+      }
+
+      @media (any-pointer: fine) {
+        .any-pointer-detector::before {
+          content: "Any pointing: Includes accurate pointing device, such as mouse.";
+        }
+      }
+
+      @media (any-pointer: coarse) {
+        .any-pointer-detector::before {
+          content: "Any pointing: Includes pointing device of limited accuracy, such as finger on a touchscreen.";
+        }
+      }
+
+      @media (pointer: none) {
+        .pointer-detector::before {
+          content: "Pointer: None.";
+        }
+      }
+
+      @media (pointer: fine) {
+        .pointer-detector::before {
+          content: "Pointer: Includes accurate pointing device, such as mouse.";
+        }
+      }
+
+      @media (pointer: coarse) {
+        .pointer-detector::before {
+          content: "Pointer: Includes pointing device of limited accuracy, such as finger on a touchscreen.";
+        }
+      }
+
+      @media (grid: 0) {
+        .grid-detector::before {
+          font-weight: normal;
+        }
+      }
+
+      @media (grid) {
+        .grid-detector::before {
+          font-weight: bold;
+        }
+      }
+
       @media (orientation: portrait) {
         .orientation-detector::before {
           content: "Orientation: Portrait";
@@ -111,23 +183,38 @@
         }
       }
 
-      .any-hover-detector::before {
-        content: "Any hover: No";
-      }
-
-      @media (any-hover: hover) {
-        .any-hover-detector::before {
-          content: "Any hover: Yes";
+      @media (prefers-reduced-motion: no-preference) {
+        .reduced-motion-detector::before {
+          content: "Reduced motion is not preferred.";
         }
       }
 
-      .hover-detector::before {
-        content: "Have hover state: No";
+      @media (prefers-reduced-motion: reduce) {
+        .reduced-motion-detector::before {
+          content: "Reduced motion is preferred.";
+        }
       }
 
-      @media (hover: hover) {
-        .hover-detector::before {
-          content: "Have hover state: Yes";
+      @media (prefers-color-scheme: light) {
+        .prefers-color-scheme-detector::before {
+          content: "Preferred color scheme is light.";
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .prefers-color-scheme-detector::before {
+          content: "Preferred color scheme is dark.";
+        }
+      }
+
+      .content-overflow-block-detector {
+        height: 100px;
+        overflow-block: scroll;
+      }
+
+      @media (overflow-block: scroll) {
+        .content-overflow-block-detector::before {
+          content: 'The overflow block behavior is "scroll".';
         }
       }
     </style>
@@ -183,8 +270,16 @@
       This line of text will be red on devices with resolution greater than or
       equal to 3dppx.
     </p>
-    <p class="orientation-detector"></p>
     <p class="any-hover-detector"></p>
     <p class="hover-detector"></p>
+    <p class="any-pointer-detector"></p>
+    <p class="pointer-detector"></p>
+    <p class="grid-detector">
+      This line of text will be bold if the device is grid-based.
+    </p>
+    <p class="orientation-detector"></p>
+    <p class="reduced-motion-detector"></p>
+    <p class="prefers-color-scheme-detector"></p>
+    <div class="content-overflow-block-detector"></div>
   </body>
 </html>
