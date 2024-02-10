@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Queries</title>
+    <link
+      rel="stylesheet"
+      href="./button-sm.css"
+      type="text/css"
+      media="screen"
+    />
+    <style>
+      @import url("./button-md.css") screen and (min-width: 768px);
+
+      :root {
+        --red: #f44336;
+      }
+
+      @media screen {
+        .red-screen-only {
+          color: var(--red);
+        }
+      }
+
+      @media print {
+        .red-print-only {
+          color: var(--red);
+        }
+      }
+
+      @media screen, print {
+        .red-screen-and-print {
+          color: var(--red);
+        }
+      }
+
+      @media screen and (width: 480px) {
+        .red-on-screen-480 {
+          color: var(--red);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .red-480-and-down {
+          color: var(--red);
+        }
+      }
+
+      @media (min-width: 481px) and (max-width: 1600px) {
+        .red-481-to-1600 {
+          color: var(--red);
+        }
+      }
+
+      @media (aspect-ratio: 1024/768) {
+        .red-ratio-4-3 {
+          color: var(--red);
+        }
+      }
+
+      @media (min-aspect-ratio: 16/9) {
+        .red-ratio-min-16-9 {
+          color: var(--red);
+        }
+      }
+
+      @media (min-color: 8) {
+        .red-color-8-bits-and-higher {
+          color: var(--red);
+        }
+      }
+
+      @media (color-index: 0) {
+        .bold-color-index-0 {
+          font-weight: bold;
+        }
+      }
+
+      @media (max-height: 400px) {
+        .red-h-400-and-down {
+          color: var(--red);
+        }
+      }
+
+      @media (min-width: 500px) {
+        .red-w-500-and-up {
+          color: var(--red);
+        }
+      }
+
+      @media (monochrome: 0) {
+        .red-on-non-monochrome-and-bold-on-monochrome {
+          color: var(--red);
+        }
+      }
+
+      @media (min-monochrome: 1) {
+        .red-on-non-monochrome-and-bold-on-monochrome {
+          font-weight: bold;
+        }
+      }
+
+      @media (min-resolution: 3dppx) {
+        .red-on-res-3dppx-and-up {
+          color: var(--red);
+        }
+      }
+
+      @media (any-hover: none) {
+        .any-hover-detector::before {
+          content: "Any input has hover state: No";
+        }
+      }
+
+      @media (any-hover: hover) {
+        .any-hover-detector::before {
+          content: "Any input has hover state: Yes";
+        }
+      }
+
+      @media (hover: none) {
+        .hover-detector::before {
+          content: "Have hover state: No";
+        }
+      }
+
+      @media (hover: hover) {
+        .hover-detector::before {
+          content: "Have hover state: Yes";
+        }
+      }
+
+      @media (any-pointer: none) {
+        .any-pointer-detector::before {
+          content: "Any pointing: No";
+        }
+      }
+
+      @media (any-pointer: fine) {
+        .any-pointer-detector::before {
+          content: "Any pointing: Includes accurate pointing device, such as mouse.";
+        }
+      }
+
+      @media (any-pointer: coarse) {
+        .any-pointer-detector::before {
+          content: "Any pointing: Includes pointing device of limited accuracy, such as finger on a touchscreen.";
+        }
+      }
+
+      @media (pointer: none) {
+        .pointer-detector::before {
+          content: "Pointer: None.";
+        }
+      }
+
+      @media (pointer: fine) {
+        .pointer-detector::before {
+          content: "Pointer: Includes accurate pointing device, such as mouse.";
+        }
+      }
+
+      @media (pointer: coarse) {
+        .pointer-detector::before {
+          content: "Pointer: Includes pointing device of limited accuracy, such as finger on a touchscreen.";
+        }
+      }
+
+      @media (grid: 0) {
+        .grid-detector::before {
+          font-weight: normal;
+        }
+      }
+
+      @media (grid) {
+        .grid-detector::before {
+          font-weight: bold;
+        }
+      }
+
+      @media (orientation: portrait) {
+        .orientation-detector::before {
+          content: "Orientation: Portrait";
+        }
+      }
+
+      @media (orientation: landscape) {
+        .orientation-detector::before {
+          content: "Orientation: Landscape";
+        }
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .reduced-motion-detector::before {
+          content: "Reduced motion is not preferred.";
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reduced-motion-detector::before {
+          content: "Reduced motion is preferred.";
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        .prefers-color-scheme-detector::before {
+          content: "Preferred color scheme is light.";
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .prefers-color-scheme-detector::before {
+          content: "Preferred color scheme is dark.";
+        }
+      }
+
+      .content-overflow-block-detector {
+        height: 100px;
+        overflow-block: scroll;
+      }
+
+      @media (overflow-block: scroll) {
+        .content-overflow-block-detector::before {
+          content: 'The overflow block behavior is "scroll".';
+        }
+      }
+
+      /* Nested media query rules. */
+      @media screen {
+        @media (prefers-color-scheme: light) {
+          .btn-color-scheme-responsive {
+            background: #eeeeee;
+            color: #000;
+          }
+        }
+
+        @media (prefers-color-scheme: dark) {
+          .btn-color-scheme-responsive {
+            background: #212121;
+            color: #fff;
+          }
+        }
+      }
+
+      @media not (width: 480px) {
+        .red-not-480 {
+          color: red;
+        }
+      }
+
+      @media not (min-width: 480px) {
+        .red-not-min-width-480 {
+          color: red;
+        }
+      }
+
+      @media not (min-width: 480px), not (max-width: 720px) {
+        .red-not-min-480-or-not-max-720 {
+          color: red;
+        }
+      }
+
+      @supports (display: grid) {
+        .article {
+          display: grid;
+          grid-template-columns: repeat(4, auto);
+        }
+      }
+
+      @supports (text-decoration-color: #c09) and
+        (text-decoration-style: double) {
+        .underlined-orange {
+          font-style: normal;
+          text-decoration: underline double #f60;
+        }
+      }
+
+      @supports (display: flex) or (display: -webkit-flex) {
+        .flex-nav ul {
+          display: -webkit-flex;
+          display: flex;
+        }
+
+        .flex-nav ul li {
+          padding: 1rem 0.7rem;
+          list-style-type: none;
+        }
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+      }
+
+      @supports not (display: grid) {
+        .grid-container {
+          display: flex;
+        }
+      }
+
+      @supports selector(:invalid) {
+        input:invalid {
+          background: pink;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p class="cc">Hi</p>
+    <p class="red-screen-only">
+      This line of text will be red only on screens.
+    </p>
+    <p class="red-print-only">This line of text will be red only on prints.</p>
+    <p class="red-screen-and-print">
+      This line of text will be red on screen and print type devices.
+    </p>
+    <p class="red-on-screen-480">
+      This line of text will be red on 480 pixels width screen device.
+    </p>
+    <p class="red-480-and-down">
+      This line of text will be red on devices with a width narrower than 480
+      pixels.
+    </p>
+    <p class="red-481-to-1600">
+      This line of text will be red when width is between 481 pixels to 1600
+      pixels.
+    </p>
+    <p class="red-ratio-4-3">
+      This line of text will be red when aspect ratio is 4:3, for example:
+      1024x768.
+    </p>
+    <p class="red-ratio-min-16-9">
+      This line of text will be red when aspect ratio is greater than or equal
+      to 16:9, for example: 1920x1080.
+    </p>
+    <p class="red-color-8-bits-and-higher">
+      This line of text will be red if the number of device color bits is
+      greater than or equal to 8.
+    </p>
+    <p class="bold-color-index-0">
+      This line of text will be bold if the minimum number of colors available
+      on the device is 0 or the device does not use color lookup table.
+    </p>
+    <p class="red-h-400-and-down">
+      This line of text will be red if the viewport height is less than or equal
+      to 400 pixels.
+    </p>
+    <p class="red-w-500-and-up">
+      This line of text will be red if the viewport width is greater than or
+      equal to 500 pixels.
+    </p>
+    <p class="red-on-non-monochrome-and-bold-on-monochrome">
+      This line of text will be red on non-monochrome devices and be bold on
+      monochrome devices.
+    </p>
+    <p class="red-on-res-3dppx-and-up">
+      This line of text will be red on devices with resolution greater than or
+      equal to 3dppx.
+    </p>
+    <p class="any-hover-detector"></p>
+    <p class="hover-detector"></p>
+    <p class="any-pointer-detector"></p>
+    <p class="pointer-detector"></p>
+    <p class="grid-detector">
+      This line of text will be bold if the device is grid-based.
+    </p>
+    <p class="orientation-detector"></p>
+    <p class="reduced-motion-detector"></p>
+    <p class="prefers-color-scheme-detector"></p>
+    <p>
+      Border radius of button will become rounded if screen width is larger than
+      or equal to 768 pixels.
+    </p>
+    <button class="btn btn-color-scheme-responsive">
+      Color will be changed in different color mode
+    </button>
+    <div class="content-overflow-block-detector"></div>
+    <p class="red-not-480">
+      This text will be red only when screen width is not 480 pixels.
+    </p>
+    <p class="red-not-min-width-480">
+      This text will be red only when screen width is not at least 480 pixels.
+    </p>
+    <p class="red-not-min-480-or-not-max-720">
+      This text will be red only when screen width is not at least 480 pixels or
+      is not within 720 pixels.
+    </p>
+    <picture>
+      <source
+        srcset="
+          https://fastly.picsum.photos/id/327/1024/768.jpg?hmac=djVv-p_kKPOO3ONK_6Quf-aMNwy7_8hpg3oF7JVcwL8
+        "
+        media="(min-width: 1024px)"
+      />
+      <source
+        srcset="
+          https://fastly.picsum.photos/id/294/600/400.jpg?hmac=cBumcw9ZVYNTDnQRf4BzNPWCc35hynYwQ2Ko3udDpTA
+        "
+        media="(min-width: 680px)"
+      />
+      <img src="https://picsum.photos/600/400" style="width: 100%" alt="" />
+    </picture>
+    <p id="screen-size-info"></p>
+    <video id="video" controls></video>
+    <p>
+      Media match result of "<code>min-width: 768px, (max-width: 1024px)"</code
+      >: <span id="not-all-media-match-result-info"></span>.
+    </p>
+    <div class="article">
+      <p>
+        Consectetur non mollit consequat officia est sunt. Aliqua pariatur
+        officia incididunt ad nisi minim ad culpa reprehenderit. Quis ipsum ea
+        commodo duis sit ex nisi duis voluptate incididunt qui deserunt.
+      </p>
+      <p>
+        Ipsum dolor duis in labore ea velit labore aliquip sunt ullamco esse
+        incididunt. Tempor Lorem commodo eiusmod duis esse eiusmod Lorem sint eu
+        cupidatat fugiat. Ipsum qui laborum veniam ea nulla labore consequat
+        occaecat sunt do ut ipsum. Sit occaecat anim veniam eu ea laboris Lorem.
+        Lorem nostrud adipisicing sint non sunt reprehenderit in labore culpa ut
+        consequat Lorem. Aliqua qui consequat dolore amet consequat qui in eu ex
+        ullamco. Exercitation deserunt exercitation sit commodo mollit nostrud
+        aliqua do esse dolore veniam aliquip ad enim.
+      </p>
+      <p>
+        Ex voluptate nostrud ut Lorem eiusmod in occaecat elit amet. In
+        adipisicing Lorem ullamco ex id proident irure pariatur tempor.
+        Exercitation eu ex mollit non sit anim nulla aute aliquip.
+      </p>
+      <p>
+        Deserunt reprehenderit sint non enim dolore in elit quis eu. Voluptate
+        anim eu fugiat esse culpa ea ipsum consequat consectetur magna dolore.
+        Elit nulla proident Lorem Lorem minim aliqua sunt sint velit sit ex
+        exercitation et. Magna excepteur magna consequat cillum esse aliqua
+        adipisicing irure cupidatat pariatur anim dolor ea. Aute nostrud officia
+        ea elit aliquip amet irure qui enim incididunt. Cillum magna ex minim
+        sit eu occaecat amet ipsum excepteur labore nostrud anim. Fugiat quis
+        labore sunt magna ea laborum.
+      </p>
+      <p>
+        Aliqua eu mollit id ea est elit officia et. Reprehenderit Lorem ut
+        proident ea do tempor. Consequat voluptate culpa amet ipsum quis duis
+        irure qui elit amet sint ex sint nulla.
+      </p>
+      <p>
+        In id id pariatur et laborum. Sint nulla cillum eu dolor esse
+        adipisicing minim anim ullamco nostrud aute. Ex consectetur Lorem dolore
+        qui nisi Lorem esse aliquip.
+      </p>
+      <p>
+        Incididunt enim tempor aliqua minim nulla cillum sit. Ad magna
+        adipisicing incididunt labore dolore minim sit anim. Quis veniam ex esse
+        nisi sint elit cupidatat ex velit aliquip et fugiat cupidatat. Minim
+        nostrud magna ex in aliquip incididunt cillum sit ex. Sunt nisi culpa
+        dolor proident aliqua ad fugiat ad.
+      </p>
+    </div>
+    <p class="underlined-orange">
+      This line of text will be decorated if browser supports
+      <code>text-decoration-color</code> and <code>text-decoration-style</code>.
+    </p>
+    <p>
+      The following list will be placed in a flex box if the browser supports
+      <code>display: flex</code> or <code>display: -webkit-flex</code>.
+    </p>
+    <nav class="flex-nav">
+      <ul>
+        <li>Item A</li>
+        <li>Item B</li>
+        <li>Item C</li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <p>
+        Amet enim laborum consequat ullamco voluptate dolore occaecat ipsum ad
+        officia do quis. Enim eu culpa laboris quis amet nostrud. Velit esse
+        voluptate sint mollit. Aliquip minim ad cillum minim duis ad enim
+        commodo eiusmod.
+      </p>
+      <p>
+        Mollit duis dolore esse ad. Aute labore ad velit anim aute tempor aliqua
+        anim veniam Lorem id. Aliquip Lorem sunt Lorem reprehenderit pariatur
+        dolore nostrud Lorem excepteur dolore ad cupidatat. Labore do laboris
+        deserunt pariatur aute nisi laborum elit sint nostrud.
+      </p>
+      <p>
+        Exercitation laborum Lorem do amet mollit officia dolor velit sint Lorem
+        amet adipisicing reprehenderit proident. Proident laboris ex consectetur
+        pariatur non ullamco duis irure. Voluptate do nostrud id voluptate sit
+        reprehenderit fugiat mollit do qui do mollit aliqua. Enim incididunt
+        Lorem do mollit et fugiat fugiat. Esse mollit nostrud magna est. Tempor
+        excepteur aliqua proident exercitation voluptate aliqua enim mollit
+        exercitation quis. Lorem incididunt minim excepteur non nulla
+        reprehenderit consectetur non excepteur sint deserunt cillum magna
+        mollit.
+      </p>
+      <p>
+        Pariatur fugiat dolore pariatur voluptate occaecat sit. Culpa laborum
+        nostrud ex excepteur enim exercitation nostrud quis eiusmod cillum
+        laboris consectetur ex ad. Elit voluptate magna proident ad ut proident
+        consequat do. Fugiat occaecat sint velit commodo culpa proident
+        voluptate elit duis pariatur occaecat labore voluptate. In officia
+        pariatur non nostrud esse anim cupidatat excepteur dolor non nostrud.
+        Excepteur aute occaecat incididunt est est est reprehenderit consequat.
+      </p>
+      <p>
+        Dolor ipsum deserunt veniam voluptate dolore laborum anim nulla cillum
+        nostrud esse sunt. Fugiat laboris enim excepteur exercitation in cillum
+        dolor veniam non non dolor aute labore elit. Labore ut magna cupidatat
+        consectetur dolor ullamco magna consectetur consequat nostrud
+        exercitation. Deserunt nostrud incididunt ad fugiat occaecat non
+        consequat officia ex sit amet quis velit.
+      </p>
+      <p>
+        Ex sint et et et irure. Voluptate qui do officia tempor excepteur elit
+        proident. Non proident ea excepteur eiusmod.
+      </p>
+    </div>
+    <label for="email">Please Enter Your E-mail</label>
+    <input type="email" name="email" id="email" />
+    <script>
+      window.onload = function () {
+        let isWideScreenMatch = window.matchMedia("(min-width: 45em)");
+        const screenSizeInfoElem = document.getElementById("screen-size-info");
+        if (isWideScreenMatch.matches) {
+          screenSizeInfoElem.textContent = "It is a wide screen.";
+        } else {
+          screenSizeInfoElem.textContent = "It's not a wide screen.";
+        }
+        isWideScreenMatch = window.matchMedia("(min-width: 480px)");
+        const responsiveVideo = document.getElementById("video");
+        isWideScreenMatch.addListener((mediaQuery) => {
+          switchVideoSource(responsiveVideo, mediaQuery.matches);
+        });
+        switchVideoSource(responsiveVideo, isWideScreenMatch.matches);
+        function switchVideoSource(video, isWideScreen) {
+          if (isWideScreen) {
+            video.src =
+              "https://download-video.akamaized.net/v3-1/download/7ac2a9e5-4a74-4374-84ac-dbde58524ab7/8243c6c5-0148c384/cGV4ZWxzLXN0ZWZhbmllLWpvY2tzY2hhdC0yMDE0MjkwNCAoNTQwcCkubXA0?__token__=st=1708091482~exp=1708177488~acl=%2Fv3-1%2Fdownload%2F7ac2a9e5-4a74-4374-84ac-dbde58524ab7%2F8243c6c5-0148c384%2FcGV4ZWxzLXN0ZWZhbmllLWpvY2tzY2hhdC0yMDE0MjkwNCAoNTQwcCkubXA0%2A~hmac=34c16757bda9cee800f65a8d26562972c2d72effa80abbaa563f2370c7a20c19&r=dXMtY2VudHJhbDE%3D";
+          } else {
+            video.src =
+              "https://download-video.akamaized.net/v3-1/download/7ac2a9e5-4a74-4374-84ac-dbde58524ab7/30122419-0148c384/cGV4ZWxzLXN0ZWZhbmllLWpvY2tzY2hhdC0yMDE0MjkwNCAoMzYwcCkubXA0?__token__=st=1708091358~exp=1708177488~acl=%2Fv3-1%2Fdownload%2F7ac2a9e5-4a74-4374-84ac-dbde58524ab7%2F30122419-0148c384%2FcGV4ZWxzLXN0ZWZhbmllLWpvY2tzY2hhdC0yMDE0MjkwNCAoMzYwcCkubXA0%2A~hmac=18ff028c24d19270cf8a2f72c4d6d9fd4e0b3a61b6b006c4a95db1f3663c3825&r=dXMtd2VzdDE%3D";
+          }
+        }
+        const notAllMediaMatch = window.matchMedia(
+          "min-width: 768px, (max-width: 1024px)"
+        );
+        const notAllMediaMatchResultInfoElem = document.getElementById(
+          "not-all-media-match-result-info"
+        );
+        notAllMediaMatchResultInfoElem.textContent = notAllMediaMatch.media;
+        const isFlexSupported = CSS.supports(
+          "(display: -webkit-flex) or (display: flex)"
+        );
+        console.log(
+          `Does browser support CSS -webkit-flex or flex: ${isFlexSupported}.`
+        );
+        const isIsSelectorSupported = CSS.supports("selector( :is(p) )");
+        console.log(
+          `Does browser supports CSS :is() selector: ${isIsSelectorSupported}.`
+        );
+      };
+    </script>
+  </body>
+</html>
