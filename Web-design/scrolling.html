@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrolling</title>
+    <style>
+      html,
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      html {
+        padding: 0 2rem;
+      }
+
+      #navigator li {
+        list-style-type: none;
+      }
+
+      .container {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 500px;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+      }
+
+      @media screen and (prefers-reduced-motion: reduce) {
+        .container {
+          scroll-behavior: auto;
+        }
+      }
+
+      .slider .scroll-container {
+        display: flex;
+        gap: 2rem;
+        width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 0;
+        scrollbar-width: none;
+      }
+
+      .slider .scroll-toolbar {
+        width: 100%;
+        padding-top: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.7rem;
+      }
+
+      .slider .scroll-toolbar .nav-prev,
+      .slider .scroll-toolbar .nav-next {
+        padding: 0;
+        border: none;
+        border-left: 5px solid #e0e0e0;
+        border-bottom: 5px solid #e0e0e0;
+        background: transparent;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+      }
+
+      .slider .scroll-toolbar .nav-prev:hover,
+      .slider .scroll-toolbar .nav-next:hover {
+        border-color: #bdbdbd;
+      }
+
+      .slider .scroll-toolbar .nav-prev:active,
+      .slider .scroll-toolbar .nav-next:active {
+        border-color: #9e9e9e;
+      }
+
+      .slider .scroll-toolbar .nav-prev {
+        transform: rotate(45deg);
+      }
+
+      .slider .scroll-toolbar .nav-next {
+        transform: rotate(225deg);
+      }
+
+      .slider .scroll-container .elem {
+        flex: 0 0 40vw;
+        padding: 1rem;
+        border: solid 1px #e0e0e0;
+        text-align: center;
+        scroll-snap-align: none center;
+      }
+
+      .slider .scroll-container.start-align .elem {
+        scroll-snap-align: none start;
+      }
+
+      .slider .scroll-container.end-align .elem {
+        scroll-snap-align: none end;
+      }
+
+      .slider .scroll-container .elem.me-200 {
+        scroll-margin-inline-end: 200px;
+      }
+
+      .slider.vertical {
+        position: relative;
+        width: 100%;
+      }
+
+      .slider.vertical .scroll-container {
+        display: block;
+        width: 100%;
+        height: 50vh;
+        overflow-y: scroll;
+        scroll-snap-type: block mandatory;
+        scrollbar-width: none;
+        scroll-padding-block-end: 50px;
+      }
+
+      .slider.vertical .scroll-toolbar {
+        position: absolute;
+        padding: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.7rem;
+      }
+
+      .slider.vertical .scroll-toolbar .nav-prev,
+      .slider.vertical .scroll-toolbar .nav-next {
+        padding: 0.7rem 1rem;
+        width: auto;
+        height: auto;
+        border: none;
+        border-radius: 3px;
+        transform: none;
+        background: #e0e0e0;
+        transition: background-color 0.3s ease;
+      }
+
+      .slider.vertical .scroll-toolbar .nav-prev:hover,
+      .slider.vertical .scroll-toolbar .nav-next:hover {
+        background: #e7e7e7;
+      }
+
+      .slider.vertical .scroll-toolbar .nav-prev:active,
+      .slider.vertical .scroll-toolbar .nav-next:active {
+        background: #eeeeee;
+      }      
+
+      .slider.vertical .scroll-toolbar .nav-prev::before {
+        content: "Up";
+      }
+
+      .slider.vertical .scroll-toolbar .nav-next::before {
+        content: "Down";
+      }
+
+      .slider.vertical .scroll-container .elem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        height: 70%;
+        flex: none;
+        padding: 1rem;
+        border: solid 1px #e0e0e0;
+        scroll-snap-align: end none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Outline</h1>
+    <ul id="navigator">
+      <li>
+        <a href="#paragraph-1">Paragraph 1</a>
+      </li>
+      <li>
+        <a href="#paragraph-2">Paragraph 2</a>
+      </li>
+      <li>
+        <a href="#paragraph-3">Paragraph 3</a>
+      </li>
+    </ul>
+    <div class="container">
+      <p id="paragraph-1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil nobis,
+        nemo similique ducimus, illum praesentium vero sint dolor consequuntur
+        ea soluta tenetur cumque unde, delectus dignissimos nostrum quasi
+        maiores totam. Dolor est ea, atque tenetur alias modi expedita placeat
+        autem iure impedit a totam? Beatae, voluptatibus illum eum quo minima
+        possimus, iste itaque optio iusto vitae magnam? Quos ducimus quidem
+        ratione quod dolor perspiciatis id dicta? Itaque, sed saepe! Nobis harum
+        sequi, ducimus nulla voluptates corrupti officia magnam, dolore
+        voluptatibus natus, at error quis expedita dolorum tempore sed quos
+        tempora accusamus molestias debitis commodi minus? Nobis, omnis! Sit
+        sint magnam ipsam ipsum perferendis? Nostrum sint ad quasi fuga optio
+        eveniet explicabo ipsa, veniam cupiditate possimus, ipsum dignissimos
+        expedita accusantium itaque earum ipsam? Reprehenderit veniam modi
+        pariatur ratione earum labore odio doloribus laudantium sapiente rem.
+        Facilis laboriosam autem a, ipsa illum non omnis cumque iusto laborum
+        assumenda aperiam placeat voluptas. Molestias tempora quia possimus,
+        quos accusamus, sed rerum illum quis voluptas dignissimos alias sint
+        voluptate soluta eius. Rerum vel, quas rem ex velit, voluptates
+        obcaecati laudantium neque ullam molestias totam nulla natus aperiam
+        assumenda ad illum dolorem labore iure sunt incidunt mollitia omnis aut
+        nobis animi! Magni sunt qui odit amet, enim ullam nesciunt repellat
+        magnam soluta doloribus saepe quisquam id fuga aliquam minus! Sequi
+        dolores hic architecto perferendis alias at facilis aliquid perspiciatis
+        ullam quod labore dignissimos ad dicta error quo earum quas modi, minima
+        necessitatibus officia dolore aperiam magnam veritatis fugit. Enim,
+        consequuntur. Deserunt odio eum nostrum maxime veniam, eligendi
+        quibusdam? Impedit reprehenderit sapiente esse exercitationem blanditiis
+        sit libero possimus! Similique dolore enim illum quidem reiciendis
+        veniam architecto illo quis cupiditate, veritatis aut dolores culpa
+        tenetur quia fugit! Facere temporibus laudantium laboriosam saepe sequi,
+        unde odio quos illo delectus, ullam quasi. Facere, cum dicta repellendus
+        delectus ipsum est, autem corrupti quaerat, laboriosam assumenda nam
+        voluptatem sunt? Quasi inventore soluta, magni et velit maiores tenetur
+        maxime sint rerum, ex nobis natus similique incidunt minus voluptatum
+        atque est modi, eum recusandae. Qui adipisci quia fugiat dolore, totam
+        ipsa voluptatibus porro repellendus distinctio quae. Incidunt facilis
+        necessitatibus, voluptatum odit veritatis suscipit dignissimos quas
+        expedita iusto? Quo ad corporis rem corrupti et. Delectus suscipit animi
+        ducimus, sequi consectetur architecto et reiciendis ut tempora
+        consequatur, pariatur accusantium consequuntur voluptatem dolorem. Odio,
+        vero cumque tempora, quam eligendi mollitia architecto eius harum
+        dolorum at labore aliquam ab, reiciendis alias exercitationem quis
+        ducimus eos eum ipsum asperiores dolore cupiditate veritatis! Doloribus
+        qui illo quis odio voluptas facere ipsum sit minima accusantium, ducimus
+        neque nisi similique rem quasi, atque recusandae reprehenderit. Nam quas
+        et sunt obcaecati quasi ea perferendis temporibus modi cumque,
+        repellendus consequatur officiis, necessitatibus adipisci placeat non
+        dolores nisi ut eligendi quidem illum! Cum nisi, numquam voluptate amet
+        quam temporibus cumque laborum doloremque! Fuga officiis praesentium id
+        nobis saepe repellat ratione voluptatum cumque quidem. Corrupti veniam
+        nobis excepturi explicabo, suscipit ex neque ullam ipsa earum assumenda
+        unde ut obcaecati sint autem non doloremque, facilis quibusdam iure quis
+        inventore quidem enim quisquam. Fugiat a quisquam accusantium impedit
+        natus! Ducimus voluptatem minus reiciendis architecto? Nesciunt deserunt
+        earum reiciendis provident voluptatibus consectetur tenetur explicabo
+        odit esse, quam dolores recusandae asperiores, aliquid maxime molestiae
+        nemo? Veritatis ipsa obcaecati natus laudantium error deserunt enim
+        dolores repellendus dolor beatae dicta vel porro tempore animi quo
+        praesentium, facilis omnis cum blanditiis. Illum doloribus aperiam odit
+        neque quia aliquam magni enim, consequuntur saepe nulla dolores odio
+        consectetur! Quas nemo ipsam, officiis vitae temporibus ratione
+        voluptate exercitationem corrupti architecto porro, cumque corporis?
+        Quibusdam nobis voluptate ab, suscipit praesentium nostrum itaque
+        mollitia commodi velit quis exercitationem amet magnam nisi voluptatibus
+        laborum numquam ipsum eligendi aut tempore.
+      </p>
+      <p id="paragraph-2">
+        Consectetur do amet duis do ea sit eiusmod esse. Ea irure irure nisi do
+        eiusmod et aliquip. Cillum tempor eiusmod qui occaecat duis culpa. Do
+        aliquip nulla velit est do fugiat do. Pariatur nulla quis esse nulla
+        Lorem officia dolore in reprehenderit aliquip qui non cupidatat. Dolore
+        aute velit do laborum commodo laborum dolor amet labore sit amet.
+        Aliquip quis est sunt duis reprehenderit incididunt occaecat consectetur
+        consequat. Do labore culpa ipsum ut officia reprehenderit reprehenderit
+        voluptate cillum nulla nostrud nostrud et. Ut laborum pariatur do magna.
+        Velit ex deserunt officia qui proident mollit dolore in ex veniam
+        proident velit dolore. Laborum mollit velit commodo mollit proident elit
+        duis duis occaecat excepteur id mollit. Consequat Lorem pariatur aliqua
+        proident pariatur quis ex cupidatat. Irure ea veniam ad sunt. Officia
+        amet irure eiusmod enim esse proident exercitation enim eiusmod laboris
+        tempor occaecat magna. Eiusmod veniam qui deserunt duis consectetur
+        aliquip commodo aliqua. Amet magna velit elit amet aliqua voluptate.
+        Occaecat commodo ipsum adipisicing est enim labore qui dolore
+        exercitation adipisicing nostrud ad consequat. Minim dolor aliqua
+        laboris eu est eiusmod qui proident Lorem. Velit nulla ullamco
+        exercitation sunt magna aute officia id eiusmod sit id excepteur. Id
+        velit minim amet tempor eiusmod adipisicing proident sit. Culpa laboris
+        esse Lorem officia anim mollit duis. Et sint dolore veniam ad mollit
+        velit voluptate deserunt. Reprehenderit elit occaecat aliqua ipsum
+        incididunt. Laborum et occaecat mollit Lorem minim sit esse magna eu
+        exercitation eiusmod non labore. Labore occaecat non eu cupidatat esse
+        consequat proident ipsum enim id. Nostrud sit in enim aute. Irure amet
+        incididunt minim fugiat aute do enim eu. Occaecat ea sint non qui
+        cupidatat anim tempor do aliqua enim duis dolor irure. Reprehenderit
+        occaecat deserunt enim ad ipsum non ea ipsum minim. Velit officia culpa
+        adipisicing amet ad sunt. Culpa voluptate tempor sint pariatur. Commodo
+        aliqua deserunt labore reprehenderit excepteur. Et incididunt sunt in
+        tempor. Sint sunt qui et excepteur amet dolor do consectetur enim duis.
+        Enim quis ut sint commodo velit elit qui sit mollit velit aute sint sit.
+        Ex ex fugiat deserunt voluptate et cupidatat. Proident anim pariatur
+        ipsum ullamco aute tempor ex Lorem magna. Ut nostrud aliqua minim elit.
+        Amet culpa tempor cillum excepteur eiusmod non. Elit aliquip tempor
+        occaecat dolor id officia veniam veniam cupidatat dolore minim veniam.
+        Incididunt excepteur et laborum id ad pariatur nostrud sint officia
+        aliquip. Adipisicing mollit est occaecat culpa qui. Ad ex magna elit sit
+        sit. Aliquip aliquip reprehenderit quis sunt deserunt voluptate tempor
+        Lorem culpa enim labore irure laborum. Proident eiusmod velit cillum est
+        aliquip voluptate. Pariatur id ipsum excepteur quis commodo pariatur do
+        exercitation magna minim deserunt laboris. Anim anim est nulla velit ex
+        aliquip. Officia irure enim fugiat commodo do exercitation ipsum nisi
+        cillum mollit id. Reprehenderit sint nostrud nostrud reprehenderit non
+        cillum proident et deserunt nulla amet. Minim eiusmod sunt exercitation
+        consectetur aliqua. Excepteur mollit id aliqua deserunt pariatur eiusmod
+        sit exercitation culpa. Qui tempor velit id adipisicing. Ipsum Lorem
+        aliquip Lorem anim enim magna.
+      </p>
+      <p id="paragraph-3">
+        Excepteur veniam et et velit consequat non et amet ut magna eu. In duis
+        cupidatat commodo eu est consequat ad labore magna. Ad enim non aute
+        fugiat laborum voluptate labore fugiat aliquip. Aliquip excepteur
+        eiusmod voluptate cillum in incididunt qui deserunt elit velit
+        reprehenderit. Magna labore ullamco ad sunt quis non voluptate do sunt.
+        Commodo incididunt Lorem nisi dolor cillum nisi ad irure exercitation
+        occaecat cupidatat do est consectetur. Duis ullamco dolor ipsum duis
+        consectetur sit ad Lorem deserunt ut. Ipsum sint in anim minim ea
+        pariatur ullamco id. Nisi fugiat voluptate occaecat consectetur eu.
+        Laboris ea tempor incididunt officia aute nisi consequat mollit eu. Eu
+        incididunt tempor do do. Minim Lorem ut cupidatat ut fugiat. Aliqua sunt
+        sint enim cupidatat nostrud adipisicing consequat laborum tempor Lorem
+        commodo. Sint ipsum eu adipisicing deserunt duis ullamco commodo
+        cupidatat. Deserunt exercitation cupidatat qui ut adipisicing ex aliqua
+        occaecat excepteur laboris sit in consequat. Minim duis sit eu non ea.
+        Ex velit aliquip ullamco culpa laborum elit. Ex aute dolore adipisicing
+        irure in ut fugiat ad officia commodo enim. Non ex excepteur consectetur
+        anim et deserunt voluptate non do. Sit exercitation fugiat eiusmod
+        reprehenderit Lorem et amet sunt minim. Ipsum dolore minim proident
+        veniam ut et exercitation Lorem sit id esse sint incididunt minim. Anim
+        consequat nisi est consequat consectetur ex ad aliqua velit adipisicing.
+        Ullamco amet ad est aliqua voluptate consequat esse exercitation ut
+        dolore id. Consequat irure quis in laboris magna irure do dolore aliqua
+        deserunt culpa cupidatat. Id duis sunt ex eiusmod consectetur. Dolore
+        cillum laboris consequat occaecat proident aute dolor in. Incididunt
+        occaecat ipsum enim reprehenderit sunt fugiat in ut ullamco eu. Ex
+        tempor aliqua nisi cupidatat fugiat aliqua non ad id duis voluptate. Ad
+        occaecat proident officia minim commodo ipsum exercitation
+        reprehenderit. Pariatur ut ullamco sit duis aute officia. Consectetur
+        amet id in aliqua reprehenderit ut eu ipsum velit magna ex magna ut
+        dolore. Exercitation amet ipsum ad eiusmod quis dolore. Aliqua eiusmod
+        minim incididunt amet magna. Duis sunt nulla quis sunt dolor elit
+        adipisicing fugiat ut sint aute. Ex do non eiusmod adipisicing. Amet
+        occaecat aute officia culpa veniam mollit voluptate ut in. Eu magna
+        veniam ad exercitation exercitation adipisicing dolor commodo. Dolore in
+        enim laboris elit ex ullamco consequat. Deserunt fugiat occaecat est
+        aute eiusmod dolore officia ut quis dolor ex commodo consectetur. Ex
+        ullamco id do adipisicing ea eiusmod voluptate ex. Sunt nulla in magna
+        non minim occaecat sunt sit sint adipisicing aute culpa ut. Quis laborum
+        quis minim aliqua adipisicing est esse. Et proident fugiat laboris qui
+        minim qui non commodo dolor nulla voluptate. Irure ullamco nisi ea in
+        pariatur nostrud esse dolor nulla elit ad. Sit incididunt et ullamco ad
+        incididunt laborum eiusmod ullamco id id sunt laboris mollit ex. Est
+        tempor fugiat occaecat non veniam ex ea excepteur ipsum. Dolor ex fugiat
+        deserunt nostrud ex enim officia est laborum aute est. Nostrud voluptate
+        dolor ipsum aliqua Lorem in. Reprehenderit do deserunt aliquip amet
+        irure qui fugiat nisi nisi labore in. Mollit ea incididunt do aliquip do
+        proident. Tempor nostrud labore id magna est ea tempor cupidatat tempor.
+        Dolore id magna eiusmod dolore est.
+      </p>
+    </div>
+    <h1>Center-aligned Scroll Container</h1>
+    <div class="slider">
+      <div class="scroll-container">
+        <p class="elem">A</p>
+        <p class="elem">B</p>
+        <p class="elem">C</p>
+        <p class="elem">D</p>
+        <p class="elem">E</p>
+        <p class="elem">F</p>
+        <p class="elem">G</p>
+        <p class="elem">H</p>
+        <p class="elem">I</p>
+      </div>
+      <div class="scroll-toolbar">
+        <button class="nav-prev"></button>
+        <button class="nav-next"></button>
+      </div>
+    </div>
+    <br />
+
+    <h1>Start-aligned Scroll Container</h1>
+    <div class="slider">
+      <div class="scroll-container start-align">
+        <p class="elem">A</p>
+        <p class="elem">B</p>
+        <p class="elem">C</p>
+        <p class="elem">D</p>
+        <p class="elem">E</p>
+        <p class="elem">F</p>
+        <p class="elem">G</p>
+        <p class="elem">H</p>
+        <p class="elem">I</p>
+      </div>
+      <div class="scroll-toolbar">
+        <button class="nav-prev"></button>
+        <button class="nav-next"></button>
+      </div>
+    </div>
+    <br />
+
+    <h1>End-aligned Scroll Container</h1>
+    <div class="slider">
+      <div class="scroll-container end-align">
+        <p class="elem">A</p>
+        <p class="elem">B</p>
+        <p class="elem">C</p>
+        <p class="elem">D</p>
+        <p class="elem">E</p>
+        <p class="elem">F</p>
+        <p class="elem">G</p>
+        <p class="elem">H</p>
+        <p class="elem">I</p>
+      </div>
+      <div class="scroll-toolbar">
+        <button class="nav-prev"></button>
+        <button class="nav-next"></button>
+      </div>
+    </div>
+    <br />
+
+    <h1>Vertical Scroll Container</h1>
+    <div class="slider vertical">
+      <div class="scroll-container end-align">
+        <p class="elem">A</p>
+        <p class="elem">B</p>
+        <p class="elem">C</p>
+        <p class="elem">D</p>
+        <p class="elem">E</p>
+        <p class="elem">F</p>
+        <p class="elem">G</p>
+        <p class="elem">H</p>
+        <p class="elem">I</p>
+      </div>
+      <div class="scroll-toolbar">
+        <button class="nav-prev"></button>
+        <button class="nav-next"></button>
+      </div>
+    </div>
+    <br />
+
+    <h1>Scroll Container with Child Elements with Scroll Margin Inline End 200 Pixels</h1>
+    <div class="slider">
+      <div class="scroll-container">
+        <p class="elem me-200">A</p>
+        <p class="elem me-200">B</p>
+        <p class="elem me-200">C</p>
+        <p class="elem me-200">D</p>
+        <p class="elem me-200">E</p>
+        <p class="elem me-200">F</p>
+        <p class="elem me-200">G</p>
+        <p class="elem me-200">H</p>
+        <p class="elem me-200">I</p>
+      </div>
+      <div class="scroll-toolbar">
+        <button class="nav-prev"></button>
+        <button class="nav-next"></button>
+      </div>
+    </div>
+    <br />
+    <script>
+      window.onload = function () {
+        const sliders = document.querySelectorAll(".slider");
+        for (let slider of sliders) {
+          const scrollContainer = slider.querySelector(".scroll-container");
+          const isVerti = slider.classList.contains("vertical");
+          const toolbar = slider.querySelector(".scroll-toolbar");
+          const navLeftBtn = toolbar.querySelector(".nav-prev");
+          const navRightBtn = toolbar.querySelector(".nav-next");
+          navLeftBtn.addEventListener(
+            "click",
+            scroll.bind(this, scrollContainer, false, isVerti)
+          );
+          navRightBtn.addEventListener(
+            "click",
+            scroll.bind(this, scrollContainer, true, isVerti)
+          );
+
+          function scroll(container, isNext, isVertical) {
+            const scrollOptions = {
+              behavior: "smooth",
+            };
+            let scrollDistance;
+            if (isVertical) {
+              scrollDistance = scrollContainer.clientHeight / 2;
+              if (!isNext) {
+                scrollDistance = scrollDistance * -1;
+              }
+              scrollOptions.top = scrollDistance;
+            } else {
+              scrollDistance = scrollContainer.clientWidth / 2;
+              if (!isNext) {
+                scrollDistance = scrollDistance * -1;
+              }
+              scrollOptions.left = scrollDistance;
+            }
+            container.scrollBy(scrollOptions);
+          }
+        }
+      };
+    </script>
+  </body>
+</html>
