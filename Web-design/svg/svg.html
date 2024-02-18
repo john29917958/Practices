@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG</title>
+    <link rel="stylesheet" href="svg.css" type="text/css" />
+    <link rel="stylesheet" href="twinkle.css" type="text/css" />
+  </head>
+  <body>
+    <h1>Circle SVG Shape</h1>
+    <svg
+      version="1.1"
+      id="circle-lg"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 200 200"
+      enable-background="new 0 0 200 200"
+    >
+      <circle cx="101.3" cy="96.8" r="79.6"></circle>
+    </svg>
+    <h1>
+      Multiple SVGs In A SVG XML Document Including Star Polygon and Circle
+    </h1>
+    <svg
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 497 184"
+      enable-background="new 0 0 497 184"
+      xml:space="preserve"
+    >
+      <polygon
+        id="star"
+        points="77,23.7 98.2, 66.6 145.5, 66.5 111.2, 106.9, 119.3, 154 77, 131.8 34.7, 154 42.8, 106.9 8.5, 67.5 55.8, 66.6"
+      />
+      <circle id="circle" />
+    </svg>
+    <h1>Using CSS to Set SVG Attributes</h1>
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <rect id="rect" />
+    </svg>
+    <h1>Using Classes to Apply CSS Styles to SVG Shapes</h1>
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <circle class="c-small" />
+      <circle class="c-medium" />
+      <circle class="c-large" />
+    </svg>
+    <h1>Animating SVGs</h1>
+    <svg
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      x="0px"
+      y="0px"
+      viewBox="0 0 497 184"
+      xml:space="preserve"
+    >
+      <polygon
+        class="star"
+        points="77, 23.7 98.2, 66.6 145.5, 66.5 111.2, 106.9 119.3, 154 77, 131.8 34.7, 154 42.8, 106.9 8.5, 67.5 55.8, 66.6"
+      />
+      <polygon
+        class="star twinkle"
+        points="77, 23.7 98.2, 66.6 145.5, 66.5 111.2, 106.9 119.3, 154 77, 131.8 34.7, 154 42.8, 106.9 8.5, 67.5 55.8, 66.6"
+      />
+    </svg>
+    <h1>Animating Stroke for SVG</h1>
+    <svg
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 200 200"
+      enable-background="new 0 0 200 200"
+    >
+      <circle
+        class="circle-drawing"
+        fill="transparent"
+        stroke-width="16"
+        cx="101.3"
+        cy="96.8"
+        r="10"
+      />
+    </svg>
+
+    <h1>
+      The Circle SVG Shape Will Be Hidden If Viewport Size Is Less Than 480
+      Pixels
+    </h1>
+    <svg
+      id="responsive-svgs"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 497 184"
+      enable-background="new 0 0 497 184"
+      xml:space="preserve"
+    >
+      <polygon
+        points="77,23.7 98.2, 66.6 145.5, 66.5 111.2, 106.9, 119.3, 154 77, 131.8 34.7, 154 42.8, 106.9 8.5, 67.5 55.8, 66.6"
+      />
+      <circle class="d-none d-md" cx="230" cy="90" r="60" fill="#f60" />
+    </svg>
+    <br />
+
+    <h1>Using <code>iframe</code> to Load SVG Document</h1>
+    <iframe
+      id="responsive-svgs-in-iframe"
+      src="responsive-svgs.svg"
+      style="width: 480px; border: 0"
+    ></iframe>
+    <!--script type="text/javascript">
+      window.onload = function () {
+        const svg = document
+          .getElementById("responsive-svgs-in-iframe")
+          .contentWindow.document.querySelector("svg");
+        const originalViewBox = svg.getAttribute("viewBox");
+        const mq = window.matchMedia("(max-width: 480px)");
+        const updateViewBox = (mq) => {
+          if (mq.matches) {
+            const height = originalViewBox.split(" ").slice(-1);
+            svg.setAttribute("viewBox", `0 0 479 ${height}`);
+          } else {
+            svg.setAttribute("viewBox", originalViewBox);
+          }
+        };
+        svg.addEventListener("SVGLoad", updateViewBox.bind(this, mq));
+        mq.addEventListener("change", updateViewBox);
+      };
+    </script-->
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG As Background</title>
+    <style type="text/css">
+      body,
+      li {
+        background: url("./background-circle.svg");
+      }
+
+      body {
+        background-color: #9c27b0;
+        background-size: 300px auto;
+      }
+
+      ul {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 2rem 4rem;
+      }
+
+      li {
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 1em auto;
+        padding-left: 40px;
+        font-size: 24px;
+        margin: 1rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </body>
+</html>

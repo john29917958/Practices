@@ -1,0 +1,75 @@
+#circle-lg {
+  fill: #673ab7;
+}
+
+#star {
+  fill: hsl(44, 100%, 50%);
+}
+
+#circle {
+  cx: 245px;
+  cy: 88.9px;
+  r: 67.5px;
+  fill: cornflowerblue;
+  stroke: darkblue;
+  stroke-width: 10;
+  stroke-dasharray: 10, 15;
+  stroke-linecap: round;
+}
+
+#rect {
+  x: 20px;
+  y: 50px;
+  width: 50px;
+  height: 50px;
+  fill: #f60;
+}
+
+.c-small {
+  cx: 20px;
+  cy: 20px;
+  r: 20px;
+  fill: #0c0;
+}
+
+.c-medium {
+  cx: 80px;
+  cy: 80px;
+  r: 60px;
+  fill: #fc0;
+}
+
+.c-large {
+  cx: 220px;
+  cy: 220px;
+  r: 120px;
+  fill: #00f;
+}
+
+.circle-drawing {
+  fill: transparent;
+  stroke: red;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  animation: circle-drawing 1s infinite ease forwards;
+}
+
+@keyframes circle-drawing {
+  from {
+    stroke-dasharray: 0, 500;
+  }
+
+  to {
+    stroke-dasharray: 500, 0;
+  }
+}
+
+.d-none {
+  display: none;
+}
+
+@media screen and (min-width: 480px) {
+  .d-md {
+    display: initial;
+  }
+}
