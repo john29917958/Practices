@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Page</title>
+    <style>
+      body {
+        user-select: none;
+      }
+
+      #elem {
+        width: 50px;
+        height: 50px;
+        color: white;
+        background-color: black;
+        cursor: move;
+      }
+
+      #dropzone {
+        width: 100px;
+        height: 100px;
+        background-color: #e0e0e0;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="touchable">Touchable</p>
+    <div id="elem" draggable="true">Hi</div>
+    <div id="dropzone"></div>
+    <div id="outer">AAA <div id="inner">Inner</div></div>
+    <script>
+      window.onload = () => {
+        const touchable = document.getElementById("touchable");
+        touchable.ontouchstart = (e) => console.log("Touch started");
+        touchable.ontouchend = (e) => console.log("Touch ended");
+        const dropzone = document.getElementById("dropzone");
+        dropzone.ondragover = (e) => e.preventDefault();
+        dropzone.ondrop = (e) => console.log("Dropped");
+        console.log(document.getElementsByName("tel"));
+        let inner = document.getElementById("inner");
+        function handleClick(e) {
+          console.log("Inner clicked");
+          e.target.removeEventListener("click", handleClick);
+        }
+        inner.addEventListener("click", handleClick);
+        document.getElementById("outer").addEventListener(
+          "click",
+          function () {
+            console.log("Outer clicked!");
+          },
+          true
+        );
+      };
+    </script>
+  </body>
+</html>

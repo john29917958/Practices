@@ -1,0 +1,93 @@
+JavaScript Ping-Pong Style Vidoe Arcade Game
+===
+
+Plank?
+-----------
+States:
+- position: Point
+- size: Size
+Behaviors:
++ getPosition(): Point
++ moveLeft()
++ moveRight()
++ getBoundingRectangle(): Rectangle
++ update()
+
+Ball
+-----------
+States:
+- position: Point
+- size: Size
+Behaviors:
++ setVelocity(x: number, y: number)
++ getPosition(): Point
++ update()
+
+Obstacle
+-----------
+States:
+- position: Point
+- size: Size
+Behaviors:
++ getBoundingRectangle(): Rectangle
+
+Line (between two players)
+-----------
+States:
+- position: Point
+- size: Size
+Behaviors:
++ getBoundingRectangle(): Rectangle
+
+Player
+-----------
+States:
+- name: string
+Behaviors:
++ getName(): string
++ setName(): string
+
+Desk
+-----------
+States:
+- position: Point
+- size: Size
+Behaviors:
++ getBoundingRectangle(): Rectangle
+
+ScoreBoard
+-----------
+States:
+- scores: Array of number
+- round: number
+Behaviors:
++ getScore(): number
++ setScore(): number
++ getRoundNumber(): number
++ setRoundNumber(): number
+
+Collider?
+- onCollision
+
+Point
+-----------
+States:
++ x
++ y
+
+Size
+-----------
+States:
++ width
++ height
+
+Rectangle
+-----------
+States:
+- position: Point
+- size: Size
+Behaviors:
++ setPosition(position: Point)
++ setSize(size: Size)
+
+Main function: Game loop

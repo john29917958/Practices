@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Guess</title>
+    <style>
+      body {
+        margin: 20px;
+      }
+
+      img {
+        margin: 20px;
+      }
+    </style>
+    <script>
+      window.onload = init;
+      function init() {
+        const images = document.getElementsByTagName("img");
+        for (var i = 0; i < images.length; i++) {
+          images[i].onmouseover = showAnswer;
+          images[i].onmouseout = reblur.bind(images[i], images[i]);
+        }
+      }
+
+      function showAnswer(eventObj) {
+        const image = eventObj.target;
+        let name = image.id;
+        name = name + ".jpg";
+        image.src = "images/" + name;
+      }
+
+      function reblur(image) {
+        const id = image.id;
+        const name = id + "blur.jpg";
+        image.src = "images/" + name;
+      }
+    </script>
+  </head>
+  <body>
+    <img src="images/zeroblur.jpg" alt="zero" id="zero" />
+    <img src="images/oneblur.jpg" alt="one" id="one" />
+    <img src="images/twoblur.jpg" alt="two" id="two" />
+    <img src="images/threeblur.jpg" alt="three" id="three" />
+    <img src="images/fourblur.jpg" alt="four" id="four" />
+    <img src="images/fiveblur.jpg" alt="five" id="five" />
+  </body>
+</html>

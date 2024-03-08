@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Element By Id</title>
+  </head>
+  <body>
+    <p id="paragraph-1">
+      Lorem ipsum dolor sit amet.
+      <span>Hi</span>.
+    </p>
+    <script>
+      let paragraph1;
+      window.onload = function () {
+        paragraph1 = document.getElementById("paragraph-1");
+        console.log(typeof paragraph1);
+      };
+    </script>
+  </body>
+</html>
