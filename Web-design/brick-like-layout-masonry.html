@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brick-like Layouts with masonry</title>
+    <style>
+      /*
+      .grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(6, 1fr);
+        gird-template-rows: masonry;
+        grid-template: masonry / repeat(6, 1fr);
+      }
+      */
+
+      .brick {
+        background: #e0e0e0;
+      }
+
+      .grid-item {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Brick-like Layouts with <code>masonry</code></h1>
+    <div
+      class="gird"
+      data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'
+    >
+      <div class="grid-item">
+        <h1>Brick 1</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+      </div>
+      <div class="grid-item">
+        <h1>Brick 2</h1>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, ipsa?
+        </p>
+      </div>
+      <div class="grid-item">
+        <h1>Brick 3</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+      </div>
+      <div class="grid-item">
+        <h1>Brick 4</h1>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse totam
+          deleniti qui ex! Fugiat, sapiente?
+        </p>
+      </div>
+      <div class="grid-item">
+        <h1>Brick 5</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fugit
+          nisi non hic doloribus saepe velit corporis quae labore magnam!
+        </p>
+      </div>
+      <div class="grid-item">
+        <h1>Brick 6</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+      </div>
+      <div class="grid-item">
+        <h1>Brick 7</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+      </div>
+      <div class="grid-item">
+        <h1>Brick 8</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+      </div>
+      <div class="grid-item">
+        <h1>Brick 9</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"
+    ></script>
+  </body>
+</html>
