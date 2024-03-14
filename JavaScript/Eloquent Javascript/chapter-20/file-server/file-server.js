@@ -1,5 +1,6 @@
 var http = require("http");
 var fs = require("fs");
+var path = require("path");
 
 var methods = Object.create(null);
 methods.GET = function (path, respond) {
@@ -48,6 +49,19 @@ methods.PUT = function (path, respond, request) {
   });
   request.pipe(outStream);
 };
+methods.MKCOL = function (path, respond) {
+  if (fs.existsSync(path)) {
+    respond(204);
+  } else {
+    fs.mkdir(path, function (error) {
+      if (error) {
+        respond(500, error.toString());
+      } else {
+        respond(204);
+      }
+    });
+  }
+};
 
 function respondErrorOrNothing(respond) {
   return function (error) {
@@ -81,6 +95,8 @@ http
   .listen(8000);
 
 function urlToPath(url) {
-  var path = require("url").parse(url).pathname;
-  return "." + decodeURIComponent(path);
+  var pathname = require("url").parse(url).pathname;
+  pathname = path.join(__dirname, pathname);
+  pathname = decodeURIComponent(pathname);
+  return pathname;
 }
