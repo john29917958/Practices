@@ -6,6 +6,7 @@ const newPostController = require("./controllers/newPost");
 const homeController = require("./controllers/home");
 const getPostController = require("./controllers/getPost");
 const storePostController = require("./controllers/storePost");
+const validationMiddleWare = require("./middleware/validationMiddleware");
 
 mongoose.connect("mongodb://localhost/my_database", { useNewUrlParser: true });
 
@@ -14,16 +15,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(fileUpload());
-
-const validateMiddleWare = () => {
-  return (req, res, next) => {
-    if (req.files === null || req.body.title === null) {
-      return res.redirect("/posts/new");
-    }
-    next();
-  };
-};
-app.use("/posts/store", validateMiddleWare());
+app.use("/posts/store", validationMiddleWare());
 
 app.set("view engine", "ejs");
 
