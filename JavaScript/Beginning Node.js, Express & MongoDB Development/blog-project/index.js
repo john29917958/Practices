@@ -1,5 +1,6 @@
 const express = require("express");
 const ejs = require("ejs");
+const fileUpload = require("express-fileupload");
 const path = require("path");
 const mongoose = require("mongoose");
 const BlogPost = require("./models/BlogPost");
@@ -11,6 +12,7 @@ const app = new express();
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(fileUpload());
 
 app.set("view engine", "ejs");
 
@@ -44,8 +46,11 @@ app.get("/posts/new", (req, res) => {
   res.render("create");
 });
 app.post("/posts/store", async (req, res) => {
-  await BlogPost.create(req.body);
-  res.redirect("/");
+  const image = req.files.image;
+  image.mv(path.resolve(__dirname, "public/img", image.name), async (error) => {
+    await BlogPost.create(req.body);
+    res.redirect("/");
+  });
 });
 app.listen(4000, () => {
   console.log("App listening on port 4000");
