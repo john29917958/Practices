@@ -8,11 +8,20 @@ const BlogPost = require("./models/BlogPost");
 mongoose.connect("mongodb://localhost/my_database", { useNewUrlParser: true });
 
 const app = new express();
-
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(fileUpload());
+
+const validateMiddleWare = () => {
+  return (req, res, next) => {
+    if (req.files === null || req.body.title === null) {
+      return res.redirect("/posts/new");
+    }
+    next();
+  };
+};
+app.use("/posts/store", validateMiddleWare());
 
 app.set("view engine", "ejs");
 
@@ -32,7 +41,6 @@ app.get("/", async (req, res) => {
   });
 });
 app.get("/post/:id", async (req, res) => {
-  console.log(req.params);
   const blogPost = await BlogPost.findById(req.params.id);
   res.render("post", { blogPost });
 });
