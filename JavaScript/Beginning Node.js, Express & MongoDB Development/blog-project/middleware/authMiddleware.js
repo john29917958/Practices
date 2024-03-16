@@ -13,6 +13,7 @@ function authMiddleware() {
           }
         },
         (error) => {
+          console.log("Find user failed, error is: ", error);
           res.redirect("/");
         }
       );

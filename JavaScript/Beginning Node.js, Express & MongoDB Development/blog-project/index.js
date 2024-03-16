@@ -13,7 +13,7 @@ const storeUserController = require("./controllers/storeUser");
 const loginController = require("./controllers/login");
 const logoutController = require("./controllers/logout");
 const loginUserController = require("./controllers/loginUser");
-const validationMiddleWare = require("./middleware/validationMiddleware");
+const validateStorePostImageMiddleWare = require("./middleware/validateStorePostImageMiddleWare");
 const authMiddleware = require("./middleware/authMiddleware");
 const redirectIfAuthenticatedMiddleware = require("./middleware/redirectIfAuthenticatedMiddleware");
 
@@ -28,7 +28,6 @@ app.use(expressSession({ secret: "keyboard cat" }));
 app.use(connectFlash());
 app.use(express.urlencoded());
 app.use(fileUpload());
-app.use("/posts/store", validationMiddleWare());
 app.use("*", (req, res, next) => {
   loggedIn = req.session.userId;
   next();
@@ -45,7 +44,7 @@ app.get("/about", (req, res) => {
 });
 app.get("/post/:id", getPostController);
 app.get("/posts/new", authMiddleware(), newPostController);
-app.post("/posts/store", authMiddleware(), storePostController);
+app.post("/posts/store", authMiddleware(), validateStorePostImageMiddleWare(), storePostController);
 app.get(
   "/auth/register",
   redirectIfAuthenticatedMiddleware(),
