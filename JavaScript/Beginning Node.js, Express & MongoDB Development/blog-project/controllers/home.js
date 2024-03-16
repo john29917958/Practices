@@ -11,7 +11,6 @@ module.exports = async (req, res) => {
       },
     ],
   }).exec();
-  console.log(req.session);
   res.render("index", {
     blogPosts,
   });
