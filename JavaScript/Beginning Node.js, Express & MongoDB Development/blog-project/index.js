@@ -61,6 +61,7 @@ app.post(
 );
 app.get("/auth/login", redirectIfAuthenticatedMiddleware(), loginController);
 app.get("/auth/logout", authMiddleware(), logoutController);
+app.use((req, res) => res.render("notfound"));
 
 app.listen(4000, () => {
   console.log("App listening on port 4000");
