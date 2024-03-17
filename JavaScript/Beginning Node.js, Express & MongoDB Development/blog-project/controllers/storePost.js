@@ -11,7 +11,11 @@ module.exports = async (req, res) => {
     image.mv(
       path.resolve(__dirname, "../", "public/img", image.name),
       (error) => {
-        BlogPost.create({ ...req.body, image: "/img/" + image.name }).then(
+        BlogPost.create({
+          ...req.body,
+          image: "/img/" + image.name,
+          userid: req.session.userId,
+        }).then(
           (blogPost) => {
             res.redirect("/");
           },

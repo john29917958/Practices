@@ -10,7 +10,9 @@ module.exports = async (req, res) => {
         body: new RegExp(req.query.keywords),
       },
     ],
-  }).exec();
+  })
+    .populate("userid")
+    .exec();
   res.render("index", {
     blogPosts,
   });
