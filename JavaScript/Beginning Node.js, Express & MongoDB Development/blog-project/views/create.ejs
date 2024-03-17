@@ -39,7 +39,8 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label for="body">Description</label>
-              <textarea class="form-control" name="body" id="body" rows="5"><%= body %></textarea>
+              <textarea class="form-control" name="body" id="body" rows="5">
+<%= body %></textarea>
             </div>
           </div>
           <div class="control-group">
@@ -58,12 +59,22 @@
       </div>
     </div>
   </div>
-  <%- include("layouts/footer"); -%> <%- include("layouts/scripts"); -%>
+  <%- include("layouts/footer"); -%>
+  <%- include("layouts/scripts"); -%>
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
   <!-- * *                               SB Forms JS                               * *-->
   <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
   <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      $("#body").summernote({
+        placeholder: "Hello bootstrap 4",
+        tabsize: 2,
+        height: 200,
+      });
+    });
+  </script>
 </body>
 
 </html>

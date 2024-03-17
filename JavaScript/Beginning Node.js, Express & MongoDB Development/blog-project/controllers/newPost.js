@@ -10,5 +10,6 @@ module.exports = (req, res) => {
     validationErrors: req.flash("validationErrors"),
     title,
     body,
+    createPost: true,
   });
 };
