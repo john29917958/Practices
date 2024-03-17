@@ -20,11 +20,20 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
+        <% if (validationError) { %>
+        <ul class="list-group">
+          <% for (let i = 0; i < validationError.length; i++) { %>
+          <li class="list-group-item list-group-item-danger">
+            <%= validationError[i] %>
+          </li>
+          <% } %>
+        </ul>
+        <% } %>
         <form action="/users/login" method="POST" enctype="multipart/form-data">
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label for="title">User Name</label>
-              <input class="form-control" type="text" name="username" id="username" placeholder="User Name" />
+              <input class="form-control" type="text" name="username" value="<%= username %>" id="username" placeholder="User Name" />
             </div>
           </div>
           <div class="control-group">

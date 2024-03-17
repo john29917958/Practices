@@ -13,10 +13,13 @@ module.exports = async (req, res) => {
               req.session.userId = user._id;
               res.redirect("/");
             } else {
+              req.flash("validationError", "Incorrect password");
+              req.flash("data", req.body);
               res.redirect("/auth/login");
             }
           });
         } else {
+          req.flash("validationError", "Incorrect username");
           res.redirect("/auth/login");
         }
       },

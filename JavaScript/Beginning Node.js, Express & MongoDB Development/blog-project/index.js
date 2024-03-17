@@ -44,7 +44,7 @@ app.get("/about", (req, res) => {
 });
 app.get("/post/:id", getPostController);
 app.get("/posts/new", authMiddleware(), newPostController);
-app.post("/posts/store", authMiddleware(), validateStorePostImageMiddleWare(), storePostController);
+app.post("/posts/store", authMiddleware(), /*validateStorePostImageMiddleWare(), */storePostController);
 app.get(
   "/auth/register",
   redirectIfAuthenticatedMiddleware(),
