@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+    <style>
+      table.colored th,
+      table.colored td {
+        background: #e0e0e0;
+      }
+
+      table.theme-transparent thead th {
+        border-bottom: 2px solid #000000;
+      }
+
+      table.theme-transparent tfoot td {
+        border-top: 2px solid #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>15</td>
+        <td>15</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <td>45</td>
+        <td>60</td>
+        <td>45</td>
+      </tr>
+      <tr>
+        <td>60</td>
+        <td>90</td>
+        <td>90</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th></th>
+        <th scope="col">Saturday</th>
+        <th scope="col">Sunday</th>
+      </tr>
+      <tr>
+        <th scope="row">Tickets sold:</th>
+        <td>120</td>
+        <td>135</td>
+      </tr>
+      <tr>
+        <th scope="row">Total sales:</th>
+        <td>$600</td>
+        <td>$675</td>
+      </tr>
+    </table>
+    <h1>Column Span</h1>
+    <table class="colored">
+      <tr>
+        <th></th>
+        <th>9am</th>
+        <th>10am</th>
+        <th>11am</th>
+        <th>12am</th>
+      </tr>
+      <tr>
+        <th>Monday</th>
+        <td colspan="2">Geography</td>
+        <td>Math</td>
+        <td>Art</td>
+      </tr>
+      <tr>
+        <th>Tuesday</th>
+        <td colspan="3">Gym</td>
+        <td>Home Ec</td>
+      </tr>
+    </table>
+    <h1>Row Span</h1>
+    <table class="colored">
+      <tr>
+        <th></th>
+        <th>ABC</th>
+        <th>BBC</th>
+        <th>CNN</th>
+      </tr>
+      <tr>
+        <th>6pm - 7pm</th>
+        <td rowspan="2">Movie</td>
+        <td>Comedy</td>
+        <td>News</td>
+      </tr>
+      <tr>
+        <th>7pm - 8pm</th>
+        <td>Sport</td>
+        <td>Current Affairs</td>
+      </tr>
+    </table>
+    <h1>
+      Table With <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code>
+    </h1>
+    <table class="theme-transparent">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Income</th>
+          <th>Expenditure</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1st January</th>
+          <td>250</td>
+          <td>36</td>
+        </tr>
+        <tr>
+          <th>2nd January</th>
+          <td>285</td>
+          <td>48</td>
+        </tr>
+        <tr>
+          <th>3rd January</th>
+          <td>260</td>
+          <td>42</td>
+        </tr>
+        <tr>
+          <th>4th January</th>
+          <td>290</td>
+          <td>38</td>
+        </tr>
+        <tr>
+          <th>5th January</th>
+          <td>310</td>
+          <td>115</td>
+        </tr>
+        <tr>
+          <th>6th January</th>
+          <td>168</td>
+          <td>14</td>
+        </tr>
+        <tr>
+          <th>7th January</th>
+          <td>226</td>
+          <td>20</td>
+        </tr>
+        <tr>
+          <th>8th January</th>
+          <td>253</td>
+          <td>37</td>
+        </tr>
+        <tr>
+          <th>9th January</th>
+          <td>294</td>
+          <td>33</td>
+        </tr>
+        <tr>
+          <th>10th January</th>
+          <td>216</td>
+          <td>46</td>
+        </tr>
+        <tr>
+          <th>11th January</th>
+          <td>244</td>
+          <td>29</td>
+        </tr>
+        <tr>
+          <th>12th January</th>
+          <td>297</td>
+          <td>32</td>
+        </tr>
+        <tr>
+          <th>13th January</th>
+          <td>328</td>
+          <td>86</td>
+        </tr>
+        <tr>
+          <th>14th January</th>
+          <td>215</td>
+          <td>38</td>
+        </tr>
+        <tr>
+          <th>15th January</th>
+          <td>254</td>
+          <td>30</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td>3890</td>
+          <td>644</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th scope="col">Home starter hosting</th>
+          <th scope="col">Premium business hosting</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Disk space</th>
+          <td>250mb</td>
+          <td>1gb</td>
+        </tr>
+        <tr>
+          <th scope="row">Bandwidth</th>
+          <td>5gb per month</td>
+          <td>50gb per month</td>
+        </tr>
+        <tr>
+          <th scope="row">Email accounts</th>
+          <td>3</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <th scope="row">Server</th>
+          <td>Shared</td>
+          <td>VPS</td>
+        </tr>
+        <tr>
+          <th scope="row">Support</th>
+          <td>Email</td>
+          <td>Telephone and email</td>
+        </tr>
+        <tr>
+          <th scope="row">Setup</th>
+          <td>Free</td>
+          <td>Free</td>
+        </tr>
+        <tr>
+          <th scope="row">FTP accounts</th>
+          <td>1</td>
+          <td>5</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td colspan="2">Sign up now and save 10%</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
