@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple Video Sources</title>
+  </head>
+  <body>
+    <video
+      poster="https://picsum.photos/1920/1080"
+      width="1920"
+      height="1080"
+      preload="auto"
+      controls
+      loop
+    >
+      <source src="video.webm" type='video/webm;codecs="vp8, vorbis"' />
+      <source
+        src="video.mp4"
+        type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'
+      />
+      <p>A sample video.</p>
+    </video>
+  </body>
+</html>
