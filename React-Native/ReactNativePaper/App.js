@@ -43,8 +43,12 @@ export default withTheme(function App({ theme }) {
             </Card.Content>
             <Card.Cover source={{ uri: "https://picsum.photos/600/400" }} />
             <Card.Actions>
-              <Button onPress={() => {}}>Cancel</Button>
-              <Button onPress={() => {}}>OK</Button>
+              <Button onPress={() => {}} icon="close">
+                Cancel
+              </Button>
+              <Button onPress={() => {}} icon="check">
+                OK
+              </Button>
             </Card.Actions>
           </Card>
           <Card style={{ marginBottom: 20 }}>
@@ -59,8 +63,12 @@ export default withTheme(function App({ theme }) {
               </Text>
             </Card.Content>
             <Card.Actions>
-              <Button onPress={() => {}}>Cancel</Button>
-              <Button onPress={() => {}}>OK</Button>
+              <Button onPress={() => {}} icon="close">
+                Cancel
+              </Button>
+              <Button onPress={() => {}} icon="check">
+                OK
+              </Button>
             </Card.Actions>
           </Card>
           <Card style={{ marginBottom: 20 }}>
@@ -75,8 +83,12 @@ export default withTheme(function App({ theme }) {
               </Text>
             </Card.Content>
             <Card.Actions>
-              <Button onPress={() => {}}>Cancel</Button>
-              <Button onPress={() => {}}>OK</Button>
+              <Button onPress={() => {}} icon="close">
+                Cancel
+              </Button>
+              <Button onPress={() => {}} icon="check">
+                OK
+              </Button>
             </Card.Actions>
           </Card>
           <Button
