@@ -12,6 +12,7 @@ import {
   withTheme,
   FAB,
   Avatar,
+  Badge,
 } from "react-native-paper";
 
 export default withTheme(function App({ theme }) {
@@ -141,6 +142,31 @@ export default withTheme(function App({ theme }) {
           >
             React Paper Button
           </Button>
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+            }}
+          >
+            <View>
+              <Button
+                mode="elevated"
+                icon="message-alert"
+                onPress={() => {}}
+                style={{ marginBottom: 20 }}
+              ></Button>
+              <Badge
+                style={{
+                  position: "absolute",
+                  top: -7,
+                  right: 0,
+                }}
+              >
+                3
+              </Badge>
+            </View>
+          </View>
+          <View style={{ height: 30 }}></View>
         </ScrollView>
         <StatusBar style="auto" />
       </View>
