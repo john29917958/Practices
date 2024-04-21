@@ -42,7 +42,10 @@ export default withTheme(function App({ theme }) {
               alignItems: "center",
             }}
           >
-            <Avatar.Icon icon="account" style={{ marginBottom: 20 }} />
+            <Avatar.Image
+              source={require("./assets/profile-photo.jpg")}
+              style={{ marginBottom: 10 }}
+            />
             <Text>Hi, user</Text>
           </View>
           <Text
