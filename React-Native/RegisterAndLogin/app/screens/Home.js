@@ -1,10 +1,11 @@
+import { View } from "react-native";
 import { Text } from "react-native-paper";
 
 const Home = () => {
   return (
-    <>
-      <Text>Home</Text>
-    </>
+    <View>
+      <Text>Welcome</Text>
+    </View>
   );
 };
 
