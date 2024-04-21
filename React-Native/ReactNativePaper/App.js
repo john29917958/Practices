@@ -11,6 +11,7 @@ import {
   useTheme,
   withTheme,
   FAB,
+  Avatar,
 } from "react-native-paper";
 
 export default withTheme(function App({ theme }) {
@@ -29,11 +30,21 @@ export default withTheme(function App({ theme }) {
         <ScrollView
           style={{
             width: "100%",
-            paddingTop: 10,
+            paddingTop: 25,
             paddingLeft: 15,
             paddingRight: 15,
           }}
         >
+          <View
+            style={{
+              marginBottom: 20,
+              width: "100%",
+              alignItems: "center",
+            }}
+          >
+            <Avatar.Icon icon="account" style={{ marginBottom: 20 }} />
+            <Text>Hi, user</Text>
+          </View>
           <Text
             variant="headlineLarge"
             style={{ color: theme.colors.primary, marginBottom: 20 }}
