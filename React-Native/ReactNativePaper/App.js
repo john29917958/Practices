@@ -6,15 +6,32 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
-import { Card, PaperProvider, Text, Button } from "react-native-paper";
-import { useTheme } from "react-native-paper";
-import { withTheme } from "react-native-paper";
+import {
+  Card,
+  PaperProvider,
+  Text,
+  Button,
+  ActivityIndicator,
+  MD3Colors,
+  Appbar,
+  useTheme,
+  withTheme,
+  FAB,
+} from "react-native-paper";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default withTheme(function App({ theme }) {
   const theTheme = useTheme(); // This is another way to get the theme object.
+  // const { bottom } = useSafeAreaInsets();
+  const botomAppbarHeight = 80;
 
   return (
     <PaperProvider>
+      <Appbar.Header mode="small">
+        <Appbar.Content title="RNP" />
+        <Appbar.Action icon="calendar" onPress={() => {}} />
+        <Appbar.Action icon="magnify" onPress={() => {}} />
+      </Appbar.Header>
       <SafeAreaView style={styles.container}>
         <ScrollView
           style={{
@@ -25,10 +42,13 @@ export default withTheme(function App({ theme }) {
           }}
         >
           <Text
-            variant="titleLarge"
+            variant="headlineLarge"
             style={{ color: theme.colors.primary, marginBottom: 20 }}
           >
             React Native Paper App
+          </Text>
+          <Text variant="titleLarge" style={{ marginBottom: 20 }}>
+            Cards
           </Text>
           <Card style={{ marginBottom: 20 }}>
             <Card.Title
@@ -91,6 +111,21 @@ export default withTheme(function App({ theme }) {
               </Button>
             </Card.Actions>
           </Card>
+          <Text variant="titleLarge" style={{ marginBottom: 20 }}>
+            Activity Indicators
+          </Text>
+          <ActivityIndicator
+            animating={true}
+            color={MD3Colors.theme}
+            size="small"
+            style={{ marginBottom: 20 }}
+          />
+          <ActivityIndicator
+            animating={true}
+            color={MD3Colors.theme}
+            size="large"
+            style={{ marginBottom: 20 }}
+          />
           <Button
             mode="elevated"
             icon="check"
@@ -102,6 +137,33 @@ export default withTheme(function App({ theme }) {
         </ScrollView>
         <StatusBar style="auto" />
       </SafeAreaView>
+      <Appbar
+        style={[
+          styles.bottom,
+          {
+            height: botomAppbarHeight,
+          },
+        ]}
+        elevated={true}
+        // safeAreaInsets={{ bottom }}
+      >
+        <Appbar.Action icon="archive" onPress={() => {}} />
+        <Appbar.Action icon="email" onPress={() => {}} />
+        <Appbar.Action icon="label" onPress={() => {}} />
+        <Appbar.Action icon="delete" onPress={() => {}} />
+        <FAB
+          mode="flat"
+          size="medium"
+          icon="plus"
+          onPress={() => {}}
+          style={[
+            styles.fab,
+            {
+              top: (botomAppbarHeight - 56) / 2,
+            },
+          ]}
+        />
+      </Appbar>
     </PaperProvider>
   );
 });
@@ -112,5 +174,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  fixedBottom: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+
+  fab: {
+    position: "absolute",
+    right: 16,
   },
 });
