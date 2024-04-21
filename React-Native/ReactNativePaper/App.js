@@ -1,11 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  TouchableHighlight,
-  View,
-} from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import {
   Card,
   PaperProvider,
@@ -18,11 +12,9 @@ import {
   withTheme,
   FAB,
 } from "react-native-paper";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default withTheme(function App({ theme }) {
   const theTheme = useTheme(); // This is another way to get the theme object.
-  // const { bottom } = useSafeAreaInsets();
   const botomAppbarHeight = 80;
 
   return (
@@ -31,8 +23,9 @@ export default withTheme(function App({ theme }) {
         <Appbar.Content title="RNP" />
         <Appbar.Action icon="calendar" onPress={() => {}} />
         <Appbar.Action icon="magnify" onPress={() => {}} />
+        <Appbar.Action icon="dots-vertical" onPress={() => {}} />
       </Appbar.Header>
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <ScrollView
           style={{
             width: "100%",
@@ -136,7 +129,7 @@ export default withTheme(function App({ theme }) {
           </Button>
         </ScrollView>
         <StatusBar style="auto" />
-      </SafeAreaView>
+      </View>
       <Appbar
         style={[
           styles.bottom,
@@ -145,7 +138,6 @@ export default withTheme(function App({ theme }) {
           },
         ]}
         elevated={true}
-        // safeAreaInsets={{ bottom }}
       >
         <Appbar.Action icon="archive" onPress={() => {}} />
         <Appbar.Action icon="email" onPress={() => {}} />
